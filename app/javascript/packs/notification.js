@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  if (document.getElementsByClassName('notification')) {
+  if (document.getElementsByClassName('notification').length > 0) {
     setTimeout(function() {
       document
         .getElementsByClassName('notification')[0]

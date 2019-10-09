@@ -2,7 +2,7 @@
   .navbar-brand
     %a.navbar-item{:href => "/"}
       = image_tag  "logo.png", height: 50, width: 50
-    %a.navbar-burger.burger{"aria-expanded" => "false", "aria-label" => "menu", "data-target" => "navbarBasicExample", :role => "button"}
+    %a#burger-menu.navbar-burger.burger{"aria-expanded" => "false", "aria-label" => "menu", "data-target" => "navbarBasicExample", :role => "button"}
       %span{"aria-hidden" => "true"}
       %span{"aria-hidden" => "true"}
       %span{"aria-hidden" => "true"}
@@ -11,18 +11,19 @@
       - unless controller_path.include?('landing')
         .navbar-item
           = link_to 'Inicio', root_path
-      - if current_user.is_owner?
+      - if current_user
+        - if current_user.is_owner?
+          .navbar-item
+            = link_to 'Dashboard', admin_campains_path
+        - if current_user.is_rrhh?
+          .navbar-item
+            = link_to 'Dashboard', rrhh_users_path
+        - if current_user.is_finance?
+          .navbar-item
+            = link_to 'Dashboard', finance_companies_path
+        - if current_user.is_community_manager?
+          .navbar-item
+            = link_to 'Dashboard', community_campains_path
         .navbar-item
-          = link_to 'Dashboard', admin_campains_path
-      - if current_user.is_rrhh?
-        .navbar-item
-          = link_to 'Dashboard', rrhh_users_path
-      - if current_user.is_finance?
-        .navbar-item
-          = link_to 'Dashboard', finance_companies_path
-      - if current_user.is_community_manager?
-        .navbar-item
-          = link_to 'Dashboard', community_campains_path
-      .navbar-item
-        .buttons
-          = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'button is-light'
+          .buttons
+            = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'button is-light'
