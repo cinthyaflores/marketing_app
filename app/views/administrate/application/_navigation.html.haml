@@ -11,18 +11,13 @@
       - unless controller_path.include?('landing')
         .navbar-item
           = link_to 'Inicio', root_path
-      - if current_user.is_owner?
+      - Administrate::Namespace.new(namespace).resources.each do |resource|
         .navbar-item
-          = link_to 'Dashboard', admin_campains_path
-      - if current_user.is_rrhh?
-        .navbar-item
-          = link_to 'Dashboard', rrhh_users_path
-      - if current_user.is_finance?
-        .navbar-item
-          = link_to 'Dashboard', finance_companies_path
-      - if current_user.is_community_manager?
-        .navbar-item
-          = link_to 'Dashboard', community_campains_path
+          = link_to(                                                                  |
+              display_resource_name(resource),                                        |
+              [namespace, resource_index_route_key(resource)],                        |
+              class: "navigation__link navigation__link--#{nav_link_state(resource)}" |
+            )                                                                         |
       .navbar-item
         .buttons
           = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'button is-light'
