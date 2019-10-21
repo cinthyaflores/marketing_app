@@ -5,9 +5,9 @@ devio = Company.create_or_find_by!(name: 'Dev.io',
                                    legal_representant_email: 'jaimeg@gmail.com',
                                    legal_representant_phone: '312-320-3873',
                                    legal_representant_role: 'CEO',
-                                   bussines_name: 'DEVIO INC.',
+                                   bussines_name: 'DEVIO INCORPORATIONS',
                                    rfc: 'DSFR4312MNKD987LM',
-                                   location: 'V. Carranza 233')
+                                   location: 'Avenida V. Carranza 233')
 
 User.create_or_find_by!(email: 'dueno_agencia@gmail.com',
                         password: 'password',
@@ -45,7 +45,9 @@ tennis_campaign = Campain.create_or_find_by!(name: 'Tennis Max Air',
                                              objective: 'Promocionar neuvo producto',
                                              campain_type: 1,
                                              product: 'Tenis Max Air',
-                                             manager: community_manager)
+                                             manager: community_manager,
+                                             company: devio,
+                                             image: Rack::Test::UploadedFile.new('test/fixtures/files/example.jpg', 'image/jpg'))
 
 Coworker.create_or_find_by!(user: content_creator,
                             campain: tennis_campaign,
