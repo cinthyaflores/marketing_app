@@ -1,65 +1,65 @@
 # frozen_string_literal: true
 
-umbrella = Company.create_or_find_by!(name: 'Umbrella',
-                                      legal_representant_name: 'Aaron Barreto',
-                                      legal_representant_email: 'aaron@gmail.com',
-                                      legal_representant_phone: '312-000-0012',
-                                      legal_representant_role: 'CTO',
-                                      bussines_name: 'UMBRELLA CORP.',
-                                      rfc: 'ERDF1332KJDH197ED',
-                                      location: 'Av. Tecnológico N.123')
+devio = Company.create_or_find_by!(name: 'Dev.io',
+                                   legal_representant_name: 'Jaime González',
+                                   legal_representant_email: 'jaimeg@gmail.com',
+                                   legal_representant_phone: '312-320-3873',
+                                   legal_representant_role: 'CEO',
+                                   bussines_name: 'DEVIO INC.',
+                                   rfc: 'DSFR4312MNKD987LM',
+                                   location: 'V. Carranza 233')
 
-User.create_or_find_by!(email: 'owner@gmail.com',
-                        password: 'example',
+User.create_or_find_by!(email: 'dueno_agencia@gmail.com',
+                        password: 'password',
                         roles_mask: 1,
-                        company: umbrella)
+                        company: devio)
 
 community_manager = User.create_or_find_by!(email: 'community_manager@gmail.com',
-                                            password: 'example',
+                                            password: 'password',
                                             roles_mask: 4,
-                                            company: umbrella)
+                                            company: devio)
 
-designer = User.create_or_find_by!(email: 'dessigner@gmail.com',
-                                   password: 'example',
+designer = User.create_or_find_by!(email: 'disenador@gmail.com',
+                                   password: 'password',
                                    roles_mask: 16,
-                                   company: umbrella)
+                                   company: devio)
 
-content_creator = User.create_or_find_by!(email: 'content_creator@gmail.com',
-                                          password: 'example',
+content_creator = User.create_or_find_by!(email: 'generador_contenidos@gmail.com',
+                                          password: 'password',
                                           roles_mask: 8,
-                                          company: umbrella)
+                                          company: devio)
 
-User.create_or_find_by!(email: 'rrhh@gmail.com',
-                        password: 'example',
+User.create_or_find_by!(email: 'rh@gmail.com',
+                        password: 'password',
                         roles_mask: 32,
-                        company: umbrella)
+                        company: devio)
 
 User.create_or_find_by!(email: 'finance@gmail.com',
-                        password: 'example',
+                        password: 'password',
                         roles_mask: 64,
-                        company: umbrella)
+                        company: devio)
 
-iphone_campain = Campain.create_or_find_by!(name: 'iPhone 11',
-                                            start_date: Time.now,
-                                            end_date: Time.now + 1.week,
-                                            objective: 'Promocionar neuvo producto',
-                                            campain_type: 1,
-                                            product: 'iPhone11',
-                                            manager: community_manager)
+tennis_campaign = Campain.create_or_find_by!(name: 'Tennis Max Air',
+                                             start_date: Time.now,
+                                             end_date: Time.now + 1.week,
+                                             objective: 'Promocionar neuvo producto',
+                                             campain_type: 1,
+                                             product: 'Tenis Max Air',
+                                             manager: community_manager)
 
 Coworker.create_or_find_by!(user: content_creator,
-                            campain: iphone_campain,
+                            campain: tennis_campaign,
                             role: 1)
 
 Coworker.create_or_find_by!(user: designer,
-                            campain: iphone_campain,
+                            campain: tennis_campaign,
                             role: 2)
 Coworker.create_or_find_by!(user: content_creator,
-                            campain: iphone_campain,
+                            campain: tennis_campaign,
                             role: 1)
 Coworker.create_or_find_by!(user: content_creator,
-                            campain: iphone_campain,
+                            campain: tennis_campaign,
                             role: 1)
 Coworker.create_or_find_by!(user: content_creator,
-                            campain: iphone_campain,
+                            campain: tennis_campaign,
                             role: 1)

@@ -1,5 +1,22 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: campains
+#
+#  id           :bigint           not null, primary key
+#  name         :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  start_date   :date             not null
+#  end_date     :date             not null
+#  objective    :string
+#  campain_type :integer          not null
+#  product      :string
+#  manager_id   :bigint
+#
+
+
 require 'test_helper'
 
 class CampainTest < ActiveSupport::TestCase

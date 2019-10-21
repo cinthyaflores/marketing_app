@@ -1,8 +1,9 @@
-@import 'bulma';
 @import './utils/variables';
+@import 'bulma';
 @import './base/base';
-@import './components/input';
 @import './components/form';
+@import './components/input';
 @import './components/select';
 @import './components/notification';
-
+@import './components/header';
+@import './components/dashboards';

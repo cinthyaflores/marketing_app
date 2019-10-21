@@ -1,5 +1,20 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: corporations
+#
+#  id                       :bigint           not null, primary key
+#  name                     :string
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  legal_representant_name  :string           not null
+#  legal_representant_email :string           not null
+#  legal_representant_phone :string           not null
+#  legal_representant_role  :string           not null
+#
+
+
 require 'test_helper'
 
 class CorporationTest < ActiveSupport::TestCase
