@@ -3,8 +3,8 @@
     Inicio de sesión
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-inputs
-      = f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" }, label: 'E-mail'
-      = f.input :password, required: false, input_html: { autocomplete: "current-password" }, label: 'Contraseña'
+      = f.input :email, autofocus: true, input_html: { autocomplete: "email" }
+      = f.input :password, input_html: { autocomplete: "current-password" }
     .form-actions.is-flex.is-justified-centered
       = f.button :submit, "Iniciar sesión", class: 'is-primary'
   = render "devise/shared/links"
