@@ -1,2 +1,22 @@
-%h4 cada card es una campaña
-%h5= campain.name
+.table-container
+  %table.table
+    %thead
+      %tr 
+        %th Nombre
+        %th Objetivo
+        %th Tipo de Campaña
+        %th Manager
+        %th Producto
+        %th Fecha de Inicio
+        %th Fecha de Termino
+    %tbody
+      %tr
+        %th #{campain.name}
+        %td #{campain.objective}
+        %td #{campain.campain_type}
+        %td #{campain.manager} 
+        %td #{campain.product}
+        %td #{campain.start_date}
+        %td #{campain.end_date}
+        
+
