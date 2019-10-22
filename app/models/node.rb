@@ -1,5 +1,17 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: nodes
+#
+#  id         :bigint           not null, primary key
+#  campain_id :bigint           not null
+#  label      :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  color      :string
+#
+
 class Node < ApplicationRecord
   has_many :edges, foreign_key: 'from_id', dependent: :destroy
   validates :label, presence: true
