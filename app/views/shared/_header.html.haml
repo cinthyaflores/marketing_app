@@ -1,29 +1,27 @@
-%nav.navbar{"aria-label" => "main navigation", :role => "navigation"}
-  .navbar-brand
-    %a.navbar-item{:href => "/"}
-      = image_tag  "logo.png", height: 50, width: 50
-    %a#burger-menu.navbar-burger.burger{"aria-expanded" => "false", "aria-label" => "menu", "data-target" => "navbarBasicExample", :role => "button"}
-      %span{"aria-hidden" => "true"}
-      %span{"aria-hidden" => "true"}
-      %span{"aria-hidden" => "true"}
-  #navbarBasicExample.navbar-menu
-    .navbar-end
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light{"aria-label" => "main navigation", :role => "navigation"}
+  %a.navbar-brand{:href => "/"}
+    = image_tag  "logo.png", height: 50, width: 50
+
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+
+  #navbarSupportedContentcollapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
       - unless controller_path.include?('landing')
-        .navbar-item
-          = link_to 'Inicio', root_path
+        %li.navbar-item
+          = link_to 'Inicio', root_path, class: 'nav-link'
       - if current_user
         - if current_user.is_owner?
-          .navbar-item
-            = link_to 'Dashboard', admin_campains_path
+          %li.navbar-item
+            = link_to 'Dashboard', admin_campains_path, class: 'nav-link'
         - if current_user.is_rrhh?
-          .navbar-item
-            = link_to 'Dashboard', rrhh_users_path
+          %li.navbar-item
+            = link_to 'Dashboard', rrhh_users_path, class: 'nav-link'
         - if current_user.is_finance?
-          .navbar-item
-            = link_to 'Dashboard', finance_companies_path
+          %li.navbar-item
+            = link_to 'Dashboard', finance_companies_path, class: 'nav-link'
         - if current_user.is_community_manager?
-          .navbar-item
-            = link_to 'Dashboard', community_campains_path
-        .navbar-item
-          .buttons
-            = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'button is-light'
+          %li.navbar-item
+            = link_to 'Dashboard', community_campains_path, class: 'nav-link'
+        %li.navbar-item
+          = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary nav-link'

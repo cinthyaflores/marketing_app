@@ -1,55 +1,84 @@
-html,
-body {
+%align-self-end {
+  align-self: flex-end;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+%box-shadow {
+  box-shadow: $btn-box-shadow;
+}
+
+%box-shadow-0 {
+  box-shadow: none;
+}
+
+%box-shadow-md {
+  @include media-breakpoint-up(md) {
+    box-shadow: $btn-box-shadow;
+  }
+}
+
+.box-shadow-md {
+  @extend %box-shadow-md;
+}
+.box-shadow {
+  @extend %box-shadow;
+}
+
+.full-height {
+  min-height: calc(100vh - 50px);
+}
+
+%opacity-5 {
+  opacity: 0.5;
+}
+
+.opacity-5 {
+  @extend %opacity-5;
+}
+
+%opacity-1 {
+  opacity: 1;
+}
+
+.opacity-1 {
+  @extend %opacity-1;
+}
+
+.box-shadow-0 {
+  @extend %box-shadow-0;
+}
+
+hr {
   width: 100%;
 }
 
-.container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: $regular-padding $regular-padding 0;
+.top-10px {
+  top: 10px;
 }
 
-.is-justified-centered {
-  justify-content: center;
+.top-40 {
+  top: 40%;
 }
 
-.is-justified-space-between {
-  justify-content: space-between;
+%outline-none {
+  outline: none;
 }
 
-.is-aligned-center {
-  align-items: center;
+%overflow-scroll {
+  overflow: scroll;
 }
 
-.hint {
-  font-size: .7em;
+.right-0 {
+  right: 0;
 }
 
-.has-regular-margin {
-  margin: $regular-margin;
+.right-20px {
+  right: 20px;
 }
 
-.has-regular-padding {
-  padding: $regular-padding;
-}
-
-.has-double-margin-right {
-  margin-right: $regular-margin;
-}
-
-.is-wrap {
-  flex-wrap: wrap;
-}
-
-.has-direction-column {
-  flex-direction: column;
-}
-
-.has-full-height {
-  height: 100%;
-}
-
-.has-full-width {
-  width: 100%;
+.w-fit-content {
+  width: fit-content;
 }

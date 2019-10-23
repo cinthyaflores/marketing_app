@@ -1,13 +1,13 @@
-@import './utils/variables';
-@import 'bulma';
-@import './base/base';
-@import './components/form';
-@import './components/input';
-@import './components/select';
-@import './components/notification';
-@import './components/header';
-@import './components/dashboards';
-@import './components/vis_container';
-@import './components/navbar';
-@import 'font-awesome';
-@import '@creativebulma/bulma-collapsible/src/sass/index.sass';
+@import 'abstracts/variables';
+
+@import 'bootstrap';
+
+@import 'vendors/bootstrap_and_overrides';
+
+@import 'base/anchors';
+@import 'base/base';
+@import 'base/forms';
+
+@import 'layouts/container';
+
+@import 'pages/login';
