@@ -1,0 +1,7 @@
+.card.w-300px
+  .card-body
+    %h5.card-title #{company.name}
+    %p.card-text #{company.bussines_name}
+    %h6 Representante legal: #{company.legal_representant_name}
+    %p.text-bold #{company.legal_representant_phone}
+    = link_to 'Ver', finance_company_path(company), class: 'btn btn-primary'

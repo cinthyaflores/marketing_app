@@ -3,6 +3,32 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
+#                         admin_clients GET    /admin/clients(.:format)                                                                 admin/clients#index
+#                                       POST   /admin/clients(.:format)                                                                 admin/clients#create
+#                      new_admin_client GET    /admin/clients/new(.:format)                                                             admin/clients#new
+#                     edit_admin_client GET    /admin/clients/:id/edit(.:format)                                                        admin/clients#edit
+#                          admin_client GET    /admin/clients/:id(.:format)                                                             admin/clients#show
+#                                       PATCH  /admin/clients/:id(.:format)                                                             admin/clients#update
+#                                       PUT    /admin/clients/:id(.:format)                                                             admin/clients#update
+#                                       DELETE /admin/clients/:id(.:format)                                                             admin/clients#destroy
+#                        admin_contacts GET    /admin/contacts(.:format)                                                                admin/contacts#index
+#                                       POST   /admin/contacts(.:format)                                                                admin/contacts#create
+#                     new_admin_contact GET    /admin/contacts/new(.:format)                                                            admin/contacts#new
+#                    edit_admin_contact GET    /admin/contacts/:id/edit(.:format)                                                       admin/contacts#edit
+#                         admin_contact GET    /admin/contacts/:id(.:format)                                                            admin/contacts#show
+#                                       PATCH  /admin/contacts/:id(.:format)                                                            admin/contacts#update
+#                                       PUT    /admin/contacts/:id(.:format)                                                            admin/contacts#update
+#                                       DELETE /admin/contacts/:id(.:format)                                                            admin/contacts#destroy
+#                       admin_companies GET    /admin/companies(.:format)                                                               admin/companies#index
+#                         admin_company GET    /admin/companies/:id(.:format)                                                           admin/companies#show
+#                    admin_corporations GET    /admin/corporations(.:format)                                                            admin/corporations#index
+#                                       POST   /admin/corporations(.:format)                                                            admin/corporations#create
+#                 new_admin_corporation GET    /admin/corporations/new(.:format)                                                        admin/corporations#new
+#                edit_admin_corporation GET    /admin/corporations/:id/edit(.:format)                                                   admin/corporations#edit
+#                     admin_corporation GET    /admin/corporations/:id(.:format)                                                        admin/corporations#show
+#                                       PATCH  /admin/corporations/:id(.:format)                                                        admin/corporations#update
+#                                       PUT    /admin/corporations/:id(.:format)                                                        admin/corporations#update
+#                                       DELETE /admin/corporations/:id(.:format)                                                        admin/corporations#destroy
 #                        admin_campains GET    /admin/campains(.:format)                                                                admin/campains#index
 #                                       POST   /admin/campains(.:format)                                                                admin/campains#create
 #                     new_admin_campain GET    /admin/campains/new(.:format)                                                            admin/campains#new
@@ -13,7 +39,10 @@
 #                           admin_users GET    /admin/users(.:format)                                                                   admin/users#index
 #                                       POST   /admin/users(.:format)                                                                   admin/users#create
 #                        new_admin_user GET    /admin/users/new(.:format)                                                               admin/users#new
-#                            admin_user DELETE /admin/users/:id(.:format)                                                               admin/users#destroy
+#                            admin_user GET    /admin/users/:id(.:format)                                                               admin/users#show
+#                                       PATCH  /admin/users/:id(.:format)                                                               admin/users#update
+#                                       PUT    /admin/users/:id(.:format)                                                               admin/users#update
+#                                       DELETE /admin/users/:id(.:format)                                                               admin/users#destroy
 #                            admin_root GET    /admin(.:format)                                                                         admin/campains#index
 #                            rrhh_users GET    /rrhh/users(.:format)                                                                    rrhh/users#index
 #                                       POST   /rrhh/users(.:format)                                                                    rrhh/users#create
@@ -38,6 +67,10 @@
 #                                       PATCH  /finance/corporations/:id(.:format)                                                      finance/corporations#update
 #                                       PUT    /finance/corporations/:id(.:format)                                                      finance/corporations#update
 #                          finance_root GET    /finance(.:format)                                                                       finance/companies#index
+#               community_campain_nodes POST   /community/campains/:campain_id/nodes(.:format)                                          community/nodes#create
+#                community_campain_node PATCH  /community/campains/:campain_id/nodes/:id(.:format)                                      community/nodes#update
+#                                       PUT    /community/campains/:campain_id/nodes/:id(.:format)                                      community/nodes#update
+#                                       DELETE /community/campains/:campain_id/nodes/:id(.:format)                                      community/nodes#destroy
 #           community_campain_coworkers GET    /community/campains/:campain_id/coworkers(.:format)                                      community/coworkers#index
 #                                       POST   /community/campains/:campain_id/coworkers(.:format)                                      community/coworkers#create
 #        new_community_campain_coworker GET    /community/campains/:campain_id/coworkers/new(.:format)                                  community/coworkers#new
@@ -56,6 +89,16 @@
 #                                       DELETE /community/campains/:campain_id/network/:id(.:format)                                    community/network#destroy
 #                    community_campains GET    /community/campains(.:format)                                                            community/campains#index
 #                     community_campain GET    /community/campains/:id(.:format)                                                        community/campains#show
+#                  community_node_posts POST   /community/nodes/:node_id/posts(.:format)                                                community/posts#create
+#               new_community_node_post GET    /community/nodes/:node_id/posts/new(.:format)                                            community/posts#new
+#              edit_community_node_post GET    /community/nodes/:node_id/posts/:id/edit(.:format)                                       community/posts#edit
+#                   community_node_post PATCH  /community/nodes/:node_id/posts/:id(.:format)                                            community/posts#update
+#                                       PUT    /community/nodes/:node_id/posts/:id(.:format)                                            community/posts#update
+#                       community_nodes GET    /community/nodes(.:format)                                                               community/nodes#index
+#                       community_edges POST   /community/edges(.:format)                                                               community/edges#create
+#                        community_edge PATCH  /community/edges/:id(.:format)                                                           community/edges#update
+#                                       PUT    /community/edges/:id(.:format)                                                           community/edges#update
+#                                       DELETE /community/edges/:id(.:format)                                                           community/edges#destroy
 #                        community_root GET    /community(.:format)                                                                     community/campains#index
 #                      new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
 #                          user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create

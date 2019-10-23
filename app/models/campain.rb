@@ -34,5 +34,6 @@ class Campain < ApplicationRecord
             :product,
             :image,
             presence: true
+
   validates :name, :objective, :product, length: { in: 5..30 }
 end

@@ -9,12 +9,14 @@ devio = Company.create_or_find_by!(name: 'Dev.io',
                                    rfc: 'DSFR4312MNKD987LM',
                                    location: 'Avenida V. Carranza 233')
 
-User.create_or_find_by!(email: 'dueno_agencia@gmail.com',
+User.create_or_find_by!(name: 'Eduardo',
+                        email: 'dueno_agencia@gmail.com',
                         password: 'password',
                         roles_mask: 1,
                         company: devio)
 
-community_manager = User.create_or_find_by!(email: 'community_manager@gmail.com',
+community_manager = User.create_or_find_by!(name: 'Alexis',
+                                            email: 'community_manager@gmail.com',
                                             password: 'password',
                                             roles_mask: 4,
                                             company: devio)
@@ -22,28 +24,32 @@ community_manager = User.create_or_find_by!(email: 'community_manager@gmail.com'
 designer = User.create_or_find_by!(email: 'disenador@gmail.com',
                                    password: 'password',
                                    roles_mask: 16,
+                                   name: 'Mario',
                                    company: devio)
 
 content_creator = User.create_or_find_by!(email: 'generador_contenidos@gmail.com',
                                           password: 'password',
+                                          name: 'Elías',
                                           roles_mask: 8,
                                           company: devio)
 
 User.create_or_find_by!(email: 'rh@gmail.com',
                         password: 'password',
                         roles_mask: 32,
+                        name: 'Edgar',
                         company: devio)
 
 User.create_or_find_by!(email: 'finance@gmail.com',
                         password: 'password',
                         roles_mask: 64,
+                        name: 'Denis',
                         company: devio)
 
 tennis_campaign = Campain.create_or_find_by!(name: 'Tennis Max Air',
                                              start_date: Time.now,
                                              end_date: Time.now + 1.week,
                                              objective: 'Promocionar neuvo producto',
-                                             campain_type: 1,
+                                             campain_type: 'Nuevo producto',
                                              product: 'Tenis Max Air',
                                              manager: community_manager,
                                              company: devio,

@@ -6,7 +6,10 @@
 
 @import 'base/anchors';
 @import 'base/base';
-@import 'base/forms';
+
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/navbar';
 
 @import 'layouts/container';
 

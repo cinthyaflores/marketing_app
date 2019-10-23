@@ -1,0 +1,3 @@
+%h1.title.is-1 Compañía
+= link_to 'Agregar compañía', new_finance_company_path, class: 'btn btn-primary'
+= render partial: 'company_card', collection: @companies, as: :company

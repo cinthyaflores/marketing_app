@@ -6,7 +6,7 @@
     %span.navbar-toggler-icon
 
   #navbarSupportedContentcollapse.navbar-collapse
-    %ul.navbar-nav.mr-auto
+    %ul.navbar-nav.ml-auto
       - unless controller_path.include?('landing')
         %li.nav-item.active
           = link_to 'Inicio', root_path, class: 'nav-item'
@@ -18,4 +18,4 @@
               class: "navigation__link navigation__link--#{nav_link_state(resource)} nav-link" |
             )                                                                                  |
       %li.nav-item
-        = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary nav-link'
+        = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary'
