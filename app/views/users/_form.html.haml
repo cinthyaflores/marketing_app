@@ -1,0 +1,5 @@
+= simple_form_for(@user) do |f|
+  = f.input :name, label: 'Nombre de la persona', placeholder: 'José Pérez', required: true
+  = f.input :email, label: 'Correo electrónico', placeholder: 'usuario@gmail.com', required: true
+  = f.input :roles_mask, collection: User.admin_manage_roles.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, label: 'Rol(es)', include_blank: false, input_html: { multiple: true }, required: true
+  = f.button :submit,'Registrar', class: 'btn btn-primary'

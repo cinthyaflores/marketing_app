@@ -7,21 +7,9 @@
 
   #navbarSupportedContentcollapse.navbar-collapse
     %ul.navbar-nav.ml-auto
-      - unless controller_path.include?('landing')
-        %li.navbar-item
-          = link_to 'Inicio', root_path, class: 'nav-link'
       - if current_user
-        - if current_user.is_owner?
+        - header_items.each do |item|
           %li.navbar-item
-            = link_to 'Dashboard', admin_campains_path, class: 'nav-link'
-        - if current_user.is_rrhh?
-          %li.navbar-item
-            = link_to 'Dashboard', rrhh_users_path, class: 'nav-link'
-        - if current_user.is_finance?
-          %li.navbar-item
-            = link_to 'Dashboard', finance_companies_path, class: 'nav-link'
-        - if current_user.is_community_manager?
-          %li.navbar-item
-            = link_to 'Dashboard', community_campains_path, class: 'nav-link'
+            = link_to item[:title], item[:path], class: 'nav-link'
         %li.navbar-item
           = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary'

@@ -1,0 +1,11 @@
+# frozen_string_literal: true
+
+module HeaderHelper
+  def header_items
+    [owner_header_items]
+  end
+
+  def owner_header_items
+    { title: 'Usuarios', path: users_path }
+  end
+end
