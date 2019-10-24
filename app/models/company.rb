@@ -15,11 +15,14 @@
 #  bussines_name            :string           not null
 #  rfc                      :string           not null
 #  location                 :string           not null
+#  corporation_id           :integer
 #
 
 class Company < ApplicationRecord
   has_many :employees, class_name: 'User'
-  has_many :campains, as: :company
+  has_many :campains
+
+  belongs_to :corporation, optional: true
 
   validates :name,
             :legal_representant_name,
@@ -36,7 +39,7 @@ class Company < ApplicationRecord
 
   validates :legal_representant_role, length: { in: 3..20 }
   validates :legal_representant_phone, length: { in: 10..12 }
-  validates :rfc, length: { in: 16..17 }
+  validates :rfc, length: { in: 12..17 }
   validates :location, length: { in: 20..40 }
   validates :name, length: { in: 5..20 }
 end

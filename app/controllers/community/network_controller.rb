@@ -2,7 +2,6 @@
 
 module Community
   class NetworkController < ActionController::Base
-
     def new
       binding.pry
     end

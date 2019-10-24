@@ -57,7 +57,9 @@ class User < ApplicationRecord
                       where(roles_mask: User.mask_for(role))
                     }
 
-  validates :email, presence: true
+  scope :community_managers, -> { where(roles_mask: 4) }
+
+  validates :email, :name, presence: true
   validates :email, format: { with: VALID_EMAIL_REGEX }
 
   def self.admin_manage_roles

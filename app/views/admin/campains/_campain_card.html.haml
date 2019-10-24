@@ -1,22 +1,7 @@
-.table-container
-  %table.table
-    %thead
-      %tr 
-        %th Nombre
-        %th Objetivo
-        %th Tipo de Campaña
-        %th Manager
-        %th Producto
-        %th Fecha de Inicio
-        %th Fecha de Termino
-    %tbody
-      %tr
-        %th #{campain.name}
-        %td #{campain.objective}
-        %td #{campain.campain_type}
-        %td #{campain.manager} 
-        %td #{campain.product}
-        %td #{campain.start_date}
-        %td #{campain.end_date}
-        
-
+.card.w-300px
+  .card-body
+    %h5.card-title #{campain.name}
+    %h6 Community manager: #{campain.manager.name}
+    %p.text-bold Producto: #{campain.product}
+    %p.card-text #{campain.objective}
+    = link_to 'Ver', admin_campain_path(campain), class: 'btn btn-primary'

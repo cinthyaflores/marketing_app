@@ -5,10 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem 'administrate', git: 'https://github.com/thoughtbot/administrate.git'
-gem 'administrate-field-active_storage'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'bulma-rails'
+gem 'bootstrap', '~> 4.1.0'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'font-awesome-rails'
@@ -16,6 +14,7 @@ gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'haml-rails', '~> 2.0'
 gem 'i18n-debug'
 gem 'jbuilder', '~> 2.7'
+gem 'jquery-rails'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 6.0.0'
@@ -28,6 +27,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
 end
@@ -40,7 +40,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-  gem 'annotate'
 end
 
 group :test do

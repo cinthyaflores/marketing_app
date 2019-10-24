@@ -15,6 +15,7 @@
 #  bussines_name            :string           not null
 #  rfc                      :string           not null
 #  location                 :string           not null
+#  corporation_id           :integer
 #
 
 require 'test_helper'

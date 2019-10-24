@@ -5,6 +5,13 @@ module Finance
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
+    def new
+      @corporation = Corporation.new
+    end
+
+    def index
+      @corporations = Corporation.all
+    end
     # def update
     #   foo = Foo.find(params[:id])
     #   foo.update(params[:foo])
