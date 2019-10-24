@@ -1,0 +1,9 @@
+- if current_user != user
+  .card.w-300px
+    .card-body
+      %h5.card-title #{user.name}
+      %p.card-text Rol: #{t(".role_#{user.roles_mask}")}
+      %h6 Registrado el: #{user.created_at}
+      %p.text-bold #{user.email}
+      = link_to 'Editar', edit_user_path(user), class: 'btn btn-primary'
+      = link_to 'Ver', user_path(user), class: 'btn btn-secondary'

@@ -1,0 +1,17 @@
+%h1 Clientes
+
+= link_to 'Agregar corporativo', new_corporation_path, class: 'btn btn-primary'
+= link_to 'Agregar compañía', new_company_path, class: 'btn btn-primary'
+
+.row
+  .col-6
+    %h3 Compañías
+
+    .d-flex
+      = render partial: 'company_card', collection: @companies, as: :company
+
+  .col-6
+    %h3 Corporativos
+
+    .d-flex
+      = render partial: 'corporation_card', collection: @corporations, as: :corporation

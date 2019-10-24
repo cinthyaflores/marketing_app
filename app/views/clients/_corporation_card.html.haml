@@ -1,0 +1,8 @@
+.card.w-300px
+  .card-body
+    %h5.card-title #{corporation.name}
+    %h6 Representante legal: #{corporation.legal_representant_name}
+    %p.text-bold #{corporation.legal_representant_email}
+    %p.text-bold #{corporation.legal_representant_role}
+    = link_to 'Editar', edit_corporation_path(corporation), class: 'btn btn-primary'
+    = link_to 'Ver', corporation_path(corporation), class: 'btn btn-secondary'
