@@ -24,7 +24,7 @@ class Campain < ApplicationRecord
   has_many :nodes
   has_many :edges, through: :nodes
   has_one_attached :image
-  belongs_to :company, polymorphic: true
+  belongs_to :company
 
   validates :name,
             :start_date,

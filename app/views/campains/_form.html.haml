@@ -1,5 +1,8 @@
-= simple_form_for(@campain, url: admin_campains_path) do |f|
+= simple_form_for(@campain) do |f|
   = f.input :name, placeholder: 'Nuevos tennis Max Air', label: 'Nombre de la campaña', required: true
+  = f.input :product, placeholder: 'Tennis Max Ait', label: 'Producto/servicio', required: true, minlength: 5, maxlength: 30
+  = f.input :image, as: :file, placeholder: 'Tennis Max Ait', label: 'Producto/servicio', required: true, minlength: 5, maxlength: 30
+  = f.input :company_id, collection: Company.all.map{ |c| [c.name, c.id] }, label: 'Compañía', include_blank: false, required: true
   = f.input :manager_id, collection: User.community_managers.map{ |cm| [cm.name, cm.id] }, label: 'Community manager', include_blank: false, required: true
   = f.input :objective, placeholder: 'Generar interacciones con respecto a ...', label: 'Objetivo de la campaña', required: true
   = f.input :campain_type, placeholder: 'Nuevo producto', label: 'Tipo de campaña', required: true
