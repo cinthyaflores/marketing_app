@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: campains
+# Table name: campaigns
 #
 #  id           :bigint           not null, primary key
 #  name         :string           not null
@@ -9,27 +9,27 @@
 #  start_date   :date             not null
 #  end_date     :date             not null
 #  objective    :string
-#  campain_type :string           not null
+#  campaign_type :string           not null
 #  product      :string
 #  manager_id   :bigint
 #  company_id   :integer
 #  company_type :string
 #
 
-iphone_campain:
+iphone_campaign:
   name: 'iPhone 11'
   start_date: <%= Time.now %>
   end_date: <%= Time.now + 1.week %>
   objective: 'Promocionar nuevo producto'
-  campain_type: 1
+  campaign_type: 1
   product: 'iPhone11'
   manager: manager
 
-xiaomi_campain:
+xiaomi_campaign:
   name: 'xiaomi Mi 9T pro'
   start_date: <%= Time.now %>
   end_date: <%= Time.now + 1.week %>
   objective: 'Promocionar nuevo producto'
-  campain_type: 1
+  campaign_type: 1
   product: 'xiaomi Mi 9T pro'
   manager: manager

@@ -6,7 +6,7 @@
 #
 #  id         :bigint           not null, primary key
 #  user_id    :bigint           not null
-#  campain_id :bigint           not null
+#  campaign_id :bigint           not null
 #  role       :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -17,32 +17,32 @@ require 'test_helper'
 class CoworkerTest < ActiveSupport::TestCase
   setup do
     @designer = users(:designer)
-    @iphone_campain = campains(:iphone_campain)
+    @iphone_campaign = campaigns(:iphone_campaign)
   end
 
   test 'coworker is valid with all attribute' do
     coworker = Coworker.new(user: @designer,
                             role: 1,
-                            campain: @iphone_campain)
+                            campaign: @iphone_campaign)
 
     assert coworker.valid?
   end
 
   test 'coworker is not valid with no user relation' do
     coworker = Coworker.new(role: 1,
-                            campain: @iphone_campain)
+                            campaign: @iphone_campaign)
 
     refute coworker.valid?
   end
 
   test 'coworker is not valid with no role attribute' do
     coworker = Coworker.new(user: @designer,
-                            campain: @iphone_campain)
+                            campaign: @iphone_campaign)
 
     refute coworker.valid?
   end
 
-  test 'coworker is valid with no campain relation' do
+  test 'coworker is valid with no campaign relation' do
     coworker = Coworker.new(user: @designer,
                             role: 1)
 

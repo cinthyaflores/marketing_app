@@ -36,19 +36,19 @@ ActiveRecord::Schema.define(version: 2019_10_23_133214) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "campains", force: :cascade do |t|
+  create_table "campaigns", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "start_date", null: false
     t.date "end_date", null: false
     t.string "objective"
-    t.string "campain_type", null: false
+    t.string "campaign_type", null: false
     t.string "product"
     t.bigint "manager_id"
     t.integer "company_id"
     t.string "company_type"
-    t.index ["manager_id"], name: "index_campains_on_manager_id"
+    t.index ["manager_id"], name: "index_campaigns_on_manager_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -95,11 +95,11 @@ ActiveRecord::Schema.define(version: 2019_10_23_133214) do
 
   create_table "coworkers", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "campain_id", null: false
+    t.bigint "campaign_id", null: false
     t.integer "role", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["campain_id"], name: "index_coworkers_on_campain_id"
+    t.index ["campaign_id"], name: "index_coworkers_on_campaign_id"
     t.index ["user_id"], name: "index_coworkers_on_user_id"
   end
 
@@ -113,12 +113,12 @@ ActiveRecord::Schema.define(version: 2019_10_23_133214) do
   end
 
   create_table "nodes", force: :cascade do |t|
-    t.bigint "campain_id", null: false
+    t.bigint "campaign_id", null: false
     t.string "label", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "color"
-    t.index ["campain_id"], name: "index_nodes_on_campain_id"
+    t.index ["campaign_id"], name: "index_nodes_on_campaign_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -157,5 +157,5 @@ ActiveRecord::Schema.define(version: 2019_10_23_133214) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "campains", "users", column: "manager_id"
+  add_foreign_key "campaigns", "users", column: "manager_id"
 end

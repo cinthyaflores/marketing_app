@@ -1,0 +1,7 @@
+.card.w-300px
+  .card-body
+    %h5.card-title #{campaign.name}
+    %h6 Community manager: #{campaign.manager.name}
+    %p.text-bold Producto: #{campaign.product}
+    %p.card-text #{campaign.objective}
+    = link_to 'Ver', campaign_path(campaign), class: 'btn btn-primary'

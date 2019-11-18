@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: campains
+# Table name: campaigns
 #
 #  id           :bigint           not null, primary key
 #  name         :string           not null
@@ -11,14 +11,14 @@
 #  start_date   :date             not null
 #  end_date     :date             not null
 #  objective    :string
-#  campain_type :string           not null
+#  campaign_type :string           not null
 #  product      :string
 #  manager_id   :bigint
 #  company_id   :integer
 #  company_type :string
 #
 
-class Campain < ApplicationRecord
+class Campaign < ApplicationRecord
   belongs_to :manager, class_name: 'User', foreign_key: 'manager_id'
   has_many :coworkers
   has_many :nodes
@@ -30,7 +30,7 @@ class Campain < ApplicationRecord
             :start_date,
             :end_date,
             :objective,
-            :campain_type,
+            :campaign_type,
             :product,
             :image,
             presence: true

@@ -1,0 +1,5 @@
+
+%h1.title.is-1 Campañas
+= link_to 'Agregar campaña', new_campaign_path, class: 'btn btn-primary'
+= render partial: 'campaign_card', collection: @campaigns, as: :campaign
+

@@ -2,7 +2,7 @@
 
 class AddCompanyToCampaign < ActiveRecord::Migration[6.0]
   def change
-    add_column :campains, :company_id, :integer
-    add_column :campains, :company_type, :string
+    add_column :campaigns, :company_id, :integer
+    add_column :campaigns, :company_type, :string
   end
 end

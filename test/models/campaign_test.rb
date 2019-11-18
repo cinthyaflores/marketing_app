@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: campains
+# Table name: campaigns
 #
 #  id           :bigint           not null, primary key
 #  name         :string           not null
@@ -11,7 +11,7 @@
 #  start_date   :date             not null
 #  end_date     :date             not null
 #  objective    :string
-#  campain_type :string           not null
+#  campaign_type :string           not null
 #  product      :string
 #  manager_id   :bigint
 #  company_id   :integer
@@ -20,17 +20,17 @@
 
 require 'test_helper'
 
-class CampainTest < ActiveSupport::TestCase
+class CampaignTest < ActiveSupport::TestCase
   setup do
     @image = Rack::Test::UploadedFile.new('test/fixtures/files/example.jpg', 'image/jpg')
   end
 
   test 'campaign is valid with all attributes' do
-    vans = Campain.new(name: 'Vans campain',
+    vans = Campaign.new(name: 'Vans campaign',
                        start_date: Time.now,
                        end_date: Time.now - 1.day,
                        objective: 'Increase number of clients',
-                       campain_type: 'Positioning Positioning',
+                       campaign_type: 'Positioning Positioning',
                        product: 'iPhone 11',
                        manager: users(:manager),
                        image: @image,
@@ -40,11 +40,11 @@ class CampainTest < ActiveSupport::TestCase
   end
 
   test 'campaign is not valid with no image' do
-    vans = Campain.new(name: 'Vans',
+    vans = Campaign.new(name: 'Vans',
                        start_date: Time.now,
                        end_date: Time.now - 1.day,
                        objective: 'Posicionamiento',
-                       campain_type: 1,
+                       campaign_type: 1,
                        product: 'iPhone 11',
                        manager: users(:manager))
 
@@ -52,10 +52,10 @@ class CampainTest < ActiveSupport::TestCase
   end
 
   test 'campaign is not valid with no name' do
-    vans = Campain.new(start_date: Time.now,
+    vans = Campaign.new(start_date: Time.now,
                        end_date: Time.now - 1.day,
                        objective: 'Posicionamiento',
-                       campain_type: 1,
+                       campaign_type: 1,
                        product: 'iPhone 11',
                        manager: users(:manager),
                        image: @image)
@@ -64,10 +64,10 @@ class CampainTest < ActiveSupport::TestCase
   end
 
   test 'campaign is not valid with not start_date' do
-    vans = Campain.new(name: 'Vans',
+    vans = Campaign.new(name: 'Vans',
                        end_date: Time.now - 1.day,
                        objective: 'Posicionamiento',
-                       campain_type: 1,
+                       campaign_type: 1,
                        product: 'iPhone 11',
                        manager: users(:manager),
                        image: @image)
@@ -76,10 +76,10 @@ class CampainTest < ActiveSupport::TestCase
   end
 
   test 'campaign is not valid with no end_date' do
-    vans = Campain.new(name: 'Vans',
+    vans = Campaign.new(name: 'Vans',
                        start_date: Time.now,
                        objective: 'Posicionamiento',
-                       campain_type: 1,
+                       campaign_type: 1,
                        product: 'iPhone 11',
                        manager: users(:manager),
                        image: @image)
@@ -88,10 +88,10 @@ class CampainTest < ActiveSupport::TestCase
   end
 
   test 'campaign is not valid with no objective' do
-    vans = Campain.new(name: 'Vans',
+    vans = Campaign.new(name: 'Vans',
                        start_date: Time.now,
                        end_date: Time.now - 1.day,
-                       campain_type: 1,
+                       campaign_type: 1,
                        product: 'iPhone 11',
                        manager: users(:manager),
                        image: @image)
@@ -99,8 +99,8 @@ class CampainTest < ActiveSupport::TestCase
     refute vans.valid?
   end
 
-  test 'campaign is not valid with no campain_type' do
-    vans = Campain.new(name: 'Vans',
+  test 'campaign is not valid with no campaign_type' do
+    vans = Campaign.new(name: 'Vans',
                        start_date: Time.now,
                        end_date: Time.now - 1.day,
                        objective: 'Posicionamiento',
@@ -112,11 +112,11 @@ class CampainTest < ActiveSupport::TestCase
   end
 
   test 'campaign is not valid with no product' do
-    vans = Campain.new(name: 'Vans',
+    vans = Campaign.new(name: 'Vans',
                        start_date: Time.now,
                        end_date: Time.now - 1.day,
                        objective: 'Posicionamiento',
-                       campain_type: 1,
+                       campaign_type: 1,
                        manager: users(:manager),
                        image: @image)
 
@@ -124,11 +124,11 @@ class CampainTest < ActiveSupport::TestCase
   end
 
   test 'campaign is not valid with no manager' do
-    vans = Campain.new(name: 'Vans',
+    vans = Campaign.new(name: 'Vans',
                        start_date: Time.now,
                        end_date: Time.now - 1.day,
                        objective: 'Posicionamiento',
-                       campain_type: 1,
+                       campaign_type: 1,
                        product: 'iPhone 11',
                        image: @image)
 

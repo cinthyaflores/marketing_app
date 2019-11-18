@@ -18,7 +18,7 @@ class Corporation < ApplicationRecord
   has_and_belongs_to_many :clients
   has_and_belongs_to_many :contacts
 
-  has_many :campains
+  has_many :campaigns
   has_many :companies
 
   validates :name,

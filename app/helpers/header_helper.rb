@@ -8,6 +8,6 @@ module HeaderHelper
   def owner_header_items
     [{ title: 'Usuarios', path: users_path },
      { title: 'Clientes', path: clients_path },
-     { title: 'Campañas', path: campains_path }]
+     { title: 'Campañas', path: campaigns_path }]
   end
 end

@@ -20,7 +20,7 @@
 
 class Company < ApplicationRecord
   has_many :employees, class_name: 'User'
-  has_many :campains
+  has_many :campaigns
 
   belongs_to :corporation, optional: true
 

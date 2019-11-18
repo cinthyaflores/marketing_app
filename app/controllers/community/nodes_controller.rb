@@ -3,10 +3,10 @@
 module Community
   class NodesController < ApplicationController
     def create
-      campain = Campain.find(params[:campain_id])
+      campaign = Campaign.find(params[:campaign_id])
       respond_to do |format|
         format.json do
-          node = campain.nodes.build(label: params[:label], color: '')
+          node = campaign.nodes.build(label: params[:label], color: '')
           if node.save
             render json: node
           else

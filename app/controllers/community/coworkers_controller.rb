@@ -9,7 +9,7 @@ module Community
       else
         flash[:alert] = 'Error registrando'
       end
-      redirect_to community_campain_path(@coworker.campain)
+      redirect_to community_campaign_path(@coworker.campaign)
     end
 
     private
@@ -17,7 +17,7 @@ module Community
     def coworker_params
       params.require(:coworker)
             .permit(:role)
-            .merge(campain: Campain.find(params[:campain_id]),
+            .merge(campaign: Campaign.find(params[:campaign_id]),
                    user: User.find(params[:coworker][:user]))
     end
   end

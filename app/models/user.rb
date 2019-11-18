@@ -29,7 +29,7 @@ class User < ApplicationRecord
   include RoleModel
 
   belongs_to :company
-  has_many :campains, foreign_key: 'manager_id'
+  has_many :campaigns, foreign_key: 'manager_id'
 
   devise :database_authenticatable, :recoverable, :invitable, validate_on_invite: true
 

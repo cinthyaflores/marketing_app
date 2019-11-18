@@ -2,9 +2,9 @@ es:
   activerecord:
     errors:
       models:
-        campain:
+        campaign:
           attributes:
-            campain_type:
+            campaign_type:
               blank: Es necesario definir un tipo de campaña
               too_short: El tipo de campaña es demasiado corto
               too_long: El tipo de campaña es demasiado largo
@@ -100,7 +100,7 @@ es:
               too_long: El nombre es demasiado largo
     models:
       user: Usuarios
-      campain: Campañas
+      campaign: Campañas
       company: Compañias
       client: Clientes
       corporation: Corporaciones
@@ -122,12 +122,12 @@ es:
     app_name: Marketing analytics
   helpers:
     label:
-      campain:
+      campaign:
         name: "Nombre:"
         start_date: "Fecha de inicio:"
         end_date: "Fecha de término:"
         objective: "Objetivo:"
-        campain_type: "Tipo de campaña:"
+        campaign_type: "Tipo de campaña:"
         product: "Producto:"
         manager_id: "Community Manager:"
         updated_at: "Última actualización:"

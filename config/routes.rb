@@ -35,14 +35,14 @@
 #                                       PATCH  /corporations/:id(.:format)                                                              corporations#update
 #                                       PUT    /corporations/:id(.:format)                                                              corporations#update
 #                                       DELETE /corporations/:id(.:format)                                                              corporations#destroy
-#                              campains GET    /campains(.:format)                                                                      campains#index
-#                                       POST   /campains(.:format)                                                                      campains#create
-#                           new_campain GET    /campains/new(.:format)                                                                  campains#new
-#                          edit_campain GET    /campains/:id/edit(.:format)                                                             campains#edit
-#                               campain GET    /campains/:id(.:format)                                                                  campains#show
-#                                       PATCH  /campains/:id(.:format)                                                                  campains#update
-#                                       PUT    /campains/:id(.:format)                                                                  campains#update
-#                                       DELETE /campains/:id(.:format)                                                                  campains#destroy
+#                              campaigns GET    /campaigns(.:format)                                                                      campaigns#index
+#                                       POST   /campaigns(.:format)                                                                      campaigns#create
+#                           new_campaign GET    /campaigns/new(.:format)                                                                  campaigns#new
+#                          edit_campaign GET    /campaigns/:id/edit(.:format)                                                             campaigns#edit
+#                               campaign GET    /campaigns/:id(.:format)                                                                  campaigns#show
+#                                       PATCH  /campaigns/:id(.:format)                                                                  campaigns#update
+#                                       PUT    /campaigns/:id(.:format)                                                                  campaigns#update
+#                                       DELETE /campaigns/:id(.:format)                                                                  campaigns#destroy
 #                                 users GET    /users(.:format)                                                                         users#index
 #                                       POST   /users(.:format)                                                                         users#create
 #                              new_user GET    /users/new(.:format)                                                                     users#new
@@ -59,28 +59,28 @@
 #                                       PATCH  /corporations/:id(.:format)                                                              corporations#update
 #                                       PUT    /corporations/:id(.:format)                                                              corporations#update
 #                                       DELETE /corporations/:id(.:format)                                                              corporations#destroy
-#                         campain_nodes POST   /campains/:campain_id/nodes(.:format)                                                    nodes#create
-#                          campain_node PATCH  /campains/:campain_id/nodes/:id(.:format)                                                nodes#update
-#                                       PUT    /campains/:campain_id/nodes/:id(.:format)                                                nodes#update
-#                                       DELETE /campains/:campain_id/nodes/:id(.:format)                                                nodes#destroy
-#                     campain_coworkers GET    /campains/:campain_id/coworkers(.:format)                                                coworkers#index
-#                                       POST   /campains/:campain_id/coworkers(.:format)                                                coworkers#create
-#                  new_campain_coworker GET    /campains/:campain_id/coworkers/new(.:format)                                            coworkers#new
-#                 edit_campain_coworker GET    /campains/:campain_id/coworkers/:id/edit(.:format)                                       coworkers#edit
-#                      campain_coworker GET    /campains/:campain_id/coworkers/:id(.:format)                                            coworkers#show
-#                                       PATCH  /campains/:campain_id/coworkers/:id(.:format)                                            coworkers#update
-#                                       PUT    /campains/:campain_id/coworkers/:id(.:format)                                            coworkers#update
-#                                       DELETE /campains/:campain_id/coworkers/:id(.:format)                                            coworkers#destroy
-#                 campain_network_index GET    /campains/:campain_id/network(.:format)                                                  network#index
-#                                       POST   /campains/:campain_id/network(.:format)                                                  network#create
-#                   new_campain_network GET    /campains/:campain_id/network/new(.:format)                                              network#new
-#                  edit_campain_network GET    /campains/:campain_id/network/:id/edit(.:format)                                         network#edit
-#                       campain_network GET    /campains/:campain_id/network/:id(.:format)                                              network#show
-#                                       PATCH  /campains/:campain_id/network/:id(.:format)                                              network#update
-#                                       PUT    /campains/:campain_id/network/:id(.:format)                                              network#update
-#                                       DELETE /campains/:campain_id/network/:id(.:format)                                              network#destroy
-#                                       GET    /campains(.:format)                                                                      campains#index
-#                                       GET    /campains/:id(.:format)                                                                  campains#show
+#                         campaign_nodes POST   /campaigns/:campaign_id/nodes(.:format)                                                    nodes#create
+#                          campaign_node PATCH  /campaigns/:campaign_id/nodes/:id(.:format)                                                nodes#update
+#                                       PUT    /campaigns/:campaign_id/nodes/:id(.:format)                                                nodes#update
+#                                       DELETE /campaigns/:campaign_id/nodes/:id(.:format)                                                nodes#destroy
+#                     campaign_coworkers GET    /campaigns/:campaign_id/coworkers(.:format)                                                coworkers#index
+#                                       POST   /campaigns/:campaign_id/coworkers(.:format)                                                coworkers#create
+#                  new_campaign_coworker GET    /campaigns/:campaign_id/coworkers/new(.:format)                                            coworkers#new
+#                 edit_campaign_coworker GET    /campaigns/:campaign_id/coworkers/:id/edit(.:format)                                       coworkers#edit
+#                      campaign_coworker GET    /campaigns/:campaign_id/coworkers/:id(.:format)                                            coworkers#show
+#                                       PATCH  /campaigns/:campaign_id/coworkers/:id(.:format)                                            coworkers#update
+#                                       PUT    /campaigns/:campaign_id/coworkers/:id(.:format)                                            coworkers#update
+#                                       DELETE /campaigns/:campaign_id/coworkers/:id(.:format)                                            coworkers#destroy
+#                 campaign_network_index GET    /campaigns/:campaign_id/network(.:format)                                                  network#index
+#                                       POST   /campaigns/:campaign_id/network(.:format)                                                  network#create
+#                   new_campaign_network GET    /campaigns/:campaign_id/network/new(.:format)                                              network#new
+#                  edit_campaign_network GET    /campaigns/:campaign_id/network/:id/edit(.:format)                                         network#edit
+#                       campaign_network GET    /campaigns/:campaign_id/network/:id(.:format)                                              network#show
+#                                       PATCH  /campaigns/:campaign_id/network/:id(.:format)                                              network#update
+#                                       PUT    /campaigns/:campaign_id/network/:id(.:format)                                              network#update
+#                                       DELETE /campaigns/:campaign_id/network/:id(.:format)                                              network#destroy
+#                                       GET    /campaigns(.:format)                                                                      campaigns#index
+#                                       GET    /campaigns/:id(.:format)                                                                  campaigns#show
 #                            node_posts POST   /nodes/:node_id/posts(.:format)                                                          posts#create
 #                         new_node_post GET    /nodes/:node_id/posts/new(.:format)                                                      posts#new
 #                        edit_node_post GET    /nodes/:node_id/posts/:id/edit(.:format)                                                 posts#edit
@@ -133,11 +133,11 @@ Rails.application.routes.draw do
   resources :contacts
   resources :companies
   resources :corporations
-  resources :campains
+  resources :campaigns
   resources :users
   resources :corporations
 
-  resources :campains, only: %i[index show] do
+  resources :campaigns, only: %i[index show] do
     resources :nodes, only: %i[create destroy update]
     resources :coworkers
     resources :network

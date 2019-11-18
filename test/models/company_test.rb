@@ -34,7 +34,7 @@ class CompanyTest < ActiveSupport::TestCase
     assert umbrella.valid?
   end
 
-  test 'campain is not valid with no mame' do
+  test 'campaign is not valid with no mame' do
     umbrella = Company.new(legal_representant_name: 'Aaron Barreto',
                            legal_representant_email: 'arron@marketing.io',
                            legal_representant_phone: '312-002-0000',
@@ -45,7 +45,7 @@ class CompanyTest < ActiveSupport::TestCase
     refute umbrella.valid?
   end
 
-  test 'campain is not valid with no legal representant name' do
+  test 'campaign is not valid with no legal representant name' do
     umbrella = Company.new(name: 'Umbrella',
                            legal_representant_email: 'arron@marketing.io',
                            legal_representant_phone: '312-002-0000',
@@ -56,7 +56,7 @@ class CompanyTest < ActiveSupport::TestCase
     refute umbrella.valid?
   end
 
-  test 'campain is not valid with no legal representant email' do
+  test 'campaign is not valid with no legal representant email' do
     umbrella = Company.new(name: 'Umbrella',
                            legal_representant_name: 'Aaron Barreto',
                            legal_representant_phone: '312-002-0000',
@@ -67,7 +67,7 @@ class CompanyTest < ActiveSupport::TestCase
     refute umbrella.valid?
   end
 
-  test 'campain is not valid with no legal representant phone' do
+  test 'campaign is not valid with no legal representant phone' do
     umbrella = Company.new(name: 'Umbrella',
                            legal_representant_name: 'Aaron Barreto',
                            legal_representant_email: 'arron@marketing.io',
@@ -78,7 +78,7 @@ class CompanyTest < ActiveSupport::TestCase
     refute umbrella.valid?
   end
 
-  test 'campain is not valid with no legal representant role' do
+  test 'campaign is not valid with no legal representant role' do
     umbrella = Company.new(name: 'Umbrella',
                            legal_representant_name: 'Aaron Barreto',
                            legal_representant_email: 'arron@marketing.io',

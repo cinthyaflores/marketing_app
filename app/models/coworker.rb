@@ -6,7 +6,7 @@
 #
 #  id         :bigint           not null, primary key
 #  user_id    :bigint           not null
-#  campain_id :bigint           not null
+#  campaign_id :bigint           not null
 #  role       :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -14,7 +14,7 @@
 
 class Coworker < ApplicationRecord
   belongs_to :user
-  belongs_to :campain
+  belongs_to :campaign
   delegate :email, to: :user
   validates :role, presence: true
 

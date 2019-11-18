@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateCampains < ActiveRecord::Migration[6.0]
+class CreateCampaigns < ActiveRecord::Migration[6.0]
   def change
-    create_table :campains do |t|
+    create_table :campaigns do |t|
       t.string :name, null: false
       t.timestamps
     end
