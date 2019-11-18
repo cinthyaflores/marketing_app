@@ -46,14 +46,14 @@ User.create_or_find_by!(email: 'finance@gmail.com',
                         company: devio)
 
 tennis_campaign = Campaign.create_or_find_by!(name: 'Tennis Max Air',
-                                             start_date: Time.now,
-                                             end_date: Time.now + 1.week,
-                                             objective: 'Promocionar neuvo producto',
-                                             campaign_type: 'Nuevo producto',
-                                             product: 'Tenis Max Air',
-                                             manager: community_manager,
-                                             company: devio,
-                                             image: Rack::Test::UploadedFile.new('test/fixtures/files/example.jpg', 'image/jpg'))
+                                              start_date: Time.now,
+                                              end_date: Time.now + 1.week,
+                                              objective: 'Promocionar neuvo producto',
+                                              campaign_type: 'Nuevo producto',
+                                              product: 'Tenis Max Air',
+                                              manager: community_manager,
+                                              company: devio,
+                                              image: Rack::Test::UploadedFile.new('test/fixtures/files/example.jpg', 'image/jpg'))
 
 Coworker.create_or_find_by!(user_id: content_creator.id,
                             campaign_id: tennis_campaign.id,

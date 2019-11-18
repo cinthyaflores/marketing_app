@@ -4,12 +4,12 @@
 #
 # Table name: nodes
 #
-#  id         :bigint           not null, primary key
+#  id          :bigint           not null, primary key
 #  campaign_id :bigint           not null
-#  label      :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  color      :string
+#  label       :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  color       :string
 #
 
 class Node < ApplicationRecord
@@ -17,6 +17,8 @@ class Node < ApplicationRecord
   validates :label, presence: true
   before_save :define_node_color
   has_one :post
+
+  belongs_to :campaign
 
   private
 

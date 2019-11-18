@@ -3,6 +3,20 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
+#                      new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
+#                          user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
+#                  destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
+#                     new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
+#                    edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
+#                         user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
+#                                       PUT    /users/password(.:format)                                                                devise/passwords#update
+#                                       POST   /users/password(.:format)                                                                devise/passwords#create
+#                accept_user_invitation GET    /users/invitation/accept(.:format)                                                       devise/invitations#edit
+#                remove_user_invitation GET    /users/invitation/remove(.:format)                                                       devise/invitations#destroy
+#                   new_user_invitation GET    /users/invitation/new(.:format)                                                          devise/invitations#new
+#                       user_invitation PATCH  /users/invitation(.:format)                                                              devise/invitations#update
+#                                       PUT    /users/invitation(.:format)                                                              devise/invitations#update
+#                                       POST   /users/invitation(.:format)                                                              devise/invitations#create
 #                               clients GET    /clients(.:format)                                                                       clients#index
 #                                       POST   /clients(.:format)                                                                       clients#create
 #                            new_client GET    /clients/new(.:format)                                                                   clients#new
@@ -35,14 +49,14 @@
 #                                       PATCH  /corporations/:id(.:format)                                                              corporations#update
 #                                       PUT    /corporations/:id(.:format)                                                              corporations#update
 #                                       DELETE /corporations/:id(.:format)                                                              corporations#destroy
-#                              campaigns GET    /campaigns(.:format)                                                                      campaigns#index
-#                                       POST   /campaigns(.:format)                                                                      campaigns#create
-#                           new_campaign GET    /campaigns/new(.:format)                                                                  campaigns#new
-#                          edit_campaign GET    /campaigns/:id/edit(.:format)                                                             campaigns#edit
-#                               campaign GET    /campaigns/:id(.:format)                                                                  campaigns#show
-#                                       PATCH  /campaigns/:id(.:format)                                                                  campaigns#update
-#                                       PUT    /campaigns/:id(.:format)                                                                  campaigns#update
-#                                       DELETE /campaigns/:id(.:format)                                                                  campaigns#destroy
+#                             campaigns GET    /campaigns(.:format)                                                                     campaigns#index
+#                                       POST   /campaigns(.:format)                                                                     campaigns#create
+#                          new_campaign GET    /campaigns/new(.:format)                                                                 campaigns#new
+#                         edit_campaign GET    /campaigns/:id/edit(.:format)                                                            campaigns#edit
+#                              campaign GET    /campaigns/:id(.:format)                                                                 campaigns#show
+#                                       PATCH  /campaigns/:id(.:format)                                                                 campaigns#update
+#                                       PUT    /campaigns/:id(.:format)                                                                 campaigns#update
+#                                       DELETE /campaigns/:id(.:format)                                                                 campaigns#destroy
 #                                 users GET    /users(.:format)                                                                         users#index
 #                                       POST   /users(.:format)                                                                         users#create
 #                              new_user GET    /users/new(.:format)                                                                     users#new
@@ -59,52 +73,46 @@
 #                                       PATCH  /corporations/:id(.:format)                                                              corporations#update
 #                                       PUT    /corporations/:id(.:format)                                                              corporations#update
 #                                       DELETE /corporations/:id(.:format)                                                              corporations#destroy
-#                         campaign_nodes POST   /campaigns/:campaign_id/nodes(.:format)                                                    nodes#create
-#                          campaign_node PATCH  /campaigns/:campaign_id/nodes/:id(.:format)                                                nodes#update
-#                                       PUT    /campaigns/:campaign_id/nodes/:id(.:format)                                                nodes#update
-#                                       DELETE /campaigns/:campaign_id/nodes/:id(.:format)                                                nodes#destroy
-#                     campaign_coworkers GET    /campaigns/:campaign_id/coworkers(.:format)                                                coworkers#index
-#                                       POST   /campaigns/:campaign_id/coworkers(.:format)                                                coworkers#create
-#                  new_campaign_coworker GET    /campaigns/:campaign_id/coworkers/new(.:format)                                            coworkers#new
-#                 edit_campaign_coworker GET    /campaigns/:campaign_id/coworkers/:id/edit(.:format)                                       coworkers#edit
-#                      campaign_coworker GET    /campaigns/:campaign_id/coworkers/:id(.:format)                                            coworkers#show
-#                                       PATCH  /campaigns/:campaign_id/coworkers/:id(.:format)                                            coworkers#update
-#                                       PUT    /campaigns/:campaign_id/coworkers/:id(.:format)                                            coworkers#update
-#                                       DELETE /campaigns/:campaign_id/coworkers/:id(.:format)                                            coworkers#destroy
-#                 campaign_network_index GET    /campaigns/:campaign_id/network(.:format)                                                  network#index
-#                                       POST   /campaigns/:campaign_id/network(.:format)                                                  network#create
-#                   new_campaign_network GET    /campaigns/:campaign_id/network/new(.:format)                                              network#new
-#                  edit_campaign_network GET    /campaigns/:campaign_id/network/:id/edit(.:format)                                         network#edit
-#                       campaign_network GET    /campaigns/:campaign_id/network/:id(.:format)                                              network#show
-#                                       PATCH  /campaigns/:campaign_id/network/:id(.:format)                                              network#update
-#                                       PUT    /campaigns/:campaign_id/network/:id(.:format)                                              network#update
-#                                       DELETE /campaigns/:campaign_id/network/:id(.:format)                                              network#destroy
-#                                       GET    /campaigns(.:format)                                                                      campaigns#index
-#                                       GET    /campaigns/:id(.:format)                                                                  campaigns#show
+#                        campaign_edges GET    /campaigns/:campaign_id/edges(.:format)                                                  edges#index
+#                                       POST   /campaigns/:campaign_id/edges(.:format)                                                  edges#create
+#                     new_campaign_edge GET    /campaigns/:campaign_id/edges/new(.:format)                                              edges#new
+#                    edit_campaign_edge GET    /campaigns/:campaign_id/edges/:id/edit(.:format)                                         edges#edit
+#                         campaign_edge GET    /campaigns/:campaign_id/edges/:id(.:format)                                              edges#show
+#                                       PATCH  /campaigns/:campaign_id/edges/:id(.:format)                                              edges#update
+#                                       PUT    /campaigns/:campaign_id/edges/:id(.:format)                                              edges#update
+#                                       DELETE /campaigns/:campaign_id/edges/:id(.:format)                                              edges#destroy
+#                        campaign_nodes GET    /campaigns/:campaign_id/nodes(.:format)                                                  nodes#index
+#                                       POST   /campaigns/:campaign_id/nodes(.:format)                                                  nodes#create
+#                     new_campaign_node GET    /campaigns/:campaign_id/nodes/new(.:format)                                              nodes#new
+#                    edit_campaign_node GET    /campaigns/:campaign_id/nodes/:id/edit(.:format)                                         nodes#edit
+#                         campaign_node GET    /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#show
+#                                       PATCH  /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#update
+#                                       PUT    /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#update
+#                                       DELETE /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#destroy
+#                    campaign_coworkers GET    /campaigns/:campaign_id/coworkers(.:format)                                              coworkers#index
+#                                       POST   /campaigns/:campaign_id/coworkers(.:format)                                              coworkers#create
+#                 new_campaign_coworker GET    /campaigns/:campaign_id/coworkers/new(.:format)                                          coworkers#new
+#                edit_campaign_coworker GET    /campaigns/:campaign_id/coworkers/:id/edit(.:format)                                     coworkers#edit
+#                     campaign_coworker GET    /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#show
+#                                       PATCH  /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#update
+#                                       PUT    /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#update
+#                                       DELETE /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#destroy
+#                campaign_network_index GET    /campaigns/:campaign_id/network(.:format)                                                network#index
+#                                       POST   /campaigns/:campaign_id/network(.:format)                                                network#create
+#                  new_campaign_network GET    /campaigns/:campaign_id/network/new(.:format)                                            network#new
+#                 edit_campaign_network GET    /campaigns/:campaign_id/network/:id/edit(.:format)                                       network#edit
+#                      campaign_network GET    /campaigns/:campaign_id/network/:id(.:format)                                            network#show
+#                                       PATCH  /campaigns/:campaign_id/network/:id(.:format)                                            network#update
+#                                       PUT    /campaigns/:campaign_id/network/:id(.:format)                                            network#update
+#                                       DELETE /campaigns/:campaign_id/network/:id(.:format)                                            network#destroy
+#                                       GET    /campaigns(.:format)                                                                     campaigns#index
+#                                       GET    /campaigns/:id(.:format)                                                                 campaigns#show
 #                            node_posts POST   /nodes/:node_id/posts(.:format)                                                          posts#create
 #                         new_node_post GET    /nodes/:node_id/posts/new(.:format)                                                      posts#new
 #                        edit_node_post GET    /nodes/:node_id/posts/:id/edit(.:format)                                                 posts#edit
 #                             node_post PATCH  /nodes/:node_id/posts/:id(.:format)                                                      posts#update
 #                                       PUT    /nodes/:node_id/posts/:id(.:format)                                                      posts#update
 #                                 nodes GET    /nodes(.:format)                                                                         nodes#index
-#                                 edges POST   /edges(.:format)                                                                         edges#create
-#                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
-#                                       PUT    /edges/:id(.:format)                                                                     edges#update
-#                                       DELETE /edges/:id(.:format)                                                                     edges#destroy
-#                      new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
-#                          user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
-#                  destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
-#                     new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
-#                    edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
-#                         user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
-#                                       PUT    /users/password(.:format)                                                                devise/passwords#update
-#                                       POST   /users/password(.:format)                                                                devise/passwords#create
-#                accept_user_invitation GET    /users/invitation/accept(.:format)                                                       devise/invitations#edit
-#                remove_user_invitation GET    /users/invitation/remove(.:format)                                                       devise/invitations#destroy
-#                   new_user_invitation GET    /users/invitation/new(.:format)                                                          devise/invitations#new
-#                       user_invitation PATCH  /users/invitation(.:format)                                                              devise/invitations#update
-#                                       PUT    /users/invitation(.:format)                                                              devise/invitations#update
-#                                       POST   /users/invitation(.:format)                                                              devise/invitations#create
 #                                  root GET    /                                                                                        landing_page#index
 #         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
@@ -138,7 +146,8 @@ Rails.application.routes.draw do
   resources :corporations
 
   resources :campaigns, only: %i[index show] do
-    resources :nodes, only: %i[create destroy update]
+    resources :edges
+    resources :nodes
     resources :coworkers
     resources :network
   end
@@ -146,7 +155,6 @@ Rails.application.routes.draw do
   resources :nodes, only: %i[index] do
     resources :posts, only: %i[new edit update create]
   end
-  resources :edges, only: %i[create update destroy]
 
   root 'landing_page#index'
 end

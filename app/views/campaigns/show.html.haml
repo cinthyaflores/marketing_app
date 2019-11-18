@@ -22,32 +22,16 @@
     Producto:
     %p=@campaign.product
 
--# .column.is-flex.is-full.is-justified-centered
--#   .buttons.are-small
--#     %button.button.is-success.has-regular-margin#add-node
--#       Añadir nodo
--#     %button.button.is-primary.has-regular-margin#add-edge
--#       Añadir arista
--#     %button.button.is-warning.has-regular-margin#edit-node
--#       Editar nodo
--#     %button.button.is-danger.has-regular-margin#delete-node
--#       Eliminar selección
+.row
+  = link_to 'Añadir nodo', new_campaign_node_path(@campaign), class: 'btn btn-primary col'
+  = link_to 'Añadir relación', new_campaign_edge_path(@campaign), class: 'btn btn-secondary col'
+  = link_to 'Editar nodos', campaign_nodes_path(@campaign), class: 'btn btn-primary col'
+  = link_to 'Editar relaciones', campaign_edges_path(@campaign), class: 'btn btn-secondary col'
 
--# #vis-container.vis-container
+#network-container
 
--# #network-popUp.network-popup
--#   %span#operation node
--#   %label{ for: "node-label"}
--#   %input.input.field.is-small#node-label{value: "new value"}
--#   .buttons.are-small
--#     %input.button.is-success#saveButton{type: "button", value: "Guardar", href: "#{community_campaign_nodes_path(@campaign)}"}
--#     %input.button.is-danger#cancelButton{type:  "button", value: "Cancelar"}
--# %a#createEdgeLink{href: "#{community_edges_path}"}
--# %a#currentPath{href: "#{community_campaign_path(@campaign)}"}
-
--# .column.is-11-mobile.is-6-tablet.is-5-widescreen
--#   .column
--#     #postForm{href: "#{community_nodes_path}" }
+%input{type:'hidden', value: @nodes, id: 'nodes'}
+%input{type:'hidden', value: @edges, id: 'edges'}
 
 -# %h3
 -#   Coworkers

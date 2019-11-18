@@ -1,0 +1,4 @@
+= f.input :from_id, collection: @campaign.nodes.map{ |node| [node.id, node.id] }, label: 'Nodo', include_blank: false, required: true
+= f.input :to_id, collection: @campaign.nodes.map{ |node| [node.id, node.id] }, label: 'Nodo', include_blank: false, required: true
+= f.input :campaign_id, value: @campaign.id, as: :hidden
+= f.button :submit, 'Guardar'
