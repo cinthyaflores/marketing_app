@@ -155,6 +155,7 @@ Rails.application.routes.draw do
   resources :nodes, only: %i[index] do
     resources :posts, only: %i[new edit update create]
   end
+  resources :edges, only: %i[create update destroy]
 
   root 'landing_page#index'
 end
