@@ -8,11 +8,9 @@
 #  campaign_id :bigint           not null
 #
 
-
 class Network < ApplicationRecord
   has_many :nodes
   has_many :edges
 
   belongs_to :campaign
-
 end

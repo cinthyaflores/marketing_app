@@ -38,9 +38,7 @@ class Campaign < ApplicationRecord
 
   validates :name, :objective, :product, length: { in: 5..30 }
 
-
   after_create :create_network
-
 
   def create_network
     Network.create(campaign_id: id)
