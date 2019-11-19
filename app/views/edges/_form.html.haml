@@ -1,4 +1,4 @@
-= f.input :from_id, collection: @campaign.nodes.map{ |node| [node.id, node.id] }, label: 'Nodo', include_blank: false, required: true
-= f.input :to_id, collection: @campaign.nodes.map{ |node| [node.id, node.id] }, label: 'Nodo', include_blank: false, required: true
-= f.input :network_id, value: @edge.network_id, as: :hidden
+= f.input :from_id, collection: @network.nodes.map{ |node| [node.id, node.id] }, label: 'Nodo', include_blank: false, required: true
+= f.input :to_id, collection: @network.nodes.map{ |node| [node.id, node.id] }, label: 'Nodo', include_blank: false, required: true
+= f.input :network_id, value: @network.id, as: :hidden
 = f.button :submit, 'Guardar'

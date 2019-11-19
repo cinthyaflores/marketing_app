@@ -1,27 +1,25 @@
 # frozen_string_literal: true
 
 class EdgesController < ApplicationController
-  before_action :assign_campaign
+  before_action :assign_network
 
   def new
-    @edge = @campaign.network.edges.new
+    @edge = @network.edges.new
   end
 
   def edit
-    @campaign = Campaign.find(params[:campaign_id])
     @edge = Edge.find(params[:id])
   end
 
   def index
-    @campaign = Campaign.find(params[:campaign_id])
-    @edges = @campaign.edges
+    @edges = @network.edges
   end
 
   def create
     edge = Edge.create(edge_params)
     if edge.persisted?
       flash[:notice] = 'Relación registrada correctamente'
-      redirect_to campaign_network_path(campaign_id: edge.campaign_id, id: edge.network.id)
+      redirect_to network_path(edge.network)
     else
       errors = edge.errors.full_messages.join(',')
       flash[:error] = "Error registrando la relación: #{errors}"
@@ -33,7 +31,7 @@ class EdgesController < ApplicationController
     edge = Edge.find(params[:id])
     if edge.update(edge_params)
       flash[:notice] = 'Relación actualizada correctamente'
-      redirect_to campaign_edges_path(edge.campaign)
+      redirect_to network_path(edge.network)
     else
       errors = edge.errors.full_messages.join(',')
       flash[:error] = "Error actualizando la relación: #{errors}"
@@ -45,7 +43,7 @@ class EdgesController < ApplicationController
     edge = Edge.find(params[:id])
     if edge.destroy
       flash[:notice] = 'Nodo eliminado correctamente'
-      redirect_to campaign_edges_path(edge.campaign)
+      redirect_to network_path(edge.network)
     else
       errors = edge.errors.full_messages.join(',')
       flash[:error] = "Error eliminando el nodo: #{errors}"
@@ -59,7 +57,7 @@ class EdgesController < ApplicationController
     params.require(:edge).permit(:from_id, :to_id, :network_id)
   end
 
-  def assign_campaign
-    @campaign = Campaign.find(params[:campaign_id])
+  def assign_network
+    @network = Network.find(params[:network_id])
   end
 end

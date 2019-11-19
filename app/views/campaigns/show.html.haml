@@ -23,7 +23,7 @@
     %p=@campaign.product
 
 .row
-  = link_to 'Administrar red semántica', campaign_network_path(@campaign), class: 'btn btn-primary col'
+  = link_to 'Administrar red semántica', network_path(@campaign.network), class: 'btn btn-primary col'
 
 .row
   = link_to 'Administrar colaboradores de la campaña', campaign_coworkers_path(@campaign), class: 'btn btn-primary col'

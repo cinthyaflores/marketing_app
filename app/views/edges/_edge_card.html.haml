@@ -3,5 +3,5 @@
     %h5.card-title Identificador: #{edge.id}
     %p.card-text De nodo: #{edge.from_id}
     %p.card-text Al nodo: #{edge.to_id}
-    = link_to 'Eliminar', campaign_edge_path(id: edge.id, campaign_id: edge.campaign_id), class: 'btn btn-danger', method: :delete
-    = link_to 'Editar', edit_campaign_edge_path(id: edge.id, campaign_id: edge.campaign_id), class: 'btn btn-secondary'
+    = link_to 'Eliminar', network_edge_path(id: edge.id, network_id: edge.network_id), class: 'btn btn-danger', method: :delete
+    = link_to 'Editar', edit_network_edge_path(id: edge.id, network_id: edge.network_id), class: 'btn btn-secondary'

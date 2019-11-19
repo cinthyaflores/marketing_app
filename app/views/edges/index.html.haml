@@ -1,5 +1,5 @@
 .row
-  = link_to 'Volver a red semántica', campaign_network_path(id: @campaign), class: 'btn btn-primary'
-  = link_to 'Añadir relación', new_campaign_edge_path(campaign_id: @campaign), class: 'btn btn-primary'
+  = link_to 'Volver a red semántica', network_path(@network), class: 'btn btn-primary'
+  = link_to 'Añadir relación', new_network_edge_path(network_id: @network.id), class: 'btn btn-primary'
 
 = render partial: 'edge_card', collection: @edges, as: :edge

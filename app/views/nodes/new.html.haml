@@ -1,2 +1,2 @@
-= simple_form_for(@node, url: campaign_network_nodes_path(campaign_id: @campaign.id, network_id: @campaign.network.id), method: :post) do |f|
+= simple_form_for(@node, url: network_nodes_path(network_id: @network), method: :post) do |f|
   = render 'form', f: f

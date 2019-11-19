@@ -1,5 +1,5 @@
 .row
-  = link_to 'Volver a red semántica', campaign_network_path(id: @campaign), class: 'btn btn-primary'
-  = link_to 'Añadir nodo', new_campaign_node_path(campaign_id: @campaign), class: 'btn btn-primary'
+  = link_to 'Volver a red semántica', network_path(@network), class: 'btn btn-primary'
+  = link_to 'Añadir nodo', new_network_node_path(network_id: @network.id), class: 'btn btn-primary'
 
 = render partial: 'node_card', collection: @nodes, as: :node
