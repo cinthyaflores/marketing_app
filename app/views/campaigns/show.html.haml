@@ -23,15 +23,8 @@
     %p=@campaign.product
 
 .row
-  = link_to 'Añadir nodo', new_campaign_node_path(@campaign), class: 'btn btn-primary col'
-  = link_to 'Añadir relación', new_campaign_edge_path(@campaign), class: 'btn btn-secondary col'
-  = link_to 'Editar nodos', campaign_nodes_path(@campaign), class: 'btn btn-primary col'
-  = link_to 'Editar relaciones', campaign_edges_path(@campaign), class: 'btn btn-secondary col'
+  = link_to 'Administrar red semántica', campaign_network_path(@campaign), class: 'btn btn-primary col'
 
-#network-container
-
-%input{type:'hidden', value: @nodes, id: 'nodes'}
-%input{type:'hidden', value: @edges, id: 'edges'}
 
 -# %h3
 -#   Coworkers

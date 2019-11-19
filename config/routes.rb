@@ -97,14 +97,7 @@
 #                                       PATCH  /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#update
 #                                       PUT    /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#update
 #                                       DELETE /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#destroy
-#                campaign_network_index GET    /campaigns/:campaign_id/network(.:format)                                                network#index
-#                                       POST   /campaigns/:campaign_id/network(.:format)                                                network#create
-#                  new_campaign_network GET    /campaigns/:campaign_id/network/new(.:format)                                            network#new
-#                 edit_campaign_network GET    /campaigns/:campaign_id/network/:id/edit(.:format)                                       network#edit
 #                      campaign_network GET    /campaigns/:campaign_id/network/:id(.:format)                                            network#show
-#                                       PATCH  /campaigns/:campaign_id/network/:id(.:format)                                            network#update
-#                                       PUT    /campaigns/:campaign_id/network/:id(.:format)                                            network#update
-#                                       DELETE /campaigns/:campaign_id/network/:id(.:format)                                            network#destroy
 #                                       GET    /campaigns(.:format)                                                                     campaigns#index
 #                                       GET    /campaigns/:id(.:format)                                                                 campaigns#show
 #                            node_posts POST   /nodes/:node_id/posts(.:format)                                                          posts#create
@@ -113,6 +106,10 @@
 #                             node_post PATCH  /nodes/:node_id/posts/:id(.:format)                                                      posts#update
 #                                       PUT    /nodes/:node_id/posts/:id(.:format)                                                      posts#update
 #                                 nodes GET    /nodes(.:format)                                                                         nodes#index
+#                                 edges POST   /edges(.:format)                                                                         edges#create
+#                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
+#                                       PUT    /edges/:id(.:format)                                                                     edges#update
+#                                       DELETE /edges/:id(.:format)                                                                     edges#destroy
 #                                  root GET    /                                                                                        landing_page#index
 #         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
@@ -149,7 +146,7 @@ Rails.application.routes.draw do
     resources :edges
     resources :nodes
     resources :coworkers
-    resources :network
+    resources :network, only: :show
   end
 
   resources :nodes, only: %i[index] do
