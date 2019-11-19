@@ -24,6 +24,7 @@ class Campaign < ApplicationRecord
   has_one :network
   has_many :nodes, through: :network
   has_many :edges, through: :network
+  has_many :posts, through: :nodes
   has_one_attached :image
   belongs_to :company
 

@@ -100,12 +100,15 @@
 #                                       PUT    /network/:network_id/nodes/:id(.:format)                                                 nodes#update
 #                                       DELETE /network/:network_id/nodes/:id(.:format)                                                 nodes#destroy
 #                               network GET    /network/:id(.:format)                                                                   network#show
-#                            node_posts POST   /nodes/:node_id/posts(.:format)                                                          posts#create
-#                         new_node_post GET    /nodes/:node_id/posts/new(.:format)                                                      posts#new
-#                        edit_node_post GET    /nodes/:node_id/posts/:id/edit(.:format)                                                 posts#edit
-#                             node_post PATCH  /nodes/:node_id/posts/:id(.:format)                                                      posts#update
-#                                       PUT    /nodes/:node_id/posts/:id(.:format)                                                      posts#update
-#                                 nodes GET    /nodes(.:format)                                                                         nodes#index
+#                                 posts POST   /posts(.:format)                                                                         posts#create
+#                             edit_post GET    /posts/:id/edit(.:format)                                                                posts#edit
+#                                  post GET    /posts/:id(.:format)                                                                     posts#show
+#                                       PATCH  /posts/:id(.:format)                                                                     posts#update
+#                                       PUT    /posts/:id(.:format)                                                                     posts#update
+#                                       DELETE /posts/:id(.:format)                                                                     posts#destroy
+#                        campaign_posts GET    /campaigns/:campaign_id/posts(.:format)                                                  posts#index
+#                     new_campaign_post GET    /campaigns/:campaign_id/posts/new(.:format)                                              posts#new
+#                                       GET    /campaigns(.:format)                                                                     campaigns#index
 #                                 edges POST   /edges(.:format)                                                                         edges#create
 #                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
 #                                       PUT    /edges/:id(.:format)                                                                     edges#update
@@ -151,8 +154,10 @@ Rails.application.routes.draw do
     resources :nodes
   end
 
-  resources :nodes, only: %i[index] do
-    resources :posts, only: %i[new edit update create]
+  resources :posts, except: %i[index new]
+
+  resources :campaigns, only: %i[index] do
+    resources :posts, only: %i[index new]
   end
   resources :edges, only: %i[create update destroy]
 

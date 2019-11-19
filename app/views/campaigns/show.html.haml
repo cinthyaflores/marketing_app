@@ -28,37 +28,5 @@
 .row
   = link_to 'Administrar colaboradores de la campaña', campaign_coworkers_path(@campaign), class: 'btn btn-primary col'
 
-
--# %h3
--#   Coworkers
--# %table.table.has-full-width.has-regular-margin
--#   %thead
--#     %tr
--#       %th
--#         Email
--#       %th
--#         Rol
--#   %tbody
--#     - @campaign.coworkers.each do |coworker|
--#       - if coworker.user
--#         %tr
--#           %td
--#             %p=coworker.user&.email
--#           %td
--#             = t("coworker.roles.#{Coworker.roles.key(coworker&.role)}")
-
--# %h3.has-regular-margin
--#   Agregar empledo
--# = simple_form_for(@coworker, url: community_campaign_coworkers_path(@campaign), method: :post, defaults: { wrapper: false }) do |f|
--#   .field.is-horizontal.has-regular-margin
--#     .field-body
--#       .field
--#         .column.is-paddingless
--#           = f.label :user, 'Empleado'
--#           = f.input :user, collection: current_user.company.employees.map { |employee| [ employee.email, employee.id ] }, include_blank: false
--#       .field
--#         .column.is-paddingless
--#           = f.label :role, 'Rol'
--#           = f.input :role, collection: Coworker.roles.keys.map { |role| [t("coworker.roles.#{role}"), role.to_s ] }, include_blank: false
--#   = f.submit 'Registrar', class: 'button is-primary'
-
+.row
+  = link_to 'Administrar publicaciones', campaign_posts_path(campaign_id: @campaign), class: 'btn btn-primary col'
