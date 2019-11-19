@@ -1,12 +1,11 @@
 .row
   = link_to 'Volver a campaña', campaign_path(@campaign), class: 'btn btn-primary'
-  = link_to 'Añadir relación', new_campaign_edge_path(campaign_id: @campaign), class: 'btn btn-primary'
 
 .row
-  = link_to 'Añadir nodo', new_campaign_node_path(@campaign), class: 'btn btn-primary col'
-  = link_to 'Añadir relación', new_campaign_edge_path(@campaign), class: 'btn btn-secondary col'
-  = link_to 'Editar nodos', campaign_nodes_path(@campaign), class: 'btn btn-primary col'
-  = link_to 'Editar relaciones', campaign_edges_path(@campaign), class: 'btn btn-secondary col'
+  = link_to 'Añadir nodo', new_campaign_network_node_path(campaign_id: @campaign.id, network_id: @campaign.network.id), class: 'btn btn-primary col'
+  = link_to 'Añadir relación', new_campaign_network_edge_path(campaign_id: @campaign.id, network_id: @campaign.network.id), class: 'btn btn-secondary col'
+  = link_to 'Editar nodos', campaign_network_nodes_path(campaign_id: @campaign.id, network_id: @campaign.network.id), class: 'btn btn-primary col'
+  = link_to 'Editar relaciones', campaign_network_edges_path(campaign_id: @campaign.id, network_id: @campaign.network.id), class: 'btn btn-secondary col'
 
 #network-container
 

@@ -7,7 +7,6 @@
 #  id          :bigint           not null, primary key
 #  user_id     :bigint           not null
 #  campaign_id :bigint           not null
-#  role        :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -15,8 +14,6 @@
 class Coworker < ApplicationRecord
   belongs_to :user
   belongs_to :campaign
+  delegate :name, to: :user
   delegate :email, to: :user
-  validates :role, presence: true
-
-  enum roles: %i[content_creator designer]
 end

@@ -3,6 +3,7 @@
 class NetworkController < ApplicationController
   def show
     @campaign = Campaign.find(params[:id])
+    network
     build_nodes
     build_edges
   end
@@ -21,5 +22,9 @@ class NetworkController < ApplicationController
     @campaign.edges.map do |edge|
       @edges += "{ \"from\": #{edge.from_id}, \"to\": #{edge.to_id}}|"
     end
+  end
+
+  def network
+    @network ||= @campaign.network
   end
 end

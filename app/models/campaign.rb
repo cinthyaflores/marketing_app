@@ -21,8 +21,9 @@
 class Campaign < ApplicationRecord
   belongs_to :manager, class_name: 'User', foreign_key: 'manager_id'
   has_many :coworkers
-  has_many :nodes
-  has_many :edges
+  has_one :network
+  has_many :nodes, through: :network
+  has_many :edges, through: :network
   has_one_attached :image
   belongs_to :company
 
@@ -36,4 +37,12 @@ class Campaign < ApplicationRecord
             presence: true
 
   validates :name, :objective, :product, length: { in: 5..30 }
+
+
+  after_create :create_network
+
+
+  def create_network
+    Network.create(campaign_id: id)
+  end
 end

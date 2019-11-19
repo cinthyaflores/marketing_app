@@ -73,22 +73,6 @@
 #                                       PATCH  /corporations/:id(.:format)                                                              corporations#update
 #                                       PUT    /corporations/:id(.:format)                                                              corporations#update
 #                                       DELETE /corporations/:id(.:format)                                                              corporations#destroy
-#                        campaign_edges GET    /campaigns/:campaign_id/edges(.:format)                                                  edges#index
-#                                       POST   /campaigns/:campaign_id/edges(.:format)                                                  edges#create
-#                     new_campaign_edge GET    /campaigns/:campaign_id/edges/new(.:format)                                              edges#new
-#                    edit_campaign_edge GET    /campaigns/:campaign_id/edges/:id/edit(.:format)                                         edges#edit
-#                         campaign_edge GET    /campaigns/:campaign_id/edges/:id(.:format)                                              edges#show
-#                                       PATCH  /campaigns/:campaign_id/edges/:id(.:format)                                              edges#update
-#                                       PUT    /campaigns/:campaign_id/edges/:id(.:format)                                              edges#update
-#                                       DELETE /campaigns/:campaign_id/edges/:id(.:format)                                              edges#destroy
-#                        campaign_nodes GET    /campaigns/:campaign_id/nodes(.:format)                                                  nodes#index
-#                                       POST   /campaigns/:campaign_id/nodes(.:format)                                                  nodes#create
-#                     new_campaign_node GET    /campaigns/:campaign_id/nodes/new(.:format)                                              nodes#new
-#                    edit_campaign_node GET    /campaigns/:campaign_id/nodes/:id/edit(.:format)                                         nodes#edit
-#                         campaign_node GET    /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#show
-#                                       PATCH  /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#update
-#                                       PUT    /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#update
-#                                       DELETE /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#destroy
 #                    campaign_coworkers GET    /campaigns/:campaign_id/coworkers(.:format)                                              coworkers#index
 #                                       POST   /campaigns/:campaign_id/coworkers(.:format)                                              coworkers#create
 #                 new_campaign_coworker GET    /campaigns/:campaign_id/coworkers/new(.:format)                                          coworkers#new
@@ -97,6 +81,22 @@
 #                                       PATCH  /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#update
 #                                       PUT    /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#update
 #                                       DELETE /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#destroy
+#                campaign_network_edges GET    /campaigns/:campaign_id/network/:network_id/edges(.:format)                              edges#index
+#                                       POST   /campaigns/:campaign_id/network/:network_id/edges(.:format)                              edges#create
+#             new_campaign_network_edge GET    /campaigns/:campaign_id/network/:network_id/edges/new(.:format)                          edges#new
+#            edit_campaign_network_edge GET    /campaigns/:campaign_id/network/:network_id/edges/:id/edit(.:format)                     edges#edit
+#                 campaign_network_edge GET    /campaigns/:campaign_id/network/:network_id/edges/:id(.:format)                          edges#show
+#                                       PATCH  /campaigns/:campaign_id/network/:network_id/edges/:id(.:format)                          edges#update
+#                                       PUT    /campaigns/:campaign_id/network/:network_id/edges/:id(.:format)                          edges#update
+#                                       DELETE /campaigns/:campaign_id/network/:network_id/edges/:id(.:format)                          edges#destroy
+#                campaign_network_nodes GET    /campaigns/:campaign_id/network/:network_id/nodes(.:format)                              nodes#index
+#                                       POST   /campaigns/:campaign_id/network/:network_id/nodes(.:format)                              nodes#create
+#             new_campaign_network_node GET    /campaigns/:campaign_id/network/:network_id/nodes/new(.:format)                          nodes#new
+#            edit_campaign_network_node GET    /campaigns/:campaign_id/network/:network_id/nodes/:id/edit(.:format)                     nodes#edit
+#                 campaign_network_node GET    /campaigns/:campaign_id/network/:network_id/nodes/:id(.:format)                          nodes#show
+#                                       PATCH  /campaigns/:campaign_id/network/:network_id/nodes/:id(.:format)                          nodes#update
+#                                       PUT    /campaigns/:campaign_id/network/:network_id/nodes/:id(.:format)                          nodes#update
+#                                       DELETE /campaigns/:campaign_id/network/:network_id/nodes/:id(.:format)                          nodes#destroy
 #                      campaign_network GET    /campaigns/:campaign_id/network/:id(.:format)                                            network#show
 #                                       GET    /campaigns(.:format)                                                                     campaigns#index
 #                                       GET    /campaigns/:id(.:format)                                                                 campaigns#show
@@ -143,10 +143,11 @@ Rails.application.routes.draw do
   resources :corporations
 
   resources :campaigns, only: %i[index show] do
-    resources :edges
-    resources :nodes
     resources :coworkers
-    resources :network, only: :show
+    resources :network, only: :show do
+      resources :edges
+      resources :nodes
+    end
   end
 
   resources :nodes, only: %i[index] do

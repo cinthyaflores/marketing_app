@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class NodesController < ApplicationController
+  before_action :assign_campaign
+
   def new
-    @node = Campaign.find(params[:campaign_id]).nodes.new
+    @node = @campaign.network.nodes.new
   end
 
   def edit
@@ -18,7 +20,7 @@ class NodesController < ApplicationController
     node = Node.create(node_params)
     if node.persisted?
       flash[:notice] = 'Nodo registrado correctamente'
-      redirect_to campaign_path(node.campaign)
+      redirect_to campaign_network_path(campaign_id: node.campaign_id, id: node.network.id)
     else
       errors = node.errors.full_messages.join(',')
       flash[:error] = "Error registrando el nodo: #{errors}"
@@ -53,6 +55,10 @@ class NodesController < ApplicationController
   private
 
   def node_params
-    params.require(:node).permit(:label, :campaign_id)
+    params.require(:node).permit(:label, :network_id)
+  end
+
+  def assign_campaign
+    @campaign = Campaign.find(params[:campaign_id])
   end
 end

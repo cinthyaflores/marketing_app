@@ -4,12 +4,12 @@
 #
 # Table name: nodes
 #
-#  id          :bigint           not null, primary key
-#  campaign_id :bigint           not null
-#  label       :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  color       :string
+#  id         :bigint           not null, primary key
+#  label      :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  color      :string
+#  network_id :bigint
 #
 
 require 'test_helper'

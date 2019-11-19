@@ -4,21 +4,24 @@
 #
 # Table name: nodes
 #
-#  id          :bigint           not null, primary key
-#  campaign_id :bigint           not null
-#  label       :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  color       :string
+#  id         :bigint           not null, primary key
+#  label      :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  color      :string
+#  network_id :bigint
 #
 
 class Node < ApplicationRecord
   has_many :edges, foreign_key: 'from_id', dependent: :destroy
-  validates :label, presence: true
-  before_save :define_node_color
   has_one :post
+  belongs_to :network
 
-  belongs_to :campaign
+  validates :label, presence: true
+
+  delegate :campaign_id, to: :network
+
+  before_save :define_node_color
 
   private
 

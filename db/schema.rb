@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_212104) do
+ActiveRecord::Schema.define(version: 2019_11_19_183143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(version: 2019_11_18_212104) do
   create_table "coworkers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "campaign_id", null: false
-    t.integer "role", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["campaign_id"], name: "index_coworkers_on_campaign_id"
@@ -108,19 +107,24 @@ ActiveRecord::Schema.define(version: 2019_11_18_212104) do
     t.bigint "to_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "campaign_id"
-    t.index ["campaign_id"], name: "index_edges_on_campaign_id"
+    t.bigint "network_id"
     t.index ["from_id"], name: "index_edges_on_from_id"
+    t.index ["network_id"], name: "index_edges_on_network_id"
     t.index ["to_id"], name: "index_edges_on_to_id"
   end
 
-  create_table "nodes", force: :cascade do |t|
+  create_table "networks", force: :cascade do |t|
     t.bigint "campaign_id", null: false
+    t.index ["campaign_id"], name: "index_networks_on_campaign_id"
+  end
+
+  create_table "nodes", force: :cascade do |t|
     t.string "label", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "color"
-    t.index ["campaign_id"], name: "index_nodes_on_campaign_id"
+    t.bigint "network_id"
+    t.index ["network_id"], name: "index_nodes_on_network_id"
   end
 
   create_table "posts", force: :cascade do |t|

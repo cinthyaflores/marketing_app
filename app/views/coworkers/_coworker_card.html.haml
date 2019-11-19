@@ -1,0 +1,6 @@
+.card.w-300px
+  .card-body
+    %h5.card-title #{coworker.name}
+    %p.card-text Correo: #{coworker.email}
+    = link_to 'Eliminar', campaign_coworker_path(id: coworker.id, campaign_id: coworker.campaign_id), class: 'btn btn-danger', method: :delete
+    = link_to 'Editar', edit_campaign_coworker_path(id: coworker.id, campaign_id: coworker.campaign_id), class: 'btn btn-secondary'

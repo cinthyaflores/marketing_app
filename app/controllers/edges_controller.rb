@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class EdgesController < ApplicationController
+  before_action :assign_campaign
+
   def new
-    @campaign = Campaign.find(params[:campaign_id])
-    @edge = @campaign.edges.new
+    @edge = @campaign.network.edges.new
   end
 
   def edit
@@ -20,7 +21,7 @@ class EdgesController < ApplicationController
     edge = Edge.create(edge_params)
     if edge.persisted?
       flash[:notice] = 'Relación registrada correctamente'
-      redirect_to campaign_path(edge.campaign)
+      redirect_to campaign_network_path(campaign_id: edge.campaign_id, id: edge.network.id)
     else
       errors = edge.errors.full_messages.join(',')
       flash[:error] = "Error registrando la relación: #{errors}"
@@ -55,6 +56,10 @@ class EdgesController < ApplicationController
   private
 
   def edge_params
-    params.require(:edge).permit(:from_id, :to_id, :campaign_id)
+    params.require(:edge).permit(:from_id, :to_id, :network_id)
+  end
+
+  def assign_campaign
+    @campaign = Campaign.find(params[:campaign_id])
   end
 end

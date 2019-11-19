@@ -1,1 +1,0 @@
-document.getElementById("postForm").innerHTML = ''
