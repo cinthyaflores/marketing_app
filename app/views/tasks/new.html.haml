@@ -1,4 +1,5 @@
 %h1 New task
 
-= render 'form'
+= simple_form_for(@task, url: post_tasks_path(@post)) do |f|
+  = render 'form', f: f
 

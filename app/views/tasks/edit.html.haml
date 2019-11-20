@@ -1,7 +1,7 @@
+= link_to 'Volver a publicación', post_path(@post), class: 'btn btn-primary'
+
 %h1 Editing task
 
-= render 'form'
+= simple_form_for(@task, url: post_task_path(id: @task.id, post_id: @post.id), method: :put) do |f|
+  = render 'form', f: f
 
-= link_to 'Show', @task
-\|
-= link_to 'Back', tasks_path
