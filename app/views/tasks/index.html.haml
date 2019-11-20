@@ -1,0 +1,6 @@
+.row
+  = link_to 'Volver a publicaciones de la campaña', campaign_posts_path(@post.node.campaign_id), class: 'btn btn-primary'
+  = link_to 'Añadir task', new_post_task_path(@post), class: 'btn btn-primary'
+
+
+= render partial: 'task_card', collection: @tasks, as: :task

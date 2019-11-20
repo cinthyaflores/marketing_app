@@ -109,6 +109,29 @@
 #                        campaign_posts GET    /campaigns/:campaign_id/posts(.:format)                                                  posts#index
 #                     new_campaign_post GET    /campaigns/:campaign_id/posts/new(.:format)                                              posts#new
 #                                       GET    /campaigns(.:format)                                                                     campaigns#index
+#                                       POST   /campaigns(.:format)                                                                     campaigns#create
+#                                       GET    /campaigns/new(.:format)                                                                 campaigns#new
+#                                       GET    /campaigns/:id/edit(.:format)                                                            campaigns#edit
+#                                       GET    /campaigns/:id(.:format)                                                                 campaigns#show
+#                                       PATCH  /campaigns/:id(.:format)                                                                 campaigns#update
+#                                       PUT    /campaigns/:id(.:format)                                                                 campaigns#update
+#                                       DELETE /campaigns/:id(.:format)                                                                 campaigns#destroy
+#                            post_tasks GET    /posts/:post_id/tasks(.:format)                                                          tasks#index
+#                                       POST   /posts/:post_id/tasks(.:format)                                                          tasks#create
+#                         new_post_task GET    /posts/:post_id/tasks/new(.:format)                                                      tasks#new
+#                        edit_post_task GET    /posts/:post_id/tasks/:id/edit(.:format)                                                 tasks#edit
+#                             post_task GET    /posts/:post_id/tasks/:id(.:format)                                                      tasks#show
+#                                       PATCH  /posts/:post_id/tasks/:id(.:format)                                                      tasks#update
+#                                       PUT    /posts/:post_id/tasks/:id(.:format)                                                      tasks#update
+#                                       DELETE /posts/:post_id/tasks/:id(.:format)                                                      tasks#destroy
+#                                       GET    /posts(.:format)                                                                         posts#index
+#                                       POST   /posts(.:format)                                                                         posts#create
+#                              new_post GET    /posts/new(.:format)                                                                     posts#new
+#                                       GET    /posts/:id/edit(.:format)                                                                posts#edit
+#                                       GET    /posts/:id(.:format)                                                                     posts#show
+#                                       PATCH  /posts/:id(.:format)                                                                     posts#update
+#                                       PUT    /posts/:id(.:format)                                                                     posts#update
+#                                       DELETE /posts/:id(.:format)                                                                     posts#destroy
 #                                 edges POST   /edges(.:format)                                                                         edges#create
 #                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
 #                                       PUT    /edges/:id(.:format)                                                                     edges#update
@@ -156,9 +179,14 @@ Rails.application.routes.draw do
 
   resources :posts, except: %i[index new]
 
-  resources :campaigns, only: %i[index] do
+  resources :campaigns do
     resources :posts, only: %i[index new]
   end
+
+  resources :posts do
+    resources :tasks
+  end
+
   resources :edges, only: %i[create update destroy]
 
   root 'landing_page#index'

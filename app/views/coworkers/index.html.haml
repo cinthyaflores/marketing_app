@@ -1,5 +1,5 @@
 .row
-  = link_to 'Volver a red semántica', network_path(id: @campaign.network), class: 'btn btn-primary'
+  = link_to 'Volver a campaña', campaign_path(@campaign), class: 'btn btn-primary col-4'
   = link_to 'Añadir colaborador', new_campaign_coworker_path(@campaign), class: 'btn btn-primary col'
 
 .row

@@ -15,5 +15,7 @@
 class Post < ApplicationRecord
   belongs_to :node
   has_one_attached :content
+  has_many :tasks
+
   validates :title, presence: true
 end
