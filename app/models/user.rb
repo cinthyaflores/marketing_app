@@ -30,6 +30,7 @@ class User < ApplicationRecord
 
   belongs_to :company
   has_many :campaigns, foreign_key: 'manager_id'
+  has_many :tasks
 
   devise :database_authenticatable, :recoverable, :invitable, validate_on_invite: true
 
@@ -58,7 +59,15 @@ class User < ApplicationRecord
                     }
 
   scope :community_managers, -> { where(roles_mask: 4) }
-
+  scope :possible_coworkers, lambda { |campaign_id|
+    joins("LEFT JOIN (SELECT * FROM coworkers
+                               WHERE coworkers.campaign_id = #{campaign_id})
+                               as cw on cw.user_id = users.id")
+      .where('users.roles_mask = 8
+      OR roles_mask = 16
+      OR roles_mask = 24')
+      .where('cw.user_id IS NULL')
+  }
   validates :email, :name, presence: true
   validates :email, format: { with: VALID_EMAIL_REGEX }
 

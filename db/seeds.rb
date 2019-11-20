@@ -56,18 +56,13 @@ tennis_campaign = Campaign.create_or_find_by!(name: 'Tennis Max Air',
                                               image: Rack::Test::UploadedFile.new('test/fixtures/files/example.jpg', 'image/jpg'))
 
 Coworker.create_or_find_by!(user_id: content_creator.id,
-                            campaign_id: tennis_campaign.id,
-                            role: 1)
+                            campaign_id: tennis_campaign.id)
 
 Coworker.create_or_find_by!(user_id: designer.id,
-                            campaign_id: tennis_campaign.id,
-                            role: 2)
+                            campaign_id: tennis_campaign.id)
 Coworker.create_or_find_by!(user_id: content_creator.id,
-                            campaign_id: tennis_campaign.id,
-                            role: 1)
+                            campaign_id: tennis_campaign.id)
 Coworker.create_or_find_by!(user_id: content_creator.id,
-                            campaign_id: tennis_campaign.id,
-                            role: 1)
+                            campaign_id: tennis_campaign.id)
 Coworker.create_or_find_by!(user_id: content_creator.id,
-                            campaign_id: tennis_campaign.id,
-                            role: 1)
+                            campaign_id: tennis_campaign.id)

@@ -3,5 +3,5 @@
     %h5.card-title #{node.id}
     %p.card-text Título: #{node.label}
     %h6 Registrado el: #{node.created_at}
-    = link_to 'Eliminar', campaign_node_path(id: node.id, campaign_id: node.campaign_id), class: 'btn btn-danger', method: :delete
-    = link_to 'Editar', edit_campaign_node_path(id: node.id, campaign_id: node.campaign_id), class: 'btn btn-secondary'
+    = link_to 'Eliminar', network_node_path(id: node.id, network_id: node.network_id), class: 'btn btn-danger', method: :delete
+    = link_to 'Editar', edit_network_node_path(id: node.id, network_id: node.network_id), class: 'btn btn-secondary'

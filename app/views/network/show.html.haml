@@ -1,0 +1,13 @@
+.row
+  = link_to 'Volver a campaña', campaign_path(@campaign), class: 'btn btn-primary'
+
+.row
+  = link_to 'Añadir nodo', new_network_node_path(@campaign.network.id), class: 'btn btn-primary col'
+  = link_to 'Añadir relación', new_network_edge_path(@campaign.network.id), class: 'btn btn-secondary col'
+  = link_to 'Editar nodos', network_nodes_path(@campaign.network.id), class: 'btn btn-primary col'
+  = link_to 'Editar relaciones', network_edges_path(@campaign.network.id), class: 'btn btn-secondary col'
+
+#network-container
+
+%input{type:'hidden', value: @nodes, id: 'nodes'}
+%input{type:'hidden', value: @edges, id: 'edges'}

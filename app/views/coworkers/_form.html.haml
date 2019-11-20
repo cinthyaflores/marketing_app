@@ -1,0 +1,4 @@
+= simple_form_for(@coworker, url: campaign_coworkers_path(campaign_id: @campaign.id, id: @coworker.id), method: :post) do |f|
+  = f.input :user_id, collection: User.possible_coworkers(@campaign.id).map{ |user| [user.name, user.id] }, label: 'Diseñador/generador de contenidos', include_blank: false, required: true
+  = f.input :campaign_id, value: @campaign.id, as: :hidden
+  = f.button :submit, 'Guardar'

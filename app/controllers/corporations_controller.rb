@@ -12,7 +12,8 @@ class CorporationsController < ApplicationController
     if corporation.persisted?
       flash[:notice] = 'La corporación fue registrada correctamente'
     else
-      flash[:error] = "Error registrando la corporación: #{corporation.errors.full_messages.join(',')}"
+      errors = corporation.errors.full_messages.join(',')
+      flash[:error] = "Error registrando la corporación: #{errors}"
     end
     redirect_to clients_path
   end

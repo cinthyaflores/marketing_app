@@ -1,6 +1,6 @@
 %h2 Nodos existentes
 
-= render partial: 'nodes/node', collection: @campaign.nodes, as: :node
+= render partial: 'nodes/node', collection: @network.nodes, as: :node
 
-= simple_form_for(@edge, url: campaign_edges_path(campaign_id: @campaign.id, id: @edge.id), method: :post) do |f|
+= simple_form_for(@edge, url: network_edges_path(network_id: @network), method: :post) do |f|
   = render 'form', f: f

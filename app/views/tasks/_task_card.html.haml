@@ -1,0 +1,12 @@
+.card.col-12.col-md-3
+  .card-body
+    %h5.card-title Identificador: #{task.id}
+    %h6.card-text Descripción: #{task.description}
+    %p.card-text Fecha de entrega: #{task.deadline}
+    %p.card-text Pertenece a: #{task.user.name}
+
+    = link_to 'Eliminar', post_task_path(id: task, post_id: @post), class: 'btn btn-danger', method: :delete
+    = link_to 'Editar', edit_post_task_path(id: task, post_id: @post), class: 'btn btn-secondary'
+    = link_to 'Ver', post_task_path(id: task, post_id: @post), class: 'btn btn-primary'
+
+

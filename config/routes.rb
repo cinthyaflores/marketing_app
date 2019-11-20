@@ -73,22 +73,6 @@
 #                                       PATCH  /corporations/:id(.:format)                                                              corporations#update
 #                                       PUT    /corporations/:id(.:format)                                                              corporations#update
 #                                       DELETE /corporations/:id(.:format)                                                              corporations#destroy
-#                        campaign_edges GET    /campaigns/:campaign_id/edges(.:format)                                                  edges#index
-#                                       POST   /campaigns/:campaign_id/edges(.:format)                                                  edges#create
-#                     new_campaign_edge GET    /campaigns/:campaign_id/edges/new(.:format)                                              edges#new
-#                    edit_campaign_edge GET    /campaigns/:campaign_id/edges/:id/edit(.:format)                                         edges#edit
-#                         campaign_edge GET    /campaigns/:campaign_id/edges/:id(.:format)                                              edges#show
-#                                       PATCH  /campaigns/:campaign_id/edges/:id(.:format)                                              edges#update
-#                                       PUT    /campaigns/:campaign_id/edges/:id(.:format)                                              edges#update
-#                                       DELETE /campaigns/:campaign_id/edges/:id(.:format)                                              edges#destroy
-#                        campaign_nodes GET    /campaigns/:campaign_id/nodes(.:format)                                                  nodes#index
-#                                       POST   /campaigns/:campaign_id/nodes(.:format)                                                  nodes#create
-#                     new_campaign_node GET    /campaigns/:campaign_id/nodes/new(.:format)                                              nodes#new
-#                    edit_campaign_node GET    /campaigns/:campaign_id/nodes/:id/edit(.:format)                                         nodes#edit
-#                         campaign_node GET    /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#show
-#                                       PATCH  /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#update
-#                                       PUT    /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#update
-#                                       DELETE /campaigns/:campaign_id/nodes/:id(.:format)                                              nodes#destroy
 #                    campaign_coworkers GET    /campaigns/:campaign_id/coworkers(.:format)                                              coworkers#index
 #                                       POST   /campaigns/:campaign_id/coworkers(.:format)                                              coworkers#create
 #                 new_campaign_coworker GET    /campaigns/:campaign_id/coworkers/new(.:format)                                          coworkers#new
@@ -97,22 +81,61 @@
 #                                       PATCH  /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#update
 #                                       PUT    /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#update
 #                                       DELETE /campaigns/:campaign_id/coworkers/:id(.:format)                                          coworkers#destroy
-#                campaign_network_index GET    /campaigns/:campaign_id/network(.:format)                                                network#index
-#                                       POST   /campaigns/:campaign_id/network(.:format)                                                network#create
-#                  new_campaign_network GET    /campaigns/:campaign_id/network/new(.:format)                                            network#new
-#                 edit_campaign_network GET    /campaigns/:campaign_id/network/:id/edit(.:format)                                       network#edit
-#                      campaign_network GET    /campaigns/:campaign_id/network/:id(.:format)                                            network#show
-#                                       PATCH  /campaigns/:campaign_id/network/:id(.:format)                                            network#update
-#                                       PUT    /campaigns/:campaign_id/network/:id(.:format)                                            network#update
-#                                       DELETE /campaigns/:campaign_id/network/:id(.:format)                                            network#destroy
 #                                       GET    /campaigns(.:format)                                                                     campaigns#index
 #                                       GET    /campaigns/:id(.:format)                                                                 campaigns#show
-#                            node_posts POST   /nodes/:node_id/posts(.:format)                                                          posts#create
-#                         new_node_post GET    /nodes/:node_id/posts/new(.:format)                                                      posts#new
-#                        edit_node_post GET    /nodes/:node_id/posts/:id/edit(.:format)                                                 posts#edit
-#                             node_post PATCH  /nodes/:node_id/posts/:id(.:format)                                                      posts#update
-#                                       PUT    /nodes/:node_id/posts/:id(.:format)                                                      posts#update
-#                                 nodes GET    /nodes(.:format)                                                                         nodes#index
+#                         network_edges GET    /network/:network_id/edges(.:format)                                                     edges#index
+#                                       POST   /network/:network_id/edges(.:format)                                                     edges#create
+#                      new_network_edge GET    /network/:network_id/edges/new(.:format)                                                 edges#new
+#                     edit_network_edge GET    /network/:network_id/edges/:id/edit(.:format)                                            edges#edit
+#                          network_edge GET    /network/:network_id/edges/:id(.:format)                                                 edges#show
+#                                       PATCH  /network/:network_id/edges/:id(.:format)                                                 edges#update
+#                                       PUT    /network/:network_id/edges/:id(.:format)                                                 edges#update
+#                                       DELETE /network/:network_id/edges/:id(.:format)                                                 edges#destroy
+#                         network_nodes GET    /network/:network_id/nodes(.:format)                                                     nodes#index
+#                                       POST   /network/:network_id/nodes(.:format)                                                     nodes#create
+#                      new_network_node GET    /network/:network_id/nodes/new(.:format)                                                 nodes#new
+#                     edit_network_node GET    /network/:network_id/nodes/:id/edit(.:format)                                            nodes#edit
+#                          network_node GET    /network/:network_id/nodes/:id(.:format)                                                 nodes#show
+#                                       PATCH  /network/:network_id/nodes/:id(.:format)                                                 nodes#update
+#                                       PUT    /network/:network_id/nodes/:id(.:format)                                                 nodes#update
+#                                       DELETE /network/:network_id/nodes/:id(.:format)                                                 nodes#destroy
+#                               network GET    /network/:id(.:format)                                                                   network#show
+#                                 posts POST   /posts(.:format)                                                                         posts#create
+#                             edit_post GET    /posts/:id/edit(.:format)                                                                posts#edit
+#                                  post GET    /posts/:id(.:format)                                                                     posts#show
+#                                       PATCH  /posts/:id(.:format)                                                                     posts#update
+#                                       PUT    /posts/:id(.:format)                                                                     posts#update
+#                                       DELETE /posts/:id(.:format)                                                                     posts#destroy
+#                        campaign_posts GET    /campaigns/:campaign_id/posts(.:format)                                                  posts#index
+#                     new_campaign_post GET    /campaigns/:campaign_id/posts/new(.:format)                                              posts#new
+#                                       GET    /campaigns(.:format)                                                                     campaigns#index
+#                                       POST   /campaigns(.:format)                                                                     campaigns#create
+#                                       GET    /campaigns/new(.:format)                                                                 campaigns#new
+#                                       GET    /campaigns/:id/edit(.:format)                                                            campaigns#edit
+#                                       GET    /campaigns/:id(.:format)                                                                 campaigns#show
+#                                       PATCH  /campaigns/:id(.:format)                                                                 campaigns#update
+#                                       PUT    /campaigns/:id(.:format)                                                                 campaigns#update
+#                                       DELETE /campaigns/:id(.:format)                                                                 campaigns#destroy
+#                            post_tasks GET    /posts/:post_id/tasks(.:format)                                                          tasks#index
+#                                       POST   /posts/:post_id/tasks(.:format)                                                          tasks#create
+#                         new_post_task GET    /posts/:post_id/tasks/new(.:format)                                                      tasks#new
+#                        edit_post_task GET    /posts/:post_id/tasks/:id/edit(.:format)                                                 tasks#edit
+#                             post_task GET    /posts/:post_id/tasks/:id(.:format)                                                      tasks#show
+#                                       PATCH  /posts/:post_id/tasks/:id(.:format)                                                      tasks#update
+#                                       PUT    /posts/:post_id/tasks/:id(.:format)                                                      tasks#update
+#                                       DELETE /posts/:post_id/tasks/:id(.:format)                                                      tasks#destroy
+#                                       GET    /posts(.:format)                                                                         posts#index
+#                                       POST   /posts(.:format)                                                                         posts#create
+#                              new_post GET    /posts/new(.:format)                                                                     posts#new
+#                                       GET    /posts/:id/edit(.:format)                                                                posts#edit
+#                                       GET    /posts/:id(.:format)                                                                     posts#show
+#                                       PATCH  /posts/:id(.:format)                                                                     posts#update
+#                                       PUT    /posts/:id(.:format)                                                                     posts#update
+#                                       DELETE /posts/:id(.:format)                                                                     posts#destroy
+#                                 edges POST   /edges(.:format)                                                                         edges#create
+#                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
+#                                       PUT    /edges/:id(.:format)                                                                     edges#update
+#                                       DELETE /edges/:id(.:format)                                                                     edges#destroy
 #                                  root GET    /                                                                                        landing_page#index
 #         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
@@ -146,15 +169,24 @@ Rails.application.routes.draw do
   resources :corporations
 
   resources :campaigns, only: %i[index show] do
-    resources :edges
-    resources :nodes
     resources :coworkers
-    resources :network
   end
 
-  resources :nodes, only: %i[index] do
-    resources :posts, only: %i[new edit update create]
+  resources :network, only: :show do
+    resources :edges
+    resources :nodes
   end
+
+  resources :posts, except: %i[index new]
+
+  resources :campaigns do
+    resources :posts, only: %i[index new]
+  end
+
+  resources :posts do
+    resources :tasks
+  end
+
   resources :edges, only: %i[create update destroy]
 
   root 'landing_page#index'
