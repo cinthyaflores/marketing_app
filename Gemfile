@@ -21,6 +21,7 @@ gem 'rails', '~> 6.0.0'
 gem 'role_model'
 gem 'rubyzip', '>= 1.3.0'
 gem 'sass-rails', '~> 5'
+gem 'simple_calendar', '~> 2.0'
 gem 'scss_lint', require: false
 gem 'simple_form', '>= 5.0.0'
 gem 'turbolinks', '~> 5'

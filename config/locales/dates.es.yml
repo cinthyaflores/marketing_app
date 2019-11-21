@@ -1,0 +1,63 @@
+es:
+  time:
+    am: am
+    pm: pm
+    formats:
+      month: '%B'
+      word: '%d de %b'
+      full_with_timezone: '%A %d de %B a las %I:%M %p (%Z)'
+      full: '%A %d de %B a las %I:%M %p'
+      time: '%I:%M %p'
+      full_start_date: '%d de %B %Y'
+  date:
+    abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mié
+      - jue
+      - vie
+      - sáb
+    abbr_month_names:
+      -
+      - Ene
+      - Feb
+      - Mar
+      - Abr
+      - May
+      - Jun
+      - Jul
+      - Ago
+      - Sep
+      - Oct
+      - Nov
+      - Dic
+    day_names:
+      - Domingo
+      - Lunes
+      - Martes
+      - Miércoles
+      - Jueves
+      - Viernes
+      - Sábado
+    formats:
+      default: '%-d/%-m/%Y'
+      long: '%-d de %B de %Y'
+      short: '%-d de %b'
+    month_names:
+      - Enero
+      - Febrero
+      - Marzo
+      - Abril
+      - Mayo
+      - Junio
+      - Julio
+      - Agosto
+      - Septiembre
+      - Octubre
+      - Noviembre
+      - Diciembre
+    order:
+      - :day
+      - :month
+      - :year
