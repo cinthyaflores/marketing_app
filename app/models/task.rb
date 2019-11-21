@@ -19,6 +19,7 @@
 class Task < ApplicationRecord
   belongs_to :post
   belongs_to :user
+  has_many :comments
   has_one_attached :visual
 
   validates :category, presence: true

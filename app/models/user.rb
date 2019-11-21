@@ -31,6 +31,7 @@ class User < ApplicationRecord
   belongs_to :company
   has_many :campaigns, foreign_key: 'manager_id'
   has_many :tasks
+  has_many :comments
 
   devise :database_authenticatable, :recoverable, :invitable, validate_on_invite: true
 
