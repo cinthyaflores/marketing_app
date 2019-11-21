@@ -140,13 +140,7 @@
 #                                       PATCH  /my_tasks/:id(.:format)                                                                  my_tasks#update
 #                                       PUT    /my_tasks/:id(.:format)                                                                  my_tasks#update
 #                                       DELETE /my_tasks/:id(.:format)                                                                  my_tasks#destroy
-#                          new_calendar GET    /calendar/new(.:format)                                                                  calendars#new
-#                         edit_calendar GET    /calendar/edit(.:format)                                                                 calendars#edit
 #                              calendar GET    /calendar(.:format)                                                                      calendars#show
-#                                       PATCH  /calendar(.:format)                                                                      calendars#update
-#                                       PUT    /calendar(.:format)                                                                      calendars#update
-#                                       DELETE /calendar(.:format)                                                                      calendars#destroy
-#                                       POST   /calendar(.:format)                                                                      calendars#create
 #                                 edges POST   /edges(.:format)                                                                         edges#create
 #                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
 #                                       PUT    /edges/:id(.:format)                                                                     edges#update
@@ -203,7 +197,7 @@ Rails.application.routes.draw do
   end
 
   resources :my_tasks
-  resource :calendar
+  resource :calendar, only: :show
 
   resources :edges, only: %i[create update destroy]
 

@@ -23,7 +23,10 @@ class Task < ApplicationRecord
 
   validates :category, presence: true
 
-  enum category: {content:0, visual: 1}
+  alias_attribute :start_time, :deadline
+  alias_attribute :start_date, :deadline
+
+  enum category: { content: 0, visual: 1 }
   enum status: %i[planned in_progress completed approved]
 
   scope :by_user, ->(user_id) { where(user_id: user_id) }
