@@ -2,7 +2,9 @@
 
 class TasksController < ApplicationController
   before_action :assign_task, only: %i[show edit update destroy]
-  before_action :assign_post, only: %i[new index create destroy]
+  before_action :assign_post, only: %i[new index create destroy edit update]
+  before_action :assign_coworkers, only: %i[new edit]
+  before_action :sanitize_task_params, only: %i[create update]
 
   def index
     @tasks = @post.tasks
@@ -12,7 +14,6 @@ class TasksController < ApplicationController
 
   def new
     @task = @post.tasks.new
-    @coworkers = Campaign.find(@post.node.campaign_id).coworkers
   end
 
   def create
@@ -52,7 +53,15 @@ class TasksController < ApplicationController
     @post = Post.find(params[:post_id])
   end
 
+  def assign_coworkers
+    @coworkers = Campaign.find(@post.node.campaign_id).coworkers
+  end
+
+  def sanitize_task_params
+    params[:task][:category] = params[:task][:category].to_i
+  end
+
   def task_params
-    params.require(:task).permit(:description, :deadline, :user_id, :post_id)
+    params.require(:task).permit(:description, :deadline, :user_id, :post_id, :category)
   end
 end

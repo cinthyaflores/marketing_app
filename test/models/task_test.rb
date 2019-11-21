@@ -11,6 +11,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  post_id     :bigint           not null
+#  category    :integer          default("content")
+#  status      :integer          default("planned")
+#  content     :string
 #
 
 require 'test_helper'
