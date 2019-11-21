@@ -197,7 +197,7 @@ Rails.application.routes.draw do
     resources :tasks
   end
 
-  resources :my_tasks
+  resources :my_tasks, except: %i[update]
   resource :calendar, only: :show
   resource :comments, only: :create
 

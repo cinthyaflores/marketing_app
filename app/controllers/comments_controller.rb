@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     else
       flash[:error] = 'Comentario was unsuccessfully created.'
     end
-    redirect_to request.env["HTTP_REFERER"]
+    redirect_to request.env['HTTP_REFERER']
   end
 
   private
