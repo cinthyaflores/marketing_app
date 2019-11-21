@@ -3,5 +3,13 @@
 %p
   %b Description:
   = @task.description
+  -# TODO: poner todos los elementos de la tarea
+  = link_to 'Edit', edit_post_task_path(post_id: @task.post, id: @task)
 
-= link_to 'Edit', edit_post_task_path(post_id: @task.post, id: @task)
+- if @task.completed?
+  = link_to 'Aprobar tarea', approve_task_path(@task.id), class: 'btn btn-success', method: :put
+
+- if @task.approved?
+  = link_to 'Migrar tarea a publicación', migrate_task_path(@task.id), class: 'btn btn-success', method: :put
+
+= render 'comments/index', comments: @task.comments, task: @task

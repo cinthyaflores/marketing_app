@@ -137,11 +137,13 @@
 #                           new_my_task GET    /my_tasks/new(.:format)                                                                  my_tasks#new
 #                          edit_my_task GET    /my_tasks/:id/edit(.:format)                                                             my_tasks#edit
 #                               my_task GET    /my_tasks/:id(.:format)                                                                  my_tasks#show
-#                                       PATCH  /my_tasks/:id(.:format)                                                                  my_tasks#update
-#                                       PUT    /my_tasks/:id(.:format)                                                                  my_tasks#update
 #                                       DELETE /my_tasks/:id(.:format)                                                                  my_tasks#destroy
+#                          migrate_task PATCH  /migrate_task/:id(.:format)                                                              migrate_task#update
+#                                       PUT    /migrate_task/:id(.:format)                                                              migrate_task#update
+#                          approve_task PATCH  /approve_task/:id(.:format)                                                              approve_task#update
+#                                       PUT    /approve_task/:id(.:format)                                                              approve_task#update
 #                              calendar GET    /calendar(.:format)                                                                      calendars#show
-#                               comment POST   /comment(.:format)                                                                       comments#create
+#                              comments POST   /comments(.:format)                                                                      comments#create
 #                                 edges POST   /edges(.:format)                                                                         edges#create
 #                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
 #                                       PUT    /edges/:id(.:format)                                                                     edges#update
@@ -198,6 +200,8 @@ Rails.application.routes.draw do
   end
 
   resources :my_tasks, except: %i[update]
+  resources :migrate_task, only: :update
+  resources :approve_task, only: :update
   resource :calendar, only: :show
   resource :comments, only: :create
 

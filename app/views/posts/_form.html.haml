@@ -1,6 +1,6 @@
 = simple_form_for(@post) do |f|
   = f.input :node_id, collection: @campaign_nodes.map{ |node| [node.label, node.id] }, label: 'Nodo', include_blank: false, required: true
   = f.input :title, placeholder: 'Nuevos tennis Max Air', label: 'Nombre de la publicación', required: true
-  = f.input :body, placeholder: 'Los nuevos Max Air cuentan con ....', label: 'Contenido de publicación', required: true
-  = f.input :content, as: :file, label: 'Contenido visual'
+  -# = f.input :body, placeholder: 'Los nuevos Max Air cuentan con ....', label: 'Contenido de publicación', required: true
+  -# = f.input :content, as: :file, label: 'Contenido visual'
   = f.button :submit, 'Guardar'

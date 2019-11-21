@@ -2,5 +2,11 @@
   = link_to 'Volver a publicaciones de la campaña', campaign_posts_path(@post.node.campaign_id), class: 'btn btn-primary'
   = link_to 'Añadir task', new_post_task_path(@post), class: 'btn btn-primary'
 
+%h4 Tareas pendientes
+= render partial: 'task_card', collection: @not_finished_tasks, as: :task
 
-= render partial: 'task_card', collection: @tasks, as: :task
+%h4 Tareas terminadas
+= render partial: 'task_card', collection: @finished_tasks, as: :task
+
+%h4 Tareas aprobadas
+= render partial: 'task_card', collection: @approved_tasks, as: :task

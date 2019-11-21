@@ -5,6 +5,13 @@
 
 = link_to 'Agregar tarea', new_post_task_path(@post), class: 'btn btn-primary'
 
-%h4 Tareas
+%h3 Tareas
 
-= render partial: 'tasks/task_card', collection: @post.tasks, as: :task
+%h4 Tareas pendientes
+= render partial: 'tasks/task_card', collection: @not_finished_tasks, as: :task
+
+%h4 Tareas terminadas
+= render partial: 'tasks/task_card', collection: @finished_tasks, as: :task
+
+%h4 Tareas aprobadas
+= render partial: 'tasks/task_card', collection: @approved_tasks, as: :task

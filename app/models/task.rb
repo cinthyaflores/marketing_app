@@ -31,4 +31,5 @@ class Task < ApplicationRecord
   enum status: %i[planned in_progress completed approved]
 
   scope :by_user, ->(user_id) { where(user_id: user_id) }
+  scope :not_finished, -> { where(status: [0, 1]) }
 end

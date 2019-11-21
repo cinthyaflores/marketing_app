@@ -7,10 +7,10 @@ class TasksController < ApplicationController
   before_action :sanitize_task_params, only: %i[create update]
 
   def index
-    @tasks = @post.tasks
+    @not_finished_tasks = @post.tasks.not_finished
+    @finished_tasks = @post.tasks.completed
+    @approved_tasks = @post.tasks.approved
   end
-
-  def show; end
 
   def new
     @task = @post.tasks.new
