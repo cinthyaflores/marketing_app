@@ -141,6 +141,7 @@
 #                                       PUT    /my_tasks/:id(.:format)                                                                  my_tasks#update
 #                                       DELETE /my_tasks/:id(.:format)                                                                  my_tasks#destroy
 #                              calendar GET    /calendar(.:format)                                                                      calendars#show
+#                               comment POST   /comment(.:format)                                                                       comments#create
 #                                 edges POST   /edges(.:format)                                                                         edges#create
 #                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
 #                                       PUT    /edges/:id(.:format)                                                                     edges#update
@@ -198,6 +199,7 @@ Rails.application.routes.draw do
 
   resources :my_tasks
   resource :calendar, only: :show
+  resource :comments, only: :create
 
   resources :edges, only: %i[create update destroy]
 
