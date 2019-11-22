@@ -1,3 +1,3 @@
-= f.input :label, placeholder: 'Diseño aerodinámico', label: 'Nombre del nodo', required: true
-= f.input :network_id, value: @node.network_id, as: :hidden
-= f.button :submit, 'Guardar'
+= f.field_with_label :label, placeholder: 'Diseño aerodinámico', required: true
+= f.hidden_field :network_id, value: @node.network_id
+= f.submit 'Guardar', class: 'button is-primary'

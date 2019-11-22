@@ -1,7 +1,9 @@
-.card.w-300px
-  .card-body
-    %h5.card-title #{campaign.name}
-    %h6 Community manager: #{campaign.manager.name}
-    %p.text-bold Producto: #{campaign.product}
-    %p.card-text #{campaign.objective}
-    = link_to 'Ver', campaign_path(campaign), class: 'btn btn-primary'
+.column.is-one-third
+  .card
+    .card-content
+      %h5 #{campaign.name}
+      %h6 Community manager: #{campaign.manager.name}
+      %p Producto: #{campaign.product}
+      %p #{campaign.objective}
+    .card-footer.justify-content-end.p-10px
+      = link_to 'Ver', campaign_path(campaign), class: 'button is-info'

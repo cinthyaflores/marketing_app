@@ -1,7 +1,9 @@
-.card.w-300px
-  .card-body
-    %h5.card-title #{node.id}
-    %p.card-text Título: #{node.label}
-    %h6 Registrado el: #{node.created_at}
-    = link_to 'Eliminar', network_node_path(id: node.id, network_id: node.network_id), class: 'btn btn-danger', method: :delete
-    = link_to 'Editar', edit_network_node_path(id: node.id, network_id: node.network_id), class: 'btn btn-secondary'
+.column.is-one-third
+  .card
+    .card-content
+      %h5 Identificador: #{node.id}
+      %p Título: #{node.label}
+      %h6 Registrado el: #{node.created_at}
+    .card-footer.justify-content-end.p-10px
+      = link_to 'Eliminar', network_node_path(id: node.id, network_id: node.network_id), class: 'button is-danger', method: :delete
+      = link_to 'Editar', edit_network_node_path(id: node.id, network_id: node.network_id), class: 'button is-info ml-5px'

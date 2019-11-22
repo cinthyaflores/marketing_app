@@ -1,6 +1,7 @@
-%h1.title.is-1 Usuarios
+%h3 Usuarios
 
-= link_to 'Agregar usuario', new_user_path, class: 'btn btn-primary'
+= link_to 'Agregar usuario', new_user_path, class: 'button mb-10px'
 
-= render partial: 'user_card', collection: @users, as: :user
+.columns.is-multiline
+  = render partial: 'user_card', collection: @users, as: :user
 

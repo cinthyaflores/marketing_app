@@ -1,7 +1,5 @@
-%h1 Editing task
+%h3 Editando tarea
 
-= render 'form'
+= form_for(@task, url: post_task_path(post_id: @task.post_id, id: @task), method: :put) do |f|
+  = render 'form', f: f
 
-= link_to 'Show', @task
-\|
-= link_to 'Back', tasks_path

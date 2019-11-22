@@ -19,21 +19,8 @@ default: &default
   # Extract and emit a css file
   extract_css: false
 
-  static_assets_extensions:
-    - .jpg
-    - .jpeg
-    - .png
-    - .gif
-    - .tiff
-    - .ico
-    - .svg
-    - .eot
-    - .otf
-    - .ttf
-    - .woff
-    - .woff2
-
   extensions:
+    - .erb
     - .mjs
     - .js
     - .sass

@@ -62,17 +62,11 @@ GEM
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 13.0)
     ast (2.4.0)
-    autoprefixer-rails (9.6.1.1)
-      execjs
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bootstrap (4.1.3)
-      autoprefixer-rails (>= 6.0.3)
-      popper_js (>= 1.12.9, < 2)
-      sass (>= 3.5.2)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.29.0)
@@ -102,7 +96,6 @@ GEM
     digest-crc (0.4.1)
     erubi (1.9.0)
     erubis (2.7.0)
-    execjs (2.7.0)
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
@@ -196,7 +189,6 @@ GEM
     parser (2.6.4.1)
       ast (~> 2.4.0)
     pg (1.1.4)
-    popper_js (1.14.5)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -283,9 +275,6 @@ GEM
       faraday (~> 0.9)
       jwt (>= 1.5, < 3.0)
       multi_json (~> 1.10)
-    simple_form (5.0.0)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -337,7 +326,6 @@ DEPENDENCIES
   annotate
   awesome_print
   bootsnap (>= 1.4.2)
-  bootstrap (~> 4.1.0)
   byebug
   capybara (>= 2.15)
   devise
@@ -360,7 +348,6 @@ DEPENDENCIES
   sass-rails (~> 5)
   scss_lint
   selenium-webdriver
-  simple_form (>= 5.0.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

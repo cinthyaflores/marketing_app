@@ -1,0 +1,13 @@
+es:
+  helpers:
+    label:
+      post:
+        node_id: Nodo al que pertenece
+        title: Título
+        body: Cuerpo de la publicación
+        content: Contenido visual
+    prompt:
+      models:
+        post:
+          attributes:
+            node_id: Selecciona el nodo

@@ -1,6 +1,10 @@
-.row
-  = link_to 'Volver a campaña', campaign_path(@campaign), class: 'btn btn-primary col-4'
-  = link_to 'Añadir colaborador', new_campaign_coworker_path(@campaign), class: 'btn btn-primary col'
+= link_to '< Volver a campaña', campaign_path(@campaign)
 
-.row
+%h3 Colaboradores
+
+.columns
+  .column
+    = link_to 'Añadir colaborador', new_campaign_coworker_path(@campaign), class: 'button mt-10px'
+
+.columns.is-multiline
   = render partial: 'coworker_card', collection: @coworkers, as: :coworker

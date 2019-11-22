@@ -1,7 +1,9 @@
-.card.w-300px
-  .card-body
-    %h5.card-title Identificador: #{edge.id}
-    %p.card-text De nodo: #{edge.from_id}
-    %p.card-text Al nodo: #{edge.to_id}
-    = link_to 'Eliminar', network_edge_path(id: edge.id, network_id: edge.network_id), class: 'btn btn-danger', method: :delete
-    = link_to 'Editar', edit_network_edge_path(id: edge.id, network_id: edge.network_id), class: 'btn btn-secondary'
+.column.is-one-third
+  .card
+    .card-content
+      %h5 Identificador: #{edge.id}
+      %p De nodo: #{edge.from_id}
+      %p Al nodo: #{edge.to_id}
+    .card-footer.justify-content-end.p-10px
+      = link_to 'Eliminar', network_edge_path(id: edge.id, network_id: edge.network_id), class: 'button is-danger', method: :delete
+      = link_to 'Editar', edit_network_edge_path(id: edge.id, network_id: edge.network_id), class: 'button is-info ml-5px'

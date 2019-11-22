@@ -1,0 +1,11 @@
+es:
+  helpers:
+    label:
+      task:
+        description: Descripción de la tarea
+        deadline: Fecha de entrega
+    prompt:
+      models:
+        task:
+          attributes:
+            user_id: Usuario al que se le asignará la tarea

@@ -1,5 +1,8 @@
-.row
-  = link_to 'Volver a campaña', campaign_path(@campaign), class: 'btn btn-primary col-4'
-  = link_to 'Nuevo post', new_campaign_post_path(@campaign), class: 'btn btn-primary col-4'
+= link_to '< Volver a campaña', campaign_path(@campaign)
 
-= render partial: 'post_card', collection: @posts, as: :post
+.columns
+  .column
+    = link_to 'Nuevo post', new_campaign_post_path(@campaign), class: 'button mt-10px'
+
+.columns.is-multiline
+  = render partial: 'post_card', collection: @posts, as: :post
