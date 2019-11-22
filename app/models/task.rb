@@ -28,7 +28,7 @@ class Task < ApplicationRecord
   alias_attribute :start_date, :deadline
 
   enum category: { content: 0, visual: 1 }
-  enum status: %i[planned in_progress completed approved]
+  enum status: { planned: 0, in_progress: 1, completed: 2, approved: 3 }
 
   scope :by_user, ->(user_id) { where(user_id: user_id) }
   scope :not_finished, -> { where(status: [0, 1]) }
