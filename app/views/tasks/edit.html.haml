@@ -1,7 +1,5 @@
-= link_to 'Volver a publicación', post_path(@post), class: 'btn btn-primary'
+%h3 Editando tarea
 
-%h1 Editing task
-
-= simple_form_for(@task, url: post_task_path(id: @task.id, post_id: @post.id), method: :put) do |f|
+= form_for(@task, url: post_task_path(post_id: @task.post_id, id: @task), method: :put) do |f|
   = render 'form', f: f
 

@@ -1,0 +1,5 @@
+es:
+  helpers:
+    label:
+      node:
+        label: Nombre del nodo

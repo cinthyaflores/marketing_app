@@ -1,10 +1,21 @@
-= link_to 'Volver a publicaciones de la campaña', campaign_posts_path(@post.node.campaign_id), class: 'btn btn-primary'
+= link_to '< Volver a publicaciones de la campaña', campaign_posts_path(@post.node.campaign_id)
 
-%h5 #{@post.title}
-%p Contenido: #{@post.body}
+.columns
+  .column.is-one-quarter
+    %h5 Post (previsualización)
+    %h6.mb-0 Título:
+    %p #{@post.title}
+    %h6.mb-0 Contenido:
+    %p #{@post.body}
 
-= link_to 'Agregar tarea', new_post_task_path(@post), class: 'btn btn-primary'
+    = link_to 'Agregar tarea', new_post_task_path(@post), class: 'button mt-30px'
 
+  .column
+    %h4 Tareas
+    .columns.is-multiline
+      = render partial: 'tasks/task_card', collection: @post.tasks, as: :task
+
+-# TODO: fix this style
 %h3 Tareas
 
 %h4 Tareas pendientes

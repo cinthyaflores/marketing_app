@@ -1,2 +1,4 @@
-= simple_form_for(@node, url: network_nodes_path(network_id: @network), method: :post) do |f|
+%h3 Nuevo nodo
+
+= form_for(@node, url: network_nodes_path(network_id: @network), method: :post) do |f|
   = render 'form', f: f

@@ -1,4 +1,4 @@
-= f.input :from_id, collection: @network.nodes.map{ |node| [node.id, node.id] }, label: 'Nodo', include_blank: false, required: true
-= f.input :to_id, collection: @network.nodes.map{ |node| [node.id, node.id] }, label: 'Nodo', include_blank: false, required: true
-= f.input :network_id, value: @network.id, as: :hidden
-= f.button :submit, 'Guardar'
+= f.select_with_label :from_id, @network.nodes.map{ |node| [node.id, node.id] }, prompt: true, required: true
+= f.select_with_label :to_id, @network.nodes.map{ |node| [node.id, node.id] }, prompt: true, required: true
+= f.hidden_field :network_id, value: @network.id, as: :hidden
+= f.submit 'Guardar', class: 'button is-primary'

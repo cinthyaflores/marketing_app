@@ -1,0 +1,64 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900 !important;
+  margin: 20px 0 !important;
+}
+
+h1 {
+  font-size: 2rem !important;
+
+  @include for-tablet-up {
+    font-size: 3rem !important;
+  }
+}
+
+h2 {
+  font-size: 1.25rem !important;
+
+  @include for-tablet-up {
+    font-size: 2rem !important;
+  }
+}
+
+h3 {
+  font-size: 1.125rem !important;
+
+  @include for-tablet-up {
+    font-size: 1.5rem !important;
+  }
+}
+
+h4 {
+  font-size: 1.25rem !important;
+}
+
+h5 {
+  font-size: 1.125rem !important;
+}
+
+h6 {
+  font-size: 1rem !important;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100% !important;
+  white-space: nowrap;
+}
+
+.text-truncate-2-lines {
+  display: -webkit-box;
+  overflow: hidden;
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

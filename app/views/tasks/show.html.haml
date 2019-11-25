@@ -1,11 +1,13 @@
-%p#notice= notice
+%h5 Tarea: #{@task.id}
+%h6.mb-0 Descripción:
+%p #{@task.description}
+%h6.mb-0 Fecha de entrega:
+%p #{@task.deadline}
+%h6.mb-0 Pertenece a:
+%p #{@task.user.name}
 
-%p
-  %b Description:
-  = @task.description
-  -# TODO: poner todos los elementos de la tarea
-  = link_to 'Edit', edit_post_task_path(post_id: @task.post, id: @task)
-
+= link_to 'Editar', edit_post_task_path(post_id: @task.post, id: @task), class: 'button mt-30px'
+-# TODO style
 - if @task.completed?
   = link_to 'Aprobar tarea', approve_task_path(@task.id), class: 'btn btn-success', method: :put
 

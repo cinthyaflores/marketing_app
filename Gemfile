@@ -6,7 +6,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'bootstrap', '~> 4.1.0'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'font-awesome-rails'

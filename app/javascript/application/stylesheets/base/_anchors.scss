@@ -1,0 +1,11 @@
+a {
+  color: #587b7f !important;
+
+  &:hover {
+    color: #3f5b5e !important;
+  }
+
+  &:active {
+    font-weight: 900 !important;
+  }
+}

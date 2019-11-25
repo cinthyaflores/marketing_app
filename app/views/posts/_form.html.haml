@@ -1,6 +1,6 @@
-= simple_form_for(@post) do |f|
-  = f.input :node_id, collection: @campaign_nodes.map{ |node| [node.label, node.id] }, label: 'Nodo', include_blank: false, required: true
-  = f.input :title, placeholder: 'Nuevos tennis Max Air', label: 'Nombre de la publicación', required: true
-  -# = f.input :body, placeholder: 'Los nuevos Max Air cuentan con ....', label: 'Contenido de publicación', required: true
-  -# = f.input :content, as: :file, label: 'Contenido visual'
-  = f.button :submit, 'Guardar'
+= form_for(@post) do |f|
+  = f.select_with_label :node_id, @campaign_nodes.map{ |node| [node.label, node.id] }, prompt: true, required: true
+  = f.field_with_label :title, placeholder: 'Nuevos tennis Max Air', required: true
+  = f.field_with_label :body, placeholder: 'Los nuevos Max Air cuentan con ....', required: true
+  = f.field_with_label :content, type: :file_field
+  = f.submit 'Guardar', class: 'button is-primary'

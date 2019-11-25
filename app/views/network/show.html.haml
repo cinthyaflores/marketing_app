@@ -1,13 +1,13 @@
-.row
-  = link_to 'Volver a campaña', campaign_path(@campaign), class: 'btn btn-primary'
+= link_to '< Volver a campaña', campaign_path(@campaign)
 
-.row
-  = link_to 'Añadir nodo', new_network_node_path(@campaign.network.id), class: 'btn btn-primary col'
-  = link_to 'Añadir relación', new_network_edge_path(@campaign.network.id), class: 'btn btn-secondary col'
-  = link_to 'Editar nodos', network_nodes_path(@campaign.network.id), class: 'btn btn-primary col'
-  = link_to 'Editar relaciones', network_edges_path(@campaign.network.id), class: 'btn btn-secondary col'
+.columns.mt-30px
+  .column
+    = link_to 'Añadir nodo', new_network_node_path(@campaign.network.id), class: 'button mb-10px w-100'
+    = link_to 'Añadir relación', new_network_edge_path(@campaign.network.id), class: 'button mb-10px w-100'
+    = link_to 'Editar nodos', network_nodes_path(@campaign.network.id), class: 'button mb-10px w-100'
+    = link_to 'Editar relaciones', network_edges_path(@campaign.network.id), class: 'button mb-10px w-100'
 
-#network-container
+  #network-container.b-1px-gray.column.is-four-fifths
 
 %input{type:'hidden', value: @nodes, id: 'nodes'}
 %input{type:'hidden', value: @edges, id: 'edges'}

@@ -1,32 +1,24 @@
-%h1
-  = @campaign.name
+%h2 Campaña: #{@campaign.name}
 
-.row
-  .col
-    Objetivo:
-    %p=@campaign.objective
+.columns
+  .column.is-two-fifths
+    = link_to 'Administrar red semántica', network_path(@campaign.network), class: 'button mb-10px w-100'
+    = link_to 'Administrar colaboradores de la campaña', campaign_coworkers_path(@campaign), class: 'button mb-10px w-100'
+    = link_to 'Administrar publicaciones', campaign_posts_path(campaign_id: @campaign), class: 'button mb-10px w-100'
 
-  .col
-    Fecha de inicio:
-    %p=@campaign.start_date
-
-  .col
-    Fecha de termino:
-    %p=@campaign.end_date
-
-  .col
-    Tipo de campaña:
-    %p=@campaign.campaign_type
-
-  .col
-    Producto:
-    %p=@campaign.product
-
-.row
-  = link_to 'Administrar red semántica', network_path(@campaign.network), class: 'btn btn-primary col'
-
-.row
-  = link_to 'Administrar colaboradores de la campaña', campaign_coworkers_path(@campaign), class: 'btn btn-primary col'
-
-.row
-  = link_to 'Administrar publicaciones', campaign_posts_path(campaign_id: @campaign), class: 'btn btn-primary col'
+  .column
+    .mb-10px
+      %h6.m-0 Objetivo:
+      %p=@campaign.objective
+    .mb-10px
+      %h6.m-0 Fecha de inicio:
+      %p=@campaign.start_date
+    .mb-10px
+      %h6.m-0 Fecha de termino:
+      %p=@campaign.end_date
+    .mb-10px
+      %h6.m-0 Tipo de campaña:
+      %p=@campaign.campaign_type
+    .mb-10px
+      %h6.m-0 Producto:
+      %p=@campaign.product

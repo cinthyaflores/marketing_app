@@ -1,0 +1,10 @@
+es:
+  helpers:
+    label:
+      coworker:
+        user_id: Usuario
+    prompt:
+      models:
+        coworker:
+          attributes:
+            user_id: Selecciona el compañero de trabajo

@@ -1,0 +1,12 @@
+es:
+  helpers:
+    label:
+      edge:
+        from_id: Nodo 1
+        to_id: Nodo 2
+    prompt:
+      models:
+        edge:
+          attributes:
+            from_id: Del nodo
+            to_id: Al nodo

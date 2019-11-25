@@ -1,6 +1,10 @@
-%h2 Nodos existentes
+%h3 Nueva relación
 
-= render partial: 'nodes/node', collection: @network.nodes, as: :node
+.columns
+  .column
+    = form_for(@edge, url: network_edges_path(network_id: @network), method: :post) do |f|
+      = render 'form', f: f
 
-= simple_form_for(@edge, url: network_edges_path(network_id: @network), method: :post) do |f|
-  = render 'form', f: f
+  .column.b-1px-gray
+    %h5 Nodos existentes
+    = render partial: 'nodes/node', collection: @network.nodes, as: :node

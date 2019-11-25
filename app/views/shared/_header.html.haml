@@ -1,15 +1,18 @@
-%nav.navbar.navbar-expand-lg.navbar-light.bg-light{"aria-label" => "main navigation", :role => "navigation"}
-  %a.navbar-brand{:href => "/"}
-    = image_tag  "logo.png", height: 50, width: 50
+%nav.navbar.bg-yellow{role: 'navigation', 'aria-label': 'main navigation'}
+  .container
+    .navbar-brand
+      = link_to image_tag(asset_pack_path('media/application/images/logo.png')), '/', class: 'navbar-item', height: 50, width: 50
+      %a#burger-menu.navbar-burger.burger{'aria-expanded': 'false', 'aria-label': 'menu', 'data-target': 'navbar', role: 'button'}
+        %span{'aria-hidden': 'true'}
+        %span{'aria-hidden': 'true'}
+        %span{'aria-hidden': 'true'}
 
-  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
 
-  #navbarSupportedContentcollapse.navbar-collapse
-    %ul.navbar-nav.ml-auto
-      - if current_user
-        - header_items(current_user).each do |item|
-          %li.navbar-item
-            = link_to item[:title], item[:path], class: 'nav-link'
-        %li.navbar-item
-          = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary'
+    #navbar.navbar-menu.bg-yellow.text-align-right
+      .navbar-end
+        - if current_user
+          - header_items(current_user).each do |item|
+            .navbar-item
+              = link_to item[:title], item[:path]
+          .navbar-item
+            = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary'

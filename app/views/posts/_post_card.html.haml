@@ -1,9 +1,11 @@
-.card.col-12.col-md-3
-  .card-body
-    %h5.card-title Identificador: #{post.id}
-    %h6.card-text Título: #{post.title}
-    %p.card-text Contenido: #{post.body}
-    %p.card-text Pertenece al nodo: #{post.node_id}
-    = link_to 'Eliminar', post_path(post), class: 'btn btn-danger', method: :delete
-    = link_to 'Editar', edit_post_path(post), class: 'btn btn-secondary'
-    = link_to 'Ver', post_path(post), class: 'btn btn-primary'
+.column.is-one-third
+  .card
+    .card-content
+      %h5 Identificador: #{post.id}
+      %h6 Título: #{post.title}
+      %p Contenido: #{post.body}
+      %p Pertenece al nodo: #{post.node_id}
+    .card-footer.justify-content-end.p-10px
+      = link_to 'Eliminar', post_path(post), class: 'button is-danger', method: :delete
+      = link_to 'Editar', edit_post_path(post), class: 'button is-info ml-5px'
+      = link_to 'Ver', post_path(post), class: 'button is-light ml-5px'

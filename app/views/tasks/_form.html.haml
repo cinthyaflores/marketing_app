@@ -1,18 +1,6 @@
-- if @task.errors.any?
-  #error_explanation
-    %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-    %ul
-      - @task.errors.full_messages.each do |message|
-        %li= message
+= f.field_with_label :description, required: true
+= f.field_with_label :deadline, as: :datetime, start_year: Date.today.year - 90, end_year: Date.today.year + 1, order: [:month, :year], label: 'Fecha límite de entrega', required: true, class: 'input-date', autocomplete: :off
+= f.select_with_label :user_id, @coworkers.all.map{ |c| [c.name, c.id] }, label: 'Encargado', include_blank: false, required: true
+= f.hidden_field :post_id, value: @post.id, required: true
 
-= f.input :description, label: 'Descripción', required: true
-= f.input :deadline, as: :datetime, start_year: Date.today.year - 90, end_year: Date.today.year + 1, order: [:month, :year], label: 'Fecha límite de entrega', required: true
-
-= f.input :user_id, collection: @coworkers.all.map{ |c| [c.name, c.user_id] }, label: 'Encargado', include_blank: false, required: true
-
-= f.input :category, collection: [['Contenido', 0], ['Visual', 1]], label: 'Tipo de tarea', include_blank: false, required: true
-
-= f.input :post_id, value: @post.id, as: :hidden, required: true
-
-.actions
-  = f.submit 'Guardar'
+= f.submit 'Guardar', class: 'button is-primary'
