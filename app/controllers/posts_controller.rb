@@ -8,6 +8,12 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def show
+    @not_finished_tasks = @post.tasks.not_finished
+    @finished_tasks = @post.tasks.completed
+    @approved_tasks = @post.tasks.approved
+  end
+
   def edit
     @campaign_nodes = @post.node.network.nodes
   end

@@ -11,7 +11,7 @@
     #navbar.navbar-menu.bg-yellow.text-align-right
       .navbar-end
         - if current_user
-          - header_items.each do |item|
+          - header_items(current_user).each do |item|
             .navbar-item
               = link_to item[:title], item[:path]
           .navbar-item

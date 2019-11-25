@@ -1,0 +1,5 @@
+= month_calendar events: @tasks do |date, tasks|
+  = date.day
+
+  - tasks.each do |task|
+    %p #{task.description}

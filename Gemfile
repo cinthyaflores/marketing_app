@@ -9,6 +9,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'font-awesome-rails'
+gem 'koala'
 gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'haml-rails', '~> 2.0'
 gem 'i18n-debug'
@@ -21,6 +22,8 @@ gem 'role_model'
 gem 'rubyzip', '>= 1.3.0'
 gem 'sass-rails', '~> 5'
 gem 'scss_lint', require: false
+gem 'simple_calendar', '~> 2.0'
+gem 'simple_form', '>= 5.0.0'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 

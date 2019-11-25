@@ -14,3 +14,15 @@
     %h4 Tareas
     .columns.is-multiline
       = render partial: 'tasks/task_card', collection: @post.tasks, as: :task
+
+-# TODO: fix this style
+%h3 Tareas
+
+%h4 Tareas pendientes
+= render partial: 'tasks/task_card', collection: @not_finished_tasks, as: :task
+
+%h4 Tareas terminadas
+= render partial: 'tasks/task_card', collection: @finished_tasks, as: :task
+
+%h4 Tareas aprobadas
+= render partial: 'tasks/task_card', collection: @approved_tasks, as: :task

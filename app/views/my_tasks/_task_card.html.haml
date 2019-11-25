@@ -1,0 +1,10 @@
+.card.col-12.col-md-3
+  .card-body
+    %h5.card-title Tipo: #{task.category}
+    %h6.card-text Descripción: #{task.description}
+    %p.card-text Fecha de entrega: #{task.deadline}
+    %p.card-text Campaña: #{task.post.node.network.campaign.name}
+    = link_to 'Ver', my_task_path(task), class: 'btn btn-primary'
+    = link_to 'Editar', edit_my_task_path(task), class: 'btn btn-secondary'
+
+

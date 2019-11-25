@@ -2,14 +2,15 @@
 
 class TasksController < ApplicationController
   before_action :assign_task, only: %i[show edit update destroy]
-  before_action :assign_post, only: %i[new index create destroy edit]
+  before_action :assign_post, only: %i[new index create destroy edit update]
   before_action :assign_coworkers, only: %i[new edit]
+  before_action :sanitize_task_params, only: %i[create update]
 
   def index
-    @tasks = @post.tasks
+    @not_finished_tasks = @post.tasks.not_finished
+    @finished_tasks = @post.tasks.completed
+    @approved_tasks = @post.tasks.approved
   end
-
-  def show; end
 
   def new
     @task = @post.tasks.new
@@ -28,9 +29,9 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to post_path(@post), notice: 'Task was successfully updated.'
+      redirect_to request.env['HTTP_REFERER'], notice: 'Task was successfully updated.'
     else
-      redirect_to post_path(@post), error: 'Task was unsuccessfully updated.'
+      redirect_to request.env['HTTP_REFERER'], error: 'Task was unsuccessfully updated.'
     end
   end
 
@@ -56,7 +57,19 @@ class TasksController < ApplicationController
     @coworkers = Campaign.find(@post.node.campaign_id).coworkers
   end
 
+  def sanitize_task_params
+    params[:task][:category] = params[:task][:category].to_i
+    params[:task][:status] = params[:task][:status].to_i
+  end
+
   def task_params
-    params.require(:task).permit(:description, :deadline, :user_id, :post_id)
+    params.require(:task).permit(:description,
+                                 :deadline,
+                                 :user_id,
+                                 :post_id,
+                                 :category,
+                                 :status,
+                                 :content,
+                                 :visual)
   end
 end

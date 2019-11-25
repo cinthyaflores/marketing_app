@@ -1,8 +1,6 @@
 = f.field_with_label :description, required: true
 = f.field_with_label :deadline, as: :datetime, start_year: Date.today.year - 90, end_year: Date.today.year + 1, order: [:month, :year], label: 'Fecha límite de entrega', required: true, class: 'input-date', autocomplete: :off
-
 = f.select_with_label :user_id, @coworkers.all.map{ |c| [c.name, c.id] }, label: 'Encargado', include_blank: false, required: true
-
 = f.hidden_field :post_id, value: @post.id, required: true
 
 = f.submit 'Guardar', class: 'button is-primary'

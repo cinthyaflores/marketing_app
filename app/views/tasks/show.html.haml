@@ -7,3 +7,11 @@
 %p #{@task.user.name}
 
 = link_to 'Editar', edit_post_task_path(post_id: @task.post, id: @task), class: 'button mt-30px'
+-# TODO style
+- if @task.completed?
+  = link_to 'Aprobar tarea', approve_task_path(@task.id), class: 'btn btn-success', method: :put
+
+- if @task.approved?
+  = link_to 'Migrar tarea a publicación', migrate_task_path(@task.id), class: 'btn btn-success', method: :put
+
+= render 'comments/index', comments: @task.comments, task: @task

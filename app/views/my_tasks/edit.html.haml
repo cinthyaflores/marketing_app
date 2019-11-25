@@ -1,0 +1,12 @@
+%h2 Descripción: #{@task.description}
+%h3 Fecha de entrega: #{@task.deadline}
+
+= simple_form_for(@task, url: post_task_path(id: @task.id, post_id: @task.post.id), method: :put) do |f|
+  = f.input :status, collection: [['Planeada', 0], ['En progreso', 1], ['Completada', 2]], label: 'Compañía', include_blank: false, required: true
+  - if @task.visual?
+    = f.input :visual, as: :file, label: 'Imagen'
+  - else
+    = f.input :content, placeholder: 'Contenido textual', label: 'Contenido de la publicación', required: true
+
+  = f.button :submit, 'Guardar'
+
