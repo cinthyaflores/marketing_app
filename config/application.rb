@@ -14,6 +14,7 @@ module MarketingApp
     config.load_defaults 6.0
     config.beginning_of_week = :monday
     config.i18n.default_locale = :es
+    config.time_zone = 'America/Mexico_City'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
