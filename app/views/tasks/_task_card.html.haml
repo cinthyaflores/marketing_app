@@ -1,7 +1,7 @@
 .column.is-half
   .card
     .card-content
-      %h5.m-0 Identificador: #{task.id}
+      %h5.m-0 #{task.title} (#{task.id})
       %h6 Descripción: #{task.description}
       %p Fecha de entrega: #{task.deadline}
       %p Pertenece a: #{task.user.name}

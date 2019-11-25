@@ -4,6 +4,7 @@ es:
       task:
         description: Descripción de la tarea
         deadline: Fecha de entrega
+        title: Título
     prompt:
       models:
         task:
