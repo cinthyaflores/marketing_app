@@ -3,8 +3,10 @@ es:
     label:
       coworker:
         user_id: Usuario
+        role: Rol
     prompt:
       models:
         coworker:
           attributes:
             user_id: Selecciona el compañero de trabajo
+            role: Selecciona el rol que deseas que ejerza

@@ -207,5 +207,7 @@ Rails.application.routes.draw do
 
   resources :edges, only: %i[create update destroy]
 
+  get 'roles', to: 'roles#show'
+
   root 'landing_page#index'
 end

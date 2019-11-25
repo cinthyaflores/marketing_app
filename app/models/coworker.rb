@@ -16,4 +16,6 @@ class Coworker < ApplicationRecord
   belongs_to :campaign
   delegate :name, to: :user
   delegate :email, to: :user
+
+  enum role: { designer: 0, content_generator: 1 }
 end
