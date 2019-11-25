@@ -6,16 +6,15 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
   include ActionView::Context
 
   def field_with_label(attribute, type: :text_field, **options)
-    css_class = options.dig(:class)
-    label_class = options.dig(:label_class)
-    error_class = object.errors.include?(attribute) ? "is-danger" : ""
+    build_input(attribute, type, **options)
+  end
 
-    options[:class] = "input #{error_class} #{css_class}"
+  def date_field_with_label(attribute, type: :date_field, **options)
+    build_input(attribute, type, **options)
+  end
 
-    field_label = label(attribute, class: "label #{label_class}")
-    field_input = self.send(type, attribute, **options)
-
-    field_container(field_label, field_input)
+  def datetime_field_with_label(attribute, type: :datetime_local_field, **options)
+    build_input(attribute, type, **options)
   end
 
   def hidden_field(attribute, type: :text_field, **options)
@@ -47,6 +46,19 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
     content_tag :div, class: "field" do
       raw(field_label + select_container)
     end
+  end
+
+  def build_input(attribute, type, **options)
+    css_class = options.dig(:class)
+    label_class = options.dig(:label_class)
+    error_class = object.errors.include?(attribute) ? "is-danger" : ""
+
+    options[:class] = "input #{error_class} #{css_class}"
+
+    field_label = label(attribute, class: "label #{label_class}")
+    field_input = self.send(type, attribute, **options)
+
+    field_container(field_label, field_input)
   end
 
   def field_container(field_label, field_input, field_error = nil)
