@@ -16,3 +16,6 @@
               = link_to item[:title], item[:path]
           .navbar-item
             = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary'
+        - else
+          .navbar-item
+            = link_to 'Login', new_user_session_path
