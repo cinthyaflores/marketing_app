@@ -54,7 +54,8 @@ class TasksController < ApplicationController
   end
 
   def assign_coworkers
-    @coworkers = Campaign.find(@post.node.campaign_id).coworkers
+    @campaign = Campaign.find(@post.node.campaign_id)
+    @coworkers = @campaign.coworkers
   end
 
   def sanitize_task_params

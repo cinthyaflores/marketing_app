@@ -1,19 +1,21 @@
 import Rails from '@rails/ujs';
 
 document.addEventListener('DOMContentLoaded', function() {
-  document
-    .getElementById('coworker_user_id')
-    .addEventListener('change', function(e) {
-      var user_id = e.target.value;
-      Rails.ajax({
-        url: '/roles',
-        type: 'GET',
-        data: `user_id=${user_id}`,
-        success: function(response) {
-          addOtherSelect(response);
-        }
+  if (document.getElementById('coworker_user_id')) {
+    document
+      .getElementById('coworker_user_id')
+      .addEventListener('change', function(e) {
+        var user_id = e.target.value;
+        Rails.ajax({
+          url: '/roles',
+          type: 'GET',
+          data: `user_id=${user_id}`,
+          success: function(response) {
+            addOtherSelect(response);
+          }
+        });
       });
-    });
+  }
 });
 
 function addOtherSelect(response) {
