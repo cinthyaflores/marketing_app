@@ -44,4 +44,10 @@ class Campaign < ApplicationRecord
   def create_network
     Network.create(campaign_id: id)
   end
+
+  def designer_coworkers
+  end
+
+  def cg_coworkers
+  end
 end

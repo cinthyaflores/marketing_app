@@ -2,6 +2,7 @@
 
 class CoworkersController < ApplicationController
   before_action :assign_campaign
+  before_action :sanitize_params, only: %i[create update]
 
   def new
     @coworker = @campaign.coworkers.new
@@ -34,7 +35,11 @@ class CoworkersController < ApplicationController
   private
 
   def coworker_params
-    params.require(:coworker).permit(:campaign_id, :user_id)
+    params.require(:coworker).permit(:campaign_id, :user_id, :role)
+  end
+
+  def sanitize_params
+    params[:coworker][:role] = params[:coworker][:role].to_i
   end
 
   def assign_campaign

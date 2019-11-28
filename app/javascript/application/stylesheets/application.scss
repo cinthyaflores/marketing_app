@@ -9,11 +9,14 @@
 @import 'base/typography';
 
 @import 'components/buttons';
+@import 'components/calendar';
 @import 'components/forms';
 @import 'components/navbar';
+@import 'components/selects';
 
 @import 'layouts/container';
 
 @import 'pages/login';
+@import 'pages/status';
 
 @import '~bulma/bulma';

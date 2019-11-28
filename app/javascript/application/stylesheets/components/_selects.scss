@@ -1,0 +1,3 @@
+.remove-select-pin-down.select:not(.is-multiple):not(.is-loading)::after {
+  content: none !important;
+}

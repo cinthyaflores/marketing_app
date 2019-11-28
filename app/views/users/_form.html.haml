@@ -1,5 +1,5 @@
 = form_for(@user) do |f|
   = f.field_with_label :name, placeholder: 'José Pérez', required: true
   = f.field_with_label :email, placeholder: 'usuario@gmail.com', required: true
-  = f.select_with_label :roles_mask, User.admin_manage_roles.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, label: 'Rol(es)', include_blank: false, input_html: { multiple: true }, required: true
+  = f.select_with_label :roles_mask, User.admin_manage_roles.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, { class: 'h-100 remove-select-pin-down' }, { multiple: true }
   = f.submit 'Guardar', class: 'button is-primary'

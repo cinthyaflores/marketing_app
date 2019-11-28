@@ -1,14 +1,16 @@
-.column.is-half
-  .card
-    .card-content
-      %h5.m-0 Identificador: #{task.id}
-      %h6 Descripción: #{task.description}
-      %p Fecha de entrega: #{task.deadline}
-      %p Pertenece a: #{task.user.name}
+.card.mb-30px
+  .card-content
+    %h5.m-0 #{task.title} (#{task.id})
+    %h6 Descripción: #{task.description}
+    %p Fecha de entrega: #{I18n.l(task.deadline, format: :full)}
+    %p Pertenece a: #{task.user.name}
 
-    .card-footer.justify-content-end.p-10px
-      = link_to 'Eliminar', post_task_path(id: task, post_id: @post), class: 'button is-danger', method: :delete
-      = link_to 'Editar', edit_post_task_path(id: task, post_id: @post), class: 'button is-info ml-5px'
-      = link_to 'Ver', post_task_path(id: task, post_id: @post), class: 'button is-light ml-5px'
+  .card-footer.justify-content-end.p-10px
+    = link_to 'Eliminar', post_task_path(id: task, post_id: @post), class: 'button is-danger', method: :delete
+    = link_to 'Editar', edit_post_task_path(id: task, post_id: @post), class: 'button is-info ml-5px'
+    = link_to 'Ver', post_task_path(id: task, post_id: @post), class: 'button is-light ml-5px'
+  - if task.completed?
+    .text-right
+      = link_to 'Aprobar', approve_task_path(task), class: 'button is-primary mb-10px mr-10px', method: :put
 
 

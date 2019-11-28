@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_170459) do
+ActiveRecord::Schema.define(version: 2019_11_25_193147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_170459) do
     t.bigint "campaign_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role"
     t.index ["campaign_id"], name: "index_coworkers_on_campaign_id"
     t.index ["user_id"], name: "index_coworkers_on_user_id"
   end
@@ -200,6 +201,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_170459) do
     t.integer "category", default: 0
     t.integer "status", default: 0
     t.string "content"
+    t.string "title"
     t.index ["post_id"], name: "index_tasks_on_post_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end

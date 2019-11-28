@@ -1,9 +1,6 @@
-.col.text-center
-  %h2 Inicio de sesión
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-inputs
-      = f.input :email, autofocus: true, input_html: { autocomplete: "email" }, label: 'Correo electrónico'
-      = f.input :password, input_html: { autocomplete: "current-password" }, label: 'Contraseña'
-    .form-actions.is-flex.is-justified-centered
-      = f.button :submit, "Iniciar sesión", class: 'btn btn-primary'
-  = render "devise/shared/links"
+%h3 Inicio de sesión
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = f.field_with_label :email, autofocus: true, input_html: { autocomplete: "email" }
+  = f.datetime_field_with_label :password, input_html: { autocomplete: "current-password" }
+  = f.submit "Iniciar sesión", class: 'button is-primary'
+= render "devise/shared/links"

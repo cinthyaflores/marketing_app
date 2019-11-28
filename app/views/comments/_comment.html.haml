@@ -1,2 +1,7 @@
-%h6 #{comment.user_name}
-%p #{comment.content}
+.columns
+  .column.is-four-fifths
+    %h6.m-0 #{comment.user_name}
+    %p #{comment.content}
+  .column
+    %p.text-right #{I18n.l(comment.created_at, format: :full_short)}
+%hr

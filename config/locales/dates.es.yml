@@ -7,6 +7,7 @@ es:
       word: '%d de %b'
       full_with_timezone: '%A %d de %B a las %I:%M %p (%Z)'
       full: '%A %d de %B a las %I:%M %p'
+      full_short: '%-d/%-m/%Y %I:%M %p'
       time: '%I:%M %p'
       full_start_date: '%d de %B %Y'
   date:

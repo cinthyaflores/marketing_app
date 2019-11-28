@@ -9,6 +9,7 @@
 #  campaign_id :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  role        :integer
 #
 
 class Coworker < ApplicationRecord
@@ -16,4 +17,6 @@ class Coworker < ApplicationRecord
   belongs_to :campaign
   delegate :name, to: :user
   delegate :email, to: :user
+
+  enum role: { designer: 0, content_generator: 1 }
 end

@@ -148,6 +148,8 @@
 #                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
 #                                       PUT    /edges/:id(.:format)                                                                     edges#update
 #                                       DELETE /edges/:id(.:format)                                                                     edges#destroy
+#                                 roles GET    /roles(.:format)                                                                         roles#show
+#                        task_coworkers GET    /task_coworkers(.:format)                                                                task_coworkers#show
 #                                  root GET    /                                                                                        landing_page#index
 #         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
@@ -206,6 +208,9 @@ Rails.application.routes.draw do
   resource :comments, only: :create
 
   resources :edges, only: %i[create update destroy]
+
+  get 'roles', to: 'roles#show'
+  get 'task_coworkers', to: 'task_coworkers#show'
 
   root 'landing_page#index'
 end

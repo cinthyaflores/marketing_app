@@ -1,4 +1,5 @@
 = form_for(@coworker, url: campaign_coworkers_path(campaign_id: @campaign.id, id: @coworker.id), method: :post) do |f|
   = f.select_with_label :user_id, User.possible_coworkers(@campaign.id).map{ |user| [user.name, user.id] }, prompt: true, required: true
+  = f.select_with_label :role, [], prompt: true, required: true
   = f.hidden_field :campaign_id, value: @campaign.id
   = f.submit 'Guardar', class: 'button is-primary'

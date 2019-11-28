@@ -1,0 +1,6 @@
+es:
+  helpers:
+    label:
+      user:
+        email: Correo electrónico
+        password: Contraseña
