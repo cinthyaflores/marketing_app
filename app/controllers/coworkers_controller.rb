@@ -2,6 +2,7 @@
 
 class CoworkersController < ApplicationController
   before_action :assign_campaign
+  before_action :assign_coworker, only: %i[edit update destroy]
   before_action :sanitize_params, only: %i[create update]
 
   def new
@@ -22,8 +23,16 @@ class CoworkersController < ApplicationController
     redirect_to campaign_coworkers_path(@campaign)
   end
 
+  def update
+    if @coworker.update(coworker_params)
+      flash[:notice] = 'Actualizado correctamente'
+    else
+      flash[:alert] = 'Error actualizando'
+    end
+    redirect_to campaign_coworkers_path(@campaign)
+  end
+
   def destroy
-    @coworker = Coworker.find(params[:id])
     if @coworker.destroy
       flash[:notice] = 'Eliminado correctamente'
     else
@@ -44,5 +53,9 @@ class CoworkersController < ApplicationController
 
   def assign_campaign
     @campaign = Campaign.find(params[:campaign_id])
+  end
+
+  def assign_coworker
+    @coworker = Coworker.find(params[:id])
   end
 end
