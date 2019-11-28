@@ -18,7 +18,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
-
     if @task.persisted?
       flash[:notice] = 'Task was successfully created.'
     else
@@ -65,6 +64,7 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:description,
+                                 :title,
                                  :deadline,
                                  :user_id,
                                  :post_id,
