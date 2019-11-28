@@ -21,10 +21,10 @@
 class Campaign < ApplicationRecord
   belongs_to :manager, class_name: 'User', foreign_key: 'manager_id'
   has_many :coworkers, dependent: :destroy
-  has_one :network
-  has_many :nodes, through: :network
-  has_many :edges, through: :network
-  has_many :posts, through: :nodes
+  has_one :network, dependent: :destroy
+  has_many :nodes, through: :network, dependent: :destroy
+  has_many :edges, through: :network, dependent: :destroy
+  has_many :posts, through: :nodes, dependent: :destroy
   has_one_attached :image
   belongs_to :company
 

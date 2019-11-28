@@ -13,11 +13,11 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
     build_input(attribute, type, **options)
   end
 
-  def datetime_field_with_label(attribute, type: :password_field, **options)
+  def datetime_field_with_label(attribute, type: :datetime_local_field, **options)
     build_input(attribute, type, **options)
   end
 
-  def password_field_with_label(attribute, type: :password_local_field, **options)
+  def password_field_with_label(attribute, type: :password_field, **options)
     build_input(attribute, type, **options)
   end
 

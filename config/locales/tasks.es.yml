@@ -11,7 +11,7 @@ es:
       models:
         task:
           attributes:
-            user_id: Usuario al que se le asignará la tarea
+            coworker_id: Usuario al que se le asignará la tarea
   task:
     category:
       content: Contenido textual

@@ -3,7 +3,7 @@
     %h5.m-0 #{task.title} (#{task.id})
     %h6 Descripción: #{task.description}
     %p Fecha de entrega: #{I18n.l(task.deadline, format: :full)}
-    %p Pertenece a: #{task.user.name}
+    %p Pertenece a: #{task.coworker.name}
 
   .card-footer.justify-content-end.p-10px
     = link_to 'Eliminar', post_task_path(id: task, post_id: @post), class: 'button is-danger', method: :delete
