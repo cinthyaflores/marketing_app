@@ -15,6 +15,7 @@
 class Coworker < ApplicationRecord
   belongs_to :user
   belongs_to :campaign
+  has_many :tasks, dependent: :destroy
   delegate :name, to: :user
   delegate :email, to: :user
 

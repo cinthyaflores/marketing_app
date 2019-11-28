@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class MigrateTaskController < ApplicationController
+  # TODO: delete
   def update
     @task = Task.find(params[:id])
     if update_post

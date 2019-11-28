@@ -4,23 +4,23 @@
 #
 # Table name: tasks
 #
-#  id          :bigint           not null, primary key
-#  description :string           not null
-#  deadline    :datetime         default(Mon, 25 Nov 2019 11:06:15 CST -06:00), not null
-#  user_id     :bigint           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  post_id     :bigint           not null
-#  category    :integer          default("content")
-#  status      :integer          default("planned")
-#  content     :string
-#  title       :string
+#  id           :bigint           not null, primary key
+#  description  :string           not null
+#  deadline     :datetime         default(Mon, 25 Nov 2019 11:06:15 CST -06:00), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  post_id      :bigint           not null
+#  category     :integer          default("content")
+#  status       :integer          default("planned")
+#  content      :string
+#  title        :string
+#  coworkers_id :bigint
 #
 
 class Task < ApplicationRecord
   belongs_to :post
-  belongs_to :user
-  has_many :comments
+  belongs_to :coworker
+  has_many :comments, dependent: :destroy
   has_one_attached :visual
 
   validates :category, presence: true

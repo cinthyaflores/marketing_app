@@ -4,17 +4,17 @@
 #
 # Table name: tasks
 #
-#  id          :bigint           not null, primary key
-#  description :string           not null
-#  deadline    :datetime         default(Mon, 25 Nov 2019 11:06:15 CST -06:00), not null
-#  user_id     :bigint           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  post_id     :bigint           not null
-#  category    :integer          default("content")
-#  status      :integer          default("planned")
-#  content     :string
-#  title       :string
+#  id           :bigint           not null, primary key
+#  description  :string           not null
+#  deadline     :datetime         default(Mon, 25 Nov 2019 11:06:15 CST -06:00), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  post_id      :bigint           not null
+#  category     :integer          default("content")
+#  status       :integer          default("planned")
+#  content      :string
+#  title        :string
+#  coworkers_id :bigint
 #
 
 require 'test_helper'

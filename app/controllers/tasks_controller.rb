@@ -66,7 +66,7 @@ class TasksController < ApplicationController
     params.require(:task).permit(:description,
                                  :title,
                                  :deadline,
-                                 :user_id,
+                                 :coworker_id,
                                  :post_id,
                                  :category,
                                  :status,
