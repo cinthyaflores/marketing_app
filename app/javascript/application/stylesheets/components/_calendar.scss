@@ -1,23 +1,63 @@
 .simple-calendar {
-  .day {}
+  .day {
+    @extend .text-center;
+  }
 
-  .wday-0 {}
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
+  .wday-0 {
+  }
+  .wday-1 {
+  }
+  .wday-2 {
+  }
+  .wday-3 {
+  }
+  .wday-4 {
+  }
+  .wday-5 {
+  }
+  .wday-6 {
+  }
 
-  .today {}
-  .past {}
-  .future {}
+  .today {
+  }
+  .past {
+  }
+  .future {
+  }
 
-  .start-date {}
+  .start-date {
+  }
 
-  .prev-month {}
-  .next-month { }
-  .current-month {}
+  .prev-month {
+  }
+  .next-month {
+  }
+  .current-month {
+  }
 
-  .has-events {}
+  .has-events {
+    background-color: #eeefe7;
+
+    p {
+      @extend .bold;
+      @extend .b-1px-gray;
+      @extend .mb-10px;
+      @extend .rounded-10px;
+    }
+  }
+
+  .table.table-striped {
+    width: 100%;
+
+    th {
+      @extend .text-center;
+    }
+  }
+}
+
+.calendar-heading {
+  display: flex;
+  justify-content: space-between;
+
+  @extend .mb-30px;
 }

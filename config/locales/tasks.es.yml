@@ -5,8 +5,19 @@ es:
         description: Descripción de la tarea
         deadline: Fecha de entrega
         title: Título
+        status: Estatus
+        content: Contenido textual
     prompt:
       models:
         task:
           attributes:
             user_id: Usuario al que se le asignará la tarea
+  task:
+    category:
+      content: Contenido textual
+      visual: Contenido visual
+    status:
+      planned: En planeación
+      in_progress: En progreso
+      completed: Completada
+      approved: Aprobada

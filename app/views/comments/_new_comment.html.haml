@@ -1,5 +1,5 @@
-= simple_form_for(Comment.new) do |f|
-  = f.input :content, label: 'Comentario:', required: true
-  = f.input :user_id, input_html: { value: current_user.id }, as: :hidden
-  = f.input :task_id, input_html: { value: task.id }, as: :hidden
-  = f.button :submit, 'Guardar'
+= form_for(Comment.new) do |f|
+  = f.field_with_label :content, required: true
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :task_id, value: task.id
+  = f.submit 'Guardar', class: 'button is-primary'

@@ -1,12 +1,12 @@
 %h2 Descripción: #{@task.description}
-%h3 Fecha de entrega: #{@task.deadline}
+%h3 Fecha de entrega: #{I18n.l(@task.deadline, format: :full)}
 
-= simple_form_for(@task, url: post_task_path(id: @task.id, post_id: @task.post.id), method: :put) do |f|
-  = f.input :status, collection: [['Planeada', 0], ['En progreso', 1], ['Completada', 2]], label: 'Compañía', include_blank: false, required: true
+= form_for(@task, url: post_task_path(id: @task.id, post_id: @task.post.id), method: :put) do |f|
+  = f.select_with_label :status, [['Planeada', 0], ['En progreso', 1], ['Completada', 2]], required: true
   - if @task.visual?
-    = f.input :visual, as: :file, label: 'Imagen'
+    = f.field_with_label :visual, type: :file_field
   - else
-    = f.input :content, placeholder: 'Contenido textual', label: 'Contenido de la publicación', required: true
+    = f.field_with_label :content, promt: true, required: true
 
-  = f.button :submit, 'Guardar'
+  = f.submit 'Guardar', class: 'button is-primary'
 

@@ -1,0 +1,10 @@
+.status {
+  @extend .bold;
+  @extend .p-10px;
+  @extend .rounded-10px;
+  @extend .text-center;
+}
+
+.status-planned {
+  background-color: #91e5f0;
+}
