@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:node_id, :title, :body)
+    params.require(:post).permit(:node_id, :title, :body, :publish_date, :content, :status)
   end
 
   def assign_post

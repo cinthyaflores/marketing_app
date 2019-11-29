@@ -4,5 +4,16 @@
   .column
     = link_to 'Nuevo post', new_campaign_post_path(@campaign), class: 'button mt-10px'
 
-.columns.is-multiline
-  = render partial: 'post_card', collection: @posts, as: :post
+.columns
+  .column.is-one-third
+    %h3 Posts en progreso
+    .columns.is-multiline
+      = render partial: 'post_card', collection: @posts.in_progress, as: :post
+  .column.is-one-third
+    %h3 Posts completados
+    .columns.is-multiline
+      = render partial: 'post_card', collection: @posts.completed, as: :post
+  .column.is-one-third
+    %h3 Posts publicados
+    .columns.is-multiline
+      = render partial: 'post_card', collection: @posts.published, as: :post
