@@ -39,7 +39,7 @@ es:
         company:
           attributes:
             bussines_name:
-              blank:  Debes agregar la razón socila
+              blank: Debes agregar la razón socila
               too_short: La razón social es demasiado corta
               too_long: La razón social es demasiado larga
             legal_representant_name:
@@ -51,15 +51,15 @@ es:
               too_short: El correo del representante es demasiado corto
               too_long: El correo del representante es demasido largo
             legal_representant_phone:
-              blank:  Debes agregar un numero telefonico
+              blank: Debes agregar un numero telefonico
               too_short: El telefono del representante es demasiado corto
               too_long: El telefono del representante es demasiado largo
             legal_representant_role:
-              blank:  Debes agregar un cargodel representante
+              blank: Debes agregar un cargodel representante
               too_short: El cargo del representante es demasiado corto
               too_long: El cargo del representante es demasiado largo
             location:
-              blank:  Debes definir una ubicación
+              blank: Debes definir una ubicación
               too_short: La ubicación es demasiado corta
               too_long: La ubicación es demasiado larga
             name:
@@ -67,7 +67,7 @@ es:
               too_short: El nombre es demasiado corto
               too_long: El nombre es demasiado largo
             rfc:
-              blank:  Debes definir el RFC
+              blank: Debes definir el RFC
               too_short: El rfc es demasiado corto
               too_long: El rfc es demasiado largo
         contact:
@@ -87,11 +87,11 @@ es:
               too_short: El correo del representante es demasiado corto
               too_long: El correo del representante es demasido largo
             legal_representant_phone:
-              blank:  Debes agregar un numero telefonico
+              blank: Debes agregar un numero telefonico
               too_short: El telefono del representante es demasiado corto
               too_long: El telefono del representante es demasiado largo
             legal_representant_role:
-              blank:  Debes agregar un cargodel representante
+              blank: Debes agregar un cargodel representante
               too_short: El cargo del representante es demasiado corto
               too_long: El cargo del representante es demasiado largo
             name:
@@ -110,100 +110,122 @@ es:
       content_creator: Creador de contenido
       designer: Diseñador
   date:
-    abbr_month_names: [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
-    month_names: [~, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
+    abbr_month_names:
+      [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
+    month_names:
+      [
+        ~,
+        enero,
+        febrero,
+        marzo,
+        abril,
+        mayo,
+        junio,
+        julio,
+        agosto,
+        septiembre,
+        octubre,
+        noviembre,
+        diciembre,
+      ]
     formats:
-      default: "%Y/%m/%d"
-      short: "%d-%b-%Y"
-      long: "%d de %B del %Y a las %H:%M"
+      default: '%Y/%m/%d'
+      short: '%d-%b-%Y'
+      long: '%d de %B del %Y a las %H:%M'
   errors:
-    format: "%{message}"
+    format: '%{message}'
   generic:
     app_name: Marketing analytics
   helpers:
     label:
       campaign:
-        name: "Nombre:"
-        start_date: "Fecha de inicio:"
-        end_date: "Fecha de término:"
-        objective: "Objetivo:"
-        campaign_type: "Tipo de campaña:"
-        product: "Producto:"
-        manager_id: "Community Manager:"
-        updated_at: "Última actualización:"
-        created_at: "Creada:"
-        image: "Imagen:"
-        company: "Compañia:"
+        name: 'Nombre:'
+        start_date: 'Fecha de inicio:'
+        end_date: 'Fecha de término:'
+        objective: 'Objetivo:'
+        campaign_type: 'Tipo de campaña:'
+        product: 'Producto:'
+        manager_id: 'Community Manager:'
+        updated_at: 'Última actualización:'
+        created_at: 'Creada:'
+        image: 'Imagen:'
+        company: 'Compañia:'
       client:
-        created_at: "Creada:"
-        corporation: "Corporación:"
-        corporation_id: "Corporación:"
-        updated_at: "Última actualización:"
-        user: "Usuario:"
-        user_id: "Usuario:"
+        created_at: 'Creada:'
+        corporation: 'Corporación:'
+        corporation_id: 'Corporación:'
+        updated_at: 'Última actualización:'
+        user: 'Usuario:'
+        user_id: 'Usuario:'
       company:
-        bussines_name: "Razón social:"
-        created_at: "Creada:"
-        legal_representant_name: "Nombre de representante legal:"
-        legal_representant_email: "Correo del representante legal:"
-        legal_representant_phone: "Teléfono del representante legal:"
-        legal_representant_role: "Cargo del representante legal:"
-        location: "Ubicación:"
-        name: "Nombre:"
-        rfc: "RFC:"
-        updated_at: "Última actualización:"
+        bussines_name: 'Razón social:'
+        corporation_id: Corporación
+        created_at: 'Creada:'
+        legal_representant_name: 'Nombre de representante legal:'
+        legal_representant_email: 'Correo del representante legal:'
+        legal_representant_phone: 'Teléfono del representante legal:'
+        legal_representant_role: 'Puesto del representante legal:'
+        location: 'Ubicación:'
+        name: 'Nombre:'
+        rfc: 'RFC:'
+        updated_at: 'Última actualización:'
       contact:
-        corporation: "Corporación:"
-        created_at: "Creada:"
-        corporation_id: "Corporación:"
-        user_id: "Usuario:"
-        updated_at: "Última actualización:"
-        user: "Usuario:"
+        corporation: 'Corporación:'
+        created_at: 'Creada:'
+        corporation_id: 'Corporación:'
+        user_id: 'Usuario:'
+        updated_at: 'Última actualización:'
+        user: 'Usuario:'
       corporation:
-        contacts: "Contactos:"
-        created_at: "Creada:"
-        clients: "Clientes:"
-        legal_representant_name: "Nombre de representante legal:"
-        legal_representant_email: "Correo del representante legal:"
-        legal_representant_phone: "Teléfono del representante legal:"
-        legal_representant_role: "Cargo del representante legal:"
-        name: "Nombre:"
-        updated_at: "Última actualización:"
+        contacts: 'Contactos:'
+        created_at: 'Creada:'
+        clients: 'Clientes:'
+        legal_representant_name: 'Nombre de representante legal:'
+        legal_representant_email: 'Correo del representante legal:'
+        legal_representant_phone: 'Teléfono del representante legal:'
+        legal_representant_role: 'Puesto del representante legal:'
+        name: 'Nombre:'
+        updated_at: 'Última actualización:'
       fields:
         select:
           options: Selecciona una opción
       post:
-        body: "Contenido:"
-        title: "Título:"
+        body: 'Contenido:'
+        title: 'Título:'
         submit: Registrar
       user:
-        email: "Email:"
-        created_at: "Creado:"
-        name: "Nombre:"
-        roles_mask: "Roles:"
-        updated_at: "Última actualización:"
+        email: 'Email:'
+        created_at: 'Creado:'
+        name: 'Nombre:'
+        roles_mask: 'Roles:'
+        updated_at: 'Última actualización:'
+    prompt:
+      models:
+        company:
+          attributes:
+            corporation_id: Corporación a la que pertenece
     submit:
-      create: "Registrar"
-      update: "Actualizar"
+      create: 'Registrar'
+      update: 'Actualizar'
   landing_page:
-    activities_section: "Organice las publicaciones de su campaña por fecha"
-    feelings_section: "Analice y obtenga los sentimientos de los comentarios de sus publicaciones"
-    manage_campaigns: "La herramienta para gestión de campañas digitales"
-    semantycs_section: "Capture graficamente redes semánticas"
-    users_section: "Páginas personalizadas para las necesidades de cada tipo de usuario"
-    why: "¿Por qué usar Marketing Analytics?"
+    activities_section: 'Organice las publicaciones de su campaña por fecha'
+    feelings_section: 'Analice y obtenga los sentimientos de los comentarios de sus publicaciones'
+    manage_campaigns: 'La herramienta para gestión de campañas digitales'
+    semantycs_section: 'Capture graficamente redes semánticas'
+    users_section: 'Páginas personalizadas para las necesidades de cada tipo de usuario'
+    why: '¿Por qué usar Marketing Analytics?'
   placeholders:
     email: Ingresa tu correo electrónico
-    password: "********"
-    title: "Ingresa un título"
-    body: "Describe un contenido"
+    password: '********'
+    title: 'Ingresa un título'
+    body: 'Describe un contenido'
   time:
     formats:
-      default: "%Y/%m/%d"
-      short: "%d-%b-%Y"
-      long: "%d de %B del %Y a las %H:%M"
-    am: "am"
-    pm: "pm"
+      default: '%Y/%m/%d'
+      short: '%d-%b-%Y'
+      long: '%d de %B del %Y a las %H:%M'
+    am: 'am'
+    pm: 'pm'
   user:
     roles:
       client: Cliente

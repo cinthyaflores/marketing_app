@@ -7,5 +7,5 @@
   = f.field_with_label :bussines_name, placeholder: 'Monsters Incorporations SA de CV', required: true, minlength: 10, maxlength: 40
   = f.field_with_label :rfc, placeholder: 'MIC23SD323SDF', required: true, minlength: 12, maxlength: 17
   = f.field_with_label :location, placeholder: 'Av. V. Carranza 1248', required: true, minlength: 20, maxlength: 40
-  = f.select_with_label :corporation_id, Corporation.all.map{ |c| [c.name, c.id] }
+  = f.select_with_label :corporation_id, Corporation.all.map{ |c| [c.name, c.id] }, include_blank: 'Corporación a la que pertenece'
   = f.submit 'Guardar', class: 'button is-primary'

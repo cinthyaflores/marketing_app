@@ -18,6 +18,15 @@ class CompaniesController < ApplicationController
     redirect_to clients_path
   end
 
+  def update
+    if @company.update(company_params)
+      flash[:notice] = 'La compañía fue actualizada correctamente'
+    else
+      flash[:error] = 'Error actualizando la compañía'
+    end
+    redirect_to clients_path
+  end
+
   private
 
   def company_params
