@@ -8,3 +8,13 @@ es:
   role_64: Finanzas
   role_128: Cliente
   role_256: Contacto
+  roles:
+    owner: Dueño
+    company: Compañía
+    community_manager: Community Manager
+    content_creator: Generador de contenidos
+    designer: Diseñador
+    rrhh: Recursos humanos
+    finance: Finanzas
+    client: Cliente
+    contact: Contacto

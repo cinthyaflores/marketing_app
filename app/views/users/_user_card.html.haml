@@ -3,8 +3,8 @@
     .card
       .card-content
         %h5 #{user.name}
-        %h6.m-0 Rol: #{t(".role_#{user.roles_mask}")}
-        %p Registrado el: #{user.created_at}
+        %h6.m-0 Rol: #{I18n.t(".role_#{user.roles_mask}")}
+        %p Registrado el: #{I18n.l(user.created_at, format: :full)}
         %p #{user.email}
       .card-footer.justify-content-end.p-10px
         = link_to 'Editar', edit_user_path(user), class: 'button is-info'

@@ -21,6 +21,15 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def update
+    if @user.update(user_params)
+      flash[:notice] = 'El usuario fue actualizado correctamente'
+    else
+      flash[:alert] = 'Error actualizando al usuario'
+    end
+    redirect_to users_path
+  end
+
   private
 
   def assign_user

@@ -1,0 +1,9 @@
+%h3 #{@user.name}
+%h5 #{@user.email}
+%h6 Roles
+- @user.roles.each do |role|
+    %li #{I18n.t("roles.#{role}")}
+
+%h6 Campañas en las que trabaja
+- @user.campaigns.each do |c|
+    %li #{c.name}
