@@ -1,5 +1,21 @@
-%h2 #{@corporation.name}
+%h3 #{@corporation.name}
 
-//Aquí debe mostrar todos los datos de la corporación, el objeto se llama @corporation (es el que trae toda la info) y en corporation.rb están arriba los atributos que tiene
+.columns
+  .column.is-half
+    .card
+      .card-content
+        %h5.m-0 Representante legal
+        %h6 #{@corporation.legal_representant_name}
+        %p
+          %b Correo:
+          #{@corporation.legal_representant_email}
+        %p
+          %b Teléfono:
+          #{@corporation.legal_representant_phone}
+        %p
+          %b Rol:
+          #{@corporation.legal_representant_role}
 
-//ya que esté lista la sección de campañas vamos a renderear aquí cards de las campañas que tiene asignadas
+%h4 Compañías registradas
+.columns.is-multiline
+  = render partial: 'companies/company_card', collection: @corporation.companies, as: :company

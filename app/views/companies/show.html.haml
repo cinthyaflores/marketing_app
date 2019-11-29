@@ -1,5 +1,24 @@
-%h2 #{@company.name}
+%h3 #{@company.name}
 
-//Aquí debe mostrar todos los datos de la compañía, el objeto se llama @company (es el que trae toda la info) y en company.rb están arriba los atributos que tiene
+.columns
+  .column.is-half
+    - if @company.corporation.present?
+      %h4 Pertenece a corporativo: #{@company.corporation.name}
+    %p
+      %b RFC:
+      #{@company.rfc}
+    %p
+      %b Nombre legal:
+      #{@company.bussines_name}
+    %p
+      %b Dirección:
+      #{@company.location}
 
-//ya que esté lista la sección de campañas vamos a renderear aquí cards de las campañas que tiene asignadas
+  .column.is-half
+    .card
+      .card-content
+        %h5.m-0 Representante legal
+        %h6 #{@company.legal_representant_name}
+        %p Correo: #{@company.legal_representant_email}
+        %p Teléfono: #{@company.legal_representant_phone}
+        %p Rol: #{@company.legal_representant_role}
