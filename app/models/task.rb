@@ -31,6 +31,6 @@ class Task < ApplicationRecord
   enum category: { content: 0, visual: 1 }
   enum status: { planned: 0, in_progress: 1, completed: 2, approved: 3 }
 
-  scope :by_user, ->(user_id) { where(user_id: user_id) }
+  scope :by_user, ->(user_id) { where(coworker_id: user_id) }
   scope :not_finished, -> { where(status: [0, 1]) }
 end

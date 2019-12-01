@@ -2,6 +2,11 @@
 
 class CalendarsController < ApplicationController
   def show
-    @tasks = Task.by_user(current_user.id)
+    @tasks = []
+    coworkers = Coworker.where(user_id: current_user.id)
+    coworkers.each do |cw|
+      @tasks << cw.tasks
+    end
+    @tasks.flatten!
   end
 end

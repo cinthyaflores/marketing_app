@@ -11,7 +11,6 @@ gem 'chartkick'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'font-awesome-rails'
-gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'groupdate'
 gem 'haml-rails', '~> 2.0'
 gem 'i18n-debug'
@@ -50,6 +49,10 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'aws-sdk-s3'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
