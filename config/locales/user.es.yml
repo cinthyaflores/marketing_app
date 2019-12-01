@@ -3,4 +3,9 @@ es:
     label:
       user:
         email: Correo electrónico
-        password: Contraseña
+        password_confirmation: Repite la contraseña
+    placeholder:
+      user:
+        email: ejemplo@gmail.com
+        password: '********'
+        password_confirmation: '********'
