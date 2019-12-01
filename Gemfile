@@ -7,6 +7,7 @@ ruby '2.6.3'
 
 gem 'attr_encrypted', '~> 3.1.0'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'chartkick'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'font-awesome-rails'

@@ -30,6 +30,7 @@ class Campaign < ApplicationRecord
   has_many :nodes, through: :network, dependent: :destroy
   has_many :edges, through: :network, dependent: :destroy
   has_many :posts, through: :nodes, dependent: :destroy
+  has_many :tasks, through: :posts, dependent: :destroy
   has_one_attached :image
   belongs_to :company
 

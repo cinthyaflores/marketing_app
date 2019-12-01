@@ -1,6 +1,8 @@
 %h2 Campaña: #{@campaign.name}
 
-= image_tag @campaign.image, class: 'mb-30px'
+.columns
+  .column.is-one-third
+    = image_tag @campaign.image, class: 'mb-30px'
 
 .columns
   .column.is-two-fifths
@@ -24,3 +26,6 @@
     .mb-10px
       %h6.m-0 Producto:
       %p=@campaign.product
+
+.columns.mt-30px
+  = render 'posts_chart', campaign: @campaign
