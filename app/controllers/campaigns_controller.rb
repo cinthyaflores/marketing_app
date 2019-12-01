@@ -7,11 +7,13 @@ class CampaignsController < ApplicationController
   end
 
   def index
-    if current_user.client? || current_user.community_manager?
-      @campaigns = current_user.campaigns
-    else
-      @campaigns = Campaign.all
-    end
+    @campaigns = if current_user.client?
+                   Campaign.where(user_id: current_user.id)
+                 elsif current_user.community_manager?
+                   current_user.campaigns
+                 else
+                   Campaign.all
+                 end
   end
 
   def create

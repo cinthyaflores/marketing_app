@@ -6,8 +6,13 @@ module HeaderHelper
     return rh_header_items if user.rrhh?
     return finance_header_items if user.finance?
     return client_header_items if user.client?
+    return community_manager_header_items if user.community_manager?
 
     content_creator_header_items
+  end
+
+  def community_manager_header_items
+    [{ title: 'Campañas', path: campaigns_path }]
   end
 
   def client_header_items
