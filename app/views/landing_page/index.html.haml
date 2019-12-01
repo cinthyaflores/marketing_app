@@ -1,4 +1,8 @@
 .column.is-full
-  %h1 Página principal
-  %p Aquí van a ir estadísticas y esas cosas
+  %h1 Bienvenido a Marketing App
   = render 'posts/comments'
+
+- if current_user&.rrhh?
+  = render 'rh'
+- elsif current_user&.finance?
+  = render 'finance'
