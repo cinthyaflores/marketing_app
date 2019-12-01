@@ -19,17 +19,23 @@
 #  token              :string
 #  encrypted_token    :string
 #  encrypted_token_iv :string
+#  page_likes         :integer
 #
 
 class Campaign < ApplicationRecord
   # attr_encrypted :token, key: Rails.application.credentials.token[:key]
 
   belongs_to :manager, class_name: 'User', foreign_key: 'manager_id'
+  belongs_to :user
+
+  alias client user
+
   has_many :coworkers, dependent: :destroy
   has_one :network, dependent: :destroy
   has_many :nodes, through: :network, dependent: :destroy
   has_many :edges, through: :network, dependent: :destroy
   has_many :posts, through: :nodes, dependent: :destroy
+  has_many :tasks, through: :posts, dependent: :destroy
   has_one_attached :image
   belongs_to :company
 

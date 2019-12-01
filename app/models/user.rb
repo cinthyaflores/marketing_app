@@ -59,6 +59,7 @@ class User < ApplicationRecord
                     }
 
   scope :community_managers, -> { where(roles_mask: 4) }
+  scope :clients, -> { where(roles_mask: 128) }
   scope :possible_coworkers, lambda { |campaign_id|
     joins("LEFT JOIN (SELECT * FROM coworkers
                                WHERE coworkers.campaign_id = #{campaign_id})

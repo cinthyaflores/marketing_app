@@ -12,13 +12,12 @@ class FacebookManager
     Koala::Facebook::API.new(token_id)
   end
 
-  def self.publish(message, _visual, token_id)
-    connection(token_id).put_connections('me', 'feed', message: message)
+  def self.publish(message, _visual, token_id, post_id)
+    response = connection(token_id).put_connections('me', 'feed', message: message)
+    Post.find(post_id).update(fb_id: response['id'])
   end
 
   def self.publish_post(post)
-    binding.pry
-
     PostPublisherJob.set(wait_until: post.publish_date).perform_later(post)
   end
 end

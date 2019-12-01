@@ -45,6 +45,12 @@ User.create_or_find_by!(email: 'finance@gmail.com',
                         name: 'Denis',
                         company: devio)
 
+client = User.create_or_find_by!(email: 'client@gmail.com',
+                                 password: 'password',
+                                 roles_mask: 128,
+                                 name: 'Jaime',
+                                 company: devio)
+
 tennis_campaign = Campaign.create_or_find_by!(name: 'Tennis Max Air',
                                               start_date: Time.now,
                                               end_date: Time.now + 1.week,
@@ -53,6 +59,7 @@ tennis_campaign = Campaign.create_or_find_by!(name: 'Tennis Max Air',
                                               product: 'Tenis Max Air',
                                               manager: community_manager,
                                               company: devio,
+                                              user_id: client.id,
                                               image: Rack::Test::UploadedFile.new('test/fixtures/files/example.jpg', 'image/jpg'))
 
 Coworker.create_or_find_by!(user_id: content_creator.id,

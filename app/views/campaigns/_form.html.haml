@@ -1,9 +1,10 @@
 = form_for(@campaign) do |f|
   = f.field_with_label :name, required: true
   = f.field_with_label :product, required: true, minlength: 5, maxlength: 30
-  = f.field_with_label :image, type: :file_field, placeholder: 'Tennis Max Ait', value: @campaign.image, required: true
+  = f.field_with_label :image, type: :file_field, placeholder: 'Tennis Max Ait', value: @campaign.image
   = f.select_with_label :company_id, Company.all.map{ |c| [c.name, c.id] }, required: true, class: 'select'
   = f.select_with_label :manager_id, User.community_managers.map{ |cm| [cm.name, cm.id] }, required: true, class: 'select'
+  = f.select_with_label :user_id, User.clients.map{ |c| [c.name, c.id] }, required: true
   = f.field_with_label :objective, required: true
   = f.field_with_label :campaign_type, required: true
   = f.field_with_label :token, required: true

@@ -1,0 +1,10 @@
+.column.is-one-third
+  %h5 Progreso de las publicaciones
+  = pie_chart campaign.posts.group(:status).count
+.column.is-one-third
+  %h5 Progreso de las tareas
+  = pie_chart campaign.tasks.group(:status).count
+.column.is-one-third
+  %h5 Tipos de tareas
+  = pie_chart campaign.tasks.group(:category).count
+

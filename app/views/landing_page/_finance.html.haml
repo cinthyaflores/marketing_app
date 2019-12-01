@@ -1,0 +1,5 @@
+%h2 Corporaciones registradas
+= line_chart Corporation.group_by_day(:created_at).count
+%h2 Compañías registradas
+= line_chart Company.group_by_day(:created_at).count
+

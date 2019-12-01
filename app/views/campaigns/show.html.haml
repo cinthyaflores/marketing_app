@@ -1,12 +1,18 @@
 %h2 Campaña: #{@campaign.name}
 
-= image_tag @campaign.image, class: 'mb-30px'
+.columns
+  .column.is-one-third
+    = image_tag @campaign.image, class: 'mb-30px'
+  .column.is-two-thirds.text-align-right
+    %h5 Likes de la página: #{@campaign.page_likes}
+
 
 .columns
-  .column.is-two-fifths
-    = link_to 'Administrar red semántica', network_path(@campaign.network), class: 'button mb-10px w-100'
-    = link_to 'Administrar colaboradores de la campaña', campaign_coworkers_path(@campaign), class: 'button mb-10px w-100'
-    = link_to 'Administrar publicaciones', campaign_posts_path(campaign_id: @campaign), class: 'button mb-10px w-100'
+  - if current_user.community_manager?
+    .column.is-two-fifths
+      = link_to 'Administrar red semántica', network_path(@campaign.network), class: 'button mb-10px w-100'
+      = link_to 'Administrar colaboradores de la campaña', campaign_coworkers_path(@campaign), class: 'button mb-10px w-100'
+      = link_to 'Administrar publicaciones', campaign_posts_path(campaign_id: @campaign), class: 'button mb-10px w-100'
 
   .column
     .mb-10px
@@ -24,3 +30,6 @@
     .mb-10px
       %h6.m-0 Producto:
       %p=@campaign.product
+
+.columns.mt-30px
+  = render 'posts_chart', campaign: @campaign
