@@ -1,11 +1,17 @@
-.column.is-one-third
+.column.is-full
   .card
     .card-content
       %h5 Identificador: #{post.id}
       %h6 Título: #{post.title}
       %p Contenido: #{post.body}
       %p Pertenece al nodo: #{post.node_id}
+      %p
+        %b Fecha de publicación:
+        #{I18n.l(post.publish_date, format: :full)}
     .card-footer.justify-content-end.p-10px
-      = link_to 'Eliminar', post_path(post), class: 'button is-danger', method: :delete
-      = link_to 'Editar', edit_post_path(post), class: 'button is-info ml-5px'
+      - if post.completed?
+        = link_to 'Publicar', publish_post_path(post), class: 'button is-primary ml-5px', method: :put
+      - if post.in_progress?
+        = link_to 'Eliminar', post_path(post), class: 'button is-danger', method: :delete
+        = link_to 'Editar', edit_post_path(post), class: 'button is-info ml-5px'
       = link_to 'Ver', post_path(post), class: 'button is-light ml-5px'

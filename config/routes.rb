@@ -142,6 +142,10 @@
 #                                       PUT    /migrate_task/:id(.:format)                                                              migrate_task#update
 #                          approve_task PATCH  /approve_task/:id(.:format)                                                              approve_task#update
 #                                       PUT    /approve_task/:id(.:format)                                                              approve_task#update
+#                          approve_post PATCH  /approve_post/:id(.:format)                                                              approve_post#update
+#                                       PUT    /approve_post/:id(.:format)                                                              approve_post#update
+#                          publish_post PATCH  /publish_post/:id(.:format)                                                              publish_post#update
+#                                       PUT    /publish_post/:id(.:format)                                                              publish_post#update
 #                              calendar GET    /calendar(.:format)                                                                      calendars#show
 #                              comments POST   /comments(.:format)                                                                      comments#create
 #                                 edges POST   /edges(.:format)                                                                         edges#create
@@ -204,6 +208,8 @@ Rails.application.routes.draw do
   resources :my_tasks, except: %i[update]
   resources :migrate_task, only: :update
   resources :approve_task, only: :update
+  resources :approve_post, only: :update
+  resources :publish_post, only: :update
   resource :calendar, only: :show
   resource :comments, only: :create
 

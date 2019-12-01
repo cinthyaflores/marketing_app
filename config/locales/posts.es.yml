@@ -6,8 +6,13 @@ es:
         title: Título
         body: Cuerpo de la publicación
         content: Contenido visual
+        publish_date: Fecha de publicación
     prompt:
       models:
         post:
           attributes:
             node_id: Selecciona el nodo
+  post:
+    status:
+      in_progress: En progreso
+      completed: Completada

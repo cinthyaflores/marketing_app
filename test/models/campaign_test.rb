@@ -4,18 +4,21 @@
 #
 # Table name: campaigns
 #
-#  id            :bigint           not null, primary key
-#  name          :string           not null
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  start_date    :date             not null
-#  end_date      :date             not null
-#  objective     :string
-#  campaign_type :string           not null
-#  product       :string
-#  manager_id    :bigint
-#  company_id    :integer
-#  company_type  :string
+#  id                 :bigint           not null, primary key
+#  name               :string           not null
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  start_date         :date             not null
+#  end_date           :date             not null
+#  objective          :string
+#  campaign_type      :string           not null
+#  product            :string
+#  manager_id         :bigint
+#  company_id         :integer
+#  company_type       :string
+#  token              :string
+#  encrypted_token    :string
+#  encrypted_token_iv :string
 #
 
 require 'test_helper'

@@ -1,5 +1,7 @@
 %h2 Campaña: #{@campaign.name}
 
+= image_tag @campaign.image, class: 'mb-30px'
+
 .columns
   .column.is-two-fifths
     = link_to 'Administrar red semántica', network_path(@campaign.network), class: 'button mb-10px w-100'

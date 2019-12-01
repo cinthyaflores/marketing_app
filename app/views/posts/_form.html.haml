@@ -3,4 +3,5 @@
   = f.field_with_label :title, placeholder: 'Nuevos tennis Max Air', required: true
   = f.field_with_label :body, placeholder: 'Los nuevos Max Air cuentan con ....'
   = f.field_with_label :content, type: :file_field
+  = f.datetime_field_with_label :publish_date, required: true
   = f.submit 'Guardar', class: 'button is-primary'

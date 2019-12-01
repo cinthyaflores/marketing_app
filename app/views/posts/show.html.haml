@@ -5,9 +5,15 @@
   .column.is-one-fifth
     %h6.mb-0 Título:
     %p #{@post.title}
-  .column.is-two-fifths
+  .column.is-one-fifth
     %h6.mb-0 Contenido:
     %p #{@post.body}
+  .column.is-two-fifths
+    %h6.mb-0 Estatus:
+    %p #{I18n.t("post.status.#{@post.status}")}
+  .column.is-one-fifth
+    - if @post.in_progress?
+      = link_to 'Completar post', approve_post_path(@post), method: :put, class: 'button is-primary my-20 w-100'
 = link_to 'Agregar tarea', new_post_task_path(@post), class: 'button mb-30px'
 
 -# TODO: fix this style
