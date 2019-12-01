@@ -31,5 +31,9 @@
       %h6.m-0 Producto:
       %p=@campaign.product
 
+
+.columns.mt-30px
+  = render 'posts_reactions_chart', campaign: @campaign
+
 .columns.mt-30px
   = render 'posts_chart', campaign: @campaign

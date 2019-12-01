@@ -20,4 +20,10 @@ class FacebookManager
   def self.publish_post(post)
     PostPublisherJob.set(wait_until: post.publish_date).perform_later(post)
   end
+
+  def self.get_post_reactions(fb_id, token_id)
+    connection(token_id).get_object(fb_id, fields: 'reactions.summary(true)')['reactions']['data']
+  rescue StandardError => e
+    p 'error'
+  end
 end
