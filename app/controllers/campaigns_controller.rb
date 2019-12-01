@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class CampaignsController < ApplicationController
+  before_action :assign_campaign, except: %i[new create index]
   def new
     @campaign = Campaign.new
   end
 
-  def show
-    @campaign = Campaign.find(params[:id])
+  def index
+    @campaigns = Campaign.all
   end
 
   def create
@@ -20,11 +21,21 @@ class CampaignsController < ApplicationController
     redirect_to campaigns_path
   end
 
-  def index
-    @campaigns = Campaign.all
+  def update
+    if @campaign.update(campaign_params)
+      flash[:notice] = 'La campaña fue registrada correctamente'
+    else
+      errors = @campaign.errors.full_messages.join(',')
+      flash[:error] = "Error registrando la campaña: #{errors}"
+    end
+    redirect_to campaigns_path
   end
 
   private
+
+  def assign_campaign
+    @campaign = Campaign.find(params[:id])
+  end
 
   def campaign_params
     params.require(:campaign).permit(:name,
@@ -35,6 +46,7 @@ class CampaignsController < ApplicationController
                                      :campaign_type,
                                      :start_date,
                                      :end_date,
-                                     :image)
+                                     :image,
+                                     :token)
   end
 end

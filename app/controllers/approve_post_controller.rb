@@ -3,10 +3,11 @@
 class ApprovePostController < ApplicationController
   def update
     @post = Post.find(params[:id])
-    if @post.completed!
-      redirect_to post_path(@post), notice: 'Post satisfactoriamente aprobado'
+    if @post.completed! && FacebookManager.publish_post(@post)
+      flash[:notice] = 'Post satisfactoriamente aprobado'
     else
-      redirect_to post_path(@post), error: 'Hubo un problema al aprobar el post'
+      flash[:error] = 'Hubo un problema al aprobar el post'
     end
+    redirect_to post_path(@post)
   end
 end

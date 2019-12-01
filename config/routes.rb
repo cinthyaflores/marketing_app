@@ -144,6 +144,8 @@
 #                                       PUT    /approve_task/:id(.:format)                                                              approve_task#update
 #                          approve_post PATCH  /approve_post/:id(.:format)                                                              approve_post#update
 #                                       PUT    /approve_post/:id(.:format)                                                              approve_post#update
+#                          publish_post PATCH  /publish_post/:id(.:format)                                                              publish_post#update
+#                                       PUT    /publish_post/:id(.:format)                                                              publish_post#update
 #                              calendar GET    /calendar(.:format)                                                                      calendars#show
 #                              comments POST   /comments(.:format)                                                                      comments#create
 #                                 edges POST   /edges(.:format)                                                                         edges#create

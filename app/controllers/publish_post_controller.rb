@@ -3,11 +3,10 @@
 class PublishPostController < ApplicationController
   def update
     @post = Post.find(params[:id])
-    # publicar jeje
-    # if @post.completed!
-    #   redirect_to post_path(@post), notice: 'Post satisfactoriamente aprobado'
-    # else
-    #   redirect_to post_path(@post), error: 'Hubo un problema al aprobar el post'
-    # end
+    campaign = Campaign.find(@post.node.campaign_id)
+
+    @post.published! if FacebookManager.publish(@post.body, @post.content, campaign.token)
+
+    redirect_to campaign_posts_path(campaign)
   end
 end

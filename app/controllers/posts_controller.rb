@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :assign_post, only: %i[show edit update]
+  before_action :assign_post, only: %i[show edit update destroy]
 
   def new
     @campaign_nodes = Campaign.find(params[:campaign_id]).nodes
@@ -42,6 +42,17 @@ class PostsController < ApplicationController
       flash[:error] = "Error registrando la publicación: #{errors}"
     end
     redirect_to campaign_posts_path(@post.node.campaign_id)
+  end
+
+  def destroy
+    campaign = Campaign.find(@post.node.campaign_id)
+    if @post.destroy
+      flash[:notice] = 'La publicación fue eliminada correctamente'
+    else
+      errors = @post.errors.full_messages.join(',')
+      flash[:error] = "Error eliminando la publicación: #{errors}"
+    end
+    redirect_to campaign_posts_path(campaign)
   end
 
   private

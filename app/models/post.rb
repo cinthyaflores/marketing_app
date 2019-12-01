@@ -11,7 +11,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  status       :integer          default("in_progress")
-#  publish_date :date
+#  publish_date :datetime
 #
 
 class Post < ApplicationRecord

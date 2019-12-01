@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_29_163700) do
+ActiveRecord::Schema.define(version: 2019_11_29_205042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(version: 2019_11_29_163700) do
     t.bigint "manager_id"
     t.integer "company_id"
     t.string "company_type"
+    t.string "token"
+    t.string "encrypted_token"
+    t.string "encrypted_token_iv"
+    t.index ["encrypted_token_iv"], name: "index_campaigns_on_encrypted_token_iv", unique: true
     t.index ["manager_id"], name: "index_campaigns_on_manager_id"
   end
 
