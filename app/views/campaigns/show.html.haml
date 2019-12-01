@@ -3,8 +3,6 @@
 .columns
   .column.is-one-third
     = image_tag @campaign.image, class: 'mb-30px'
-  .column.is-two-thirds.text-align-right
-    %h5 Likes de la página: #{@campaign.page_likes}
 
 
 .columns
@@ -34,6 +32,9 @@
 
 .columns.mt-30px
   = render 'posts_reactions_chart', campaign: @campaign
+
+.columns.mt-30px
+  = render 'posts_comments_chart', campaign: @campaign
 
 .columns.mt-30px
   = render 'posts_chart', campaign: @campaign

@@ -24,6 +24,12 @@ class FacebookManager
   def self.get_post_reactions(fb_id, token_id)
     connection(token_id).get_object(fb_id, fields: 'reactions.summary(true)')['reactions']['data']
   rescue StandardError => e
-    p 'error'
+   'error'
+  end
+
+  def self.get_post_comments(fb_id, token_id)
+    connection(token_id).get_object(fb_id, fields: 'comments')['comments']['data']
+  rescue StandardError => e
+    'error'
   end
 end
