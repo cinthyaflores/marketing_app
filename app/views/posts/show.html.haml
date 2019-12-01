@@ -16,6 +16,13 @@
       = link_to 'Completar post', approve_post_path(@post), method: :put, class: 'button is-primary my-20 w-100'
 = link_to 'Agregar tarea', new_post_task_path(@post), class: 'button mb-30px'
 
+.columns
+  = render 'posts_comments_chart', post: @post
+
+.columns
+  = render 'posts_reactions_chart', post: @post
+
+
 %h3 Tareas
 
 .columns
