@@ -6,5 +6,6 @@
       %p Producto: #{campaign.product}
       %p #{campaign.objective}
     .card-footer.justify-content-end.p-10px
-      = link_to 'Editar', edit_campaign_path(campaign), class: 'button'
+      - if current_user.community_manager?
+        = link_to 'Editar', edit_campaign_path(campaign), class: 'button'
       = link_to 'Ver', campaign_path(campaign), class: 'button is-info ml-5px'

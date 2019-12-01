@@ -30,6 +30,7 @@ class User < ApplicationRecord
 
   belongs_to :company
   has_many :campaigns, foreign_key: 'manager_id'
+  has_many :campaigns, foreign_key: 'user_id'
   has_many :comments
 
   devise :database_authenticatable, :recoverable, :invitable, validate_on_invite: true
@@ -59,6 +60,7 @@ class User < ApplicationRecord
                     }
 
   scope :community_managers, -> { where(roles_mask: 4) }
+  scope :clients, -> { where(roles_mask: 128) }
   scope :possible_coworkers, lambda { |campaign_id|
     joins("LEFT JOIN (SELECT * FROM coworkers
                                WHERE coworkers.campaign_id = #{campaign_id})

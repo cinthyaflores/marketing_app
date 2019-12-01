@@ -3,10 +3,9 @@ es:
     company_id: Compañía
     manager_id: Community manager de la campaña
 
-  # helpers:
-  #   prompt:
-  #     models:
-  #       campaign:
-  #         attributes:
-  #           company_id: Compañía
-  #           manager_id: Community manager de la campaña
+  helpers:
+    label:
+      campaign:
+        company_id: Compañía
+        manager_id: Community manager de la campaña
+        user_id: Cliente

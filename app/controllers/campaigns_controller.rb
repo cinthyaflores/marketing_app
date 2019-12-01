@@ -7,7 +7,11 @@ class CampaignsController < ApplicationController
   end
 
   def index
-    @campaigns = Campaign.all
+    if current_user.client? || current_user.community_manager?
+      @campaigns = current_user.campaigns
+    else
+      @campaigns = Campaign.all
+    end
   end
 
   def create
@@ -47,6 +51,7 @@ class CampaignsController < ApplicationController
                                      :start_date,
                                      :end_date,
                                      :image,
-                                     :token)
+                                     :token,
+                                     :user_id)
   end
 end

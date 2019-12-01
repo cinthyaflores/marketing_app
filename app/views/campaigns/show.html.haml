@@ -8,10 +8,11 @@
 
 
 .columns
-  .column.is-two-fifths
-    = link_to 'Administrar red semántica', network_path(@campaign.network), class: 'button mb-10px w-100'
-    = link_to 'Administrar colaboradores de la campaña', campaign_coworkers_path(@campaign), class: 'button mb-10px w-100'
-    = link_to 'Administrar publicaciones', campaign_posts_path(campaign_id: @campaign), class: 'button mb-10px w-100'
+  - if current_user.community_manager?
+    .column.is-two-fifths
+      = link_to 'Administrar red semántica', network_path(@campaign.network), class: 'button mb-10px w-100'
+      = link_to 'Administrar colaboradores de la campaña', campaign_coworkers_path(@campaign), class: 'button mb-10px w-100'
+      = link_to 'Administrar publicaciones', campaign_posts_path(campaign_id: @campaign), class: 'button mb-10px w-100'
 
   .column
     .mb-10px

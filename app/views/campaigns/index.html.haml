@@ -1,5 +1,6 @@
 %h3 Campañas
-= link_to 'Agregar campaña', new_campaign_path, class: 'button mb-10px'
+- if current_user.owner?
+  = link_to 'Agregar campaña', new_campaign_path, class: 'button mb-10px'
 
 .columns.is-multiline
   = render partial: 'campaign_card', collection: @campaigns, as: :campaign

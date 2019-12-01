@@ -26,6 +26,10 @@ class Campaign < ApplicationRecord
   # attr_encrypted :token, key: Rails.application.credentials.token[:key]
 
   belongs_to :manager, class_name: 'User', foreign_key: 'manager_id'
+  belongs_to :user
+
+  alias client user
+
   has_many :coworkers, dependent: :destroy
   has_one :network, dependent: :destroy
   has_many :nodes, through: :network, dependent: :destroy
