@@ -3,6 +3,9 @@
 .columns
   .column.is-one-third
     = image_tag @campaign.image, class: 'mb-30px'
+  .column.is-two-thirds.text-align-right
+    %h5 Likes de la página: #{@campaign.page_likes}
+
 
 .columns
   .column.is-two-fifths

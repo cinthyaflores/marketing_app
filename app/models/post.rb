@@ -12,6 +12,7 @@
 #  updated_at   :datetime         not null
 #  status       :integer          default("in_progress")
 #  publish_date :datetime
+#  fb_id        :string
 #
 
 class Post < ApplicationRecord

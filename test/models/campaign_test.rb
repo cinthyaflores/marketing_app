@@ -19,6 +19,7 @@
 #  token              :string
 #  encrypted_token    :string
 #  encrypted_token_iv :string
+#  page_likes         :integer
 #
 
 require 'test_helper'
