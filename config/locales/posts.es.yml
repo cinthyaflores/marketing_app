@@ -16,3 +16,4 @@ es:
     status:
       in_progress: En progreso
       completed: Completada
+      published: Publicada
