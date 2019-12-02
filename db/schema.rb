@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_150039) do
+ActiveRecord::Schema.define(version: 2019_12_02_014928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,13 @@ ActiveRecord::Schema.define(version: 2019_12_01_150039) do
     t.index ["from_id"], name: "index_edges_on_from_id"
     t.index ["network_id"], name: "index_edges_on_network_id"
     t.index ["to_id"], name: "index_edges_on_to_id"
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.string "content", null: false
+    t.string "user"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "networks", force: :cascade do |t|
