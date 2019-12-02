@@ -36,15 +36,18 @@ module ChartsHelper
   end
 
   def posts_comments_statistics(campaign)
+    Indico.api_key = ENV['INDICO_KEY']
+
     analize_comments(posts_comments(campaign))
   end
 
   def post_comments_statistics(post)
+    Indico.api_key = ENV['INDICO_KEY']
+
     analize_comments(post_comments(post))
   end
 
   def analize_comments(comments)
-    Indico.api_key = ENV['INDICO_KEY']
     positive_comments = 0
     negative_comments = 0
 
@@ -63,16 +66,20 @@ module ChartsHelper
   def posts_comments(campaign)
     comments = []
     campaign.posts.each do |post|
-      comments << FacebookManager.get_post_comments(post.fb_id, campaign.token)
+      comments << post_comments(post)
     end
+
+    comments.flatten!.compact!
 
     return if comments.eql?('error')
 
-    comments.flatten.map! do |comment|
+    comments.map! do |comment|
       next nil if comment.eql?('error')
 
       comment['message']
     end.compact!
+
+    comments
   end
 
   def post_comments(post)
@@ -81,12 +88,11 @@ module ChartsHelper
 
     return if comments.eql?('error')
 
-    comments.flatten.map! do |comment|
+    comments.map! do |comment|
       next nil if comment.eql?('error')
 
       comment['message']
     end.compact!
-
     comments
   end
 end
