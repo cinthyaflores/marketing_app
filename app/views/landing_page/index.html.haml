@@ -3,9 +3,11 @@
 - else
   .column.is-full
     %h1 Bienvenido a Marketing App
-    - if current_user&.rrhh?
+    - if current_user.rrhh?
       = render 'rh'
-    - elsif current_user&.finance?
+    - elsif current_user.finance?
       = render 'finance'
+    - elsif current_user.community_manager?
+      = render 'community_manager'
 
   = render 'posts/comments'

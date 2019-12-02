@@ -6,6 +6,8 @@ class LandingPageController < ApplicationController
     @companies = Company.all
     if !current_user
       render layout: 'landing_page'
+    else
+      render layout: 'application'
     end
   end
 end

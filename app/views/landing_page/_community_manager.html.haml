@@ -1,0 +1,20 @@
+%h2 Campañas asignadas
+
+= line_chart current_user.campaigns.group_by_day(:created_at).count
+
+%h2 Proceso de campañas
+
+- current_user.campaigns.each do |campaign|
+  %h3 #{campaign.name}
+  .columns
+    = render 'campaigns/posts_chart', campaign: campaign
+
+  .columns
+    = render 'campaigns/posts_comments_chart', campaign: campaign
+
+  .columns
+    = render 'campaigns/posts_reactions_chart', campaign: campaign
+
+
+
+

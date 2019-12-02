@@ -69,7 +69,7 @@ module ChartsHelper
       comments << post_comments(post)
     end
 
-    comments.flatten!.compact!
+    comments.flatten!&.compact!
 
     return if comments.eql?('error')
 
