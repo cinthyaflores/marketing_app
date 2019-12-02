@@ -1,11 +1,19 @@
 = form_for(@company) do |f|
-  = f.field_with_label :name, placeholder: 'Monsters Inc.', required: true, minlength: 5, maxlength: 20
-  = f.field_with_label :legal_representant_name, placeholder: 'Eduardo Larios', required: true, minlength: 10, maxlength: 40
-  = f.field_with_label :legal_representant_email, placeholder: 'eduardo.la@gmail.com', required: true, minlength: 10, maxlength: 40
-  = f.field_with_label :legal_representant_phone, placeholder: '312 32 038 77', required: true, required: true, minlength: 10, maxlength: 12
-  = f.field_with_label :legal_representant_role, placeholder: 'Abogado', required: true, minlength: 3, maxlength: 20
-  = f.field_with_label :bussines_name, placeholder: 'Monsters Incorporations SA de CV', required: true, minlength: 10, maxlength: 40
-  = f.field_with_label :rfc, placeholder: 'MIC23SD323SDF', required: true, minlength: 12, maxlength: 17
-  = f.field_with_label :location, placeholder: 'Av. V. Carranza 1248', required: true, minlength: 20, maxlength: 40
-  = f.select_with_label :corporation_id, Corporation.all.map{ |c| [c.name, c.id] }, include_blank: 'Corporación a la que pertenece'
-  = f.submit 'Guardar', class: 'button is-primary'
+  .columns
+    .column= f.field_with_label :name, placeholder: 'Monsters Inc.', required: true, minlength: 5, maxlength: 20
+    .column= f.field_with_label :legal_representant_name, placeholder: 'Eduardo Larios', required: true, minlength: 10, maxlength: 40
+    .column= f.field_with_label :legal_representant_email, placeholder: 'eduardo.la@gmail.com', required: true, minlength: 10, maxlength: 40
+
+  .columns
+    .column= f.field_with_label :legal_representant_phone, placeholder: '312 32 038 77', required: true, required: true, minlength: 10, maxlength: 12
+    .column= f.field_with_label :legal_representant_role, placeholder: 'Abogado', required: true, minlength: 3, maxlength: 20
+    .column= f.field_with_label :bussines_name, placeholder: 'Monsters Incorporations SA de CV', required: true, minlength: 10, maxlength: 40
+
+  .columns  
+    .column= f.field_with_label :rfc, placeholder: 'MIC23SD323SDF', required: true, minlength: 12, maxlength: 17
+    .column= f.field_with_label :location, placeholder: 'Av. V. Carranza 1248', required: true, minlength: 20, maxlength: 40
+    .column= f.select_with_label :corporation_id, Corporation.all.map{ |c| [c.name, c.id] }, include_blank: 'Corporación a la que pertenece'
+
+  .columns
+    .column
+    = f.submit 'Guardar', class: 'button is-primary mt-30'

@@ -1,7 +1,13 @@
 = form_for(@corporation) do |f|
-  = f.field_with_label :name, placeholder: 'Monsters Inc.', required: true, minlength: 5, maxlength: 20
-  = f.field_with_label :legal_representant_name, placeholder: 'Eduardo Larios', required: true, minlength: 10, maxlength: 40
-  = f.field_with_label :legal_representant_email, placeholder: 'eduardo.la@gmail.com', required: true, minlength: 10, maxlength: 40
-  = f.field_with_label :legal_representant_phone, placeholder: '312 32 038 77', required: true, minlength: 10, maxlength: 12
-  = f.field_with_label :legal_representant_role, placeholder: 'Abogado', required: true, minlength: 3, maxlength: 20
-  = f.submit 'Guardar', class: 'button is-primary'
+  .columns
+    .column= f.field_with_label :name, placeholder: 'Monsters Inc.', required: true, minlength: 5, maxlength: 20
+    .column= f.field_with_label :legal_representant_name, placeholder: 'Eduardo Larios', required: true, minlength: 10, maxlength: 40
+    .column= f.field_with_label :legal_representant_email, placeholder: 'eduardo.la@gmail.com', required: true, minlength: 10, maxlength: 40
+
+  .columns
+    .column= f.field_with_label :legal_representant_phone, placeholder: '312 32 038 77', required: true, minlength: 10, maxlength: 12
+    .column= f.field_with_label :legal_representant_role, placeholder: 'Abogado', required: true, minlength: 3, maxlength: 20
+
+  .columns
+    .column.align-right
+    = f.submit 'Guardar', class: 'button is-primary mt-20'
