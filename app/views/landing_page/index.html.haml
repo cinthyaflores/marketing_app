@@ -1,4 +1,4 @@
-- if !current_user
+- if !current_user || current_user.owner?
   = render 'guest'
 - else
   .column.is-full
@@ -9,5 +9,9 @@
       = render 'finance'
     - elsif current_user.community_manager?
       = render 'community_manager'
+    - elsif current_user.designer? || current_user.content_creator?
+      %h2 Campañas en las que colaboras
+      .columns
+        = render partial: 'campaigns/campaign_card', collection: @campaigns, as: :campaign
 
   = render 'posts/comments'

@@ -74,7 +74,7 @@ module ChartsHelper
     return if comments.eql?('error')
 
     comments.map! do |comment|
-      next nil if comment.eql?('error')
+      next nil if comment.eql?('error') || comment.nil?
 
       comment['message']
     end.compact!
