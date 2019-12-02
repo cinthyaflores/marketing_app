@@ -1,8 +1,11 @@
-.column.is-full
-  %h1 Bienvenido a Marketing App
-  = render 'posts/comments'
+- if !current_user
+  = render 'guest'
+- else
+  .column.is-full
+    %h1 Bienvenido a Marketing App
+    - if current_user&.rrhh?
+      = render 'rh'
+    - elsif current_user&.finance?
+      = render 'finance'
 
-- if current_user&.rrhh?
-  = render 'rh'
-- elsif current_user&.finance?
-  = render 'finance'
+  = render 'posts/comments'

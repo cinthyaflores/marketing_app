@@ -1,0 +1,54 @@
+%section.hero
+  %figure.image
+    =image_tag asset_pack_path('media/application/images/hero.png')
+%section.section
+  .container.has-text-centered
+    %h1.title MarketingApp
+    %p
+      El marketing digital no es un arte de vender un producto. Es un arte de hacer que la gente compre el producto que vendes.
+    .columns.is-centered{:style => "padding: 2rem"}
+      .column
+        .card
+          .card-image
+            %figure.image.is-2by1
+              =image_tag asset_pack_path('media/application/images/landing_page_element_1.png')
+          .card-content
+            .media
+              .media-content
+                %p.title.is-4 Gestiona clientes
+            .content
+              Con MarketingApp podrás tener en un sólo lugar el control de todos los clientes para los que manejas campañas de marketing. Tendrás la información necesaria de cada uno de ellos por si deseas contactarlos o consultar algún dato.
+              = succeed "." do
+                %a @bulmaio
+              %a{:href => "#"} #clients
+              %a{:href => "#"} #marketing
+      .column
+        .card
+          .card-image
+            %figure.image.is-2by1
+              =image_tag asset_pack_path('media/application/images/hero_2.png')
+          .card-content
+            .media
+              .media-content
+                %p.title.is-4 Gestiona campañas
+            .content
+              Podrás dar de alta una red semántica, a la cuál le podrás asignar nodos que posteriormente serán padres de publicaciones. Tus publicaciones pueden ser automáticas o tú puedes decidir cuándo darles bandera blanca para ser publicados, tendrás estadísticas a la mano y mucho más.
+              = succeed "." do
+                %a @bulmaio
+              %a{:href => "#"} #campaigns
+              %a{:href => "#"} #marketing
+      .column
+        .card
+          .card-image
+            %figure.image.is-2by1
+              =image_tag asset_pack_path('media/application/images/landing_page_element_2.png')
+          .card-content
+            .media
+              .media-content
+                %p.title.is-4 Gestiona empleados
+            .content
+              Sabemos que para ti y para nosotros son importantes las personas que te ayudan a llevar adelante las campañas, por lo tanto tienen su espacio personal para manejar las tareas que les son asignadas, así como herramientas que les pueden ayudar a ser más organizados.
+              = succeed "." do
+                %a @bulmaio
+              %a{:href => "#"} #coworkers
+              %a{:href => "#"} #marketing

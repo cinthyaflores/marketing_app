@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:name => 'viewport', :content => "width=device-width, initial-scale=1.0" }
+    %title MarketingApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    :css
+      @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto:400,400i,700,700i&display=swap');
+
+  %body
+    = render 'shared/notifications'
+    = render 'shared/header'
+    = yield
+  %script
+
