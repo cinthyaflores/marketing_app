@@ -4,10 +4,10 @@
 %h6.mb-0 Fecha de entrega:
 %p #{@task.deadline}
 %h6.mb-0 Pertenece a:
-%p #{@task.user.name}
+%p #{@task.coworker.name}
 
 = link_to 'Editar', edit_post_task_path(post_id: @task.post, id: @task), class: 'button mt-30px'
--# TODO style
+
 - if @task.completed?
   = link_to 'Aprobar tarea', approve_task_path(@task.id), class: 'btn btn-success', method: :put
 
