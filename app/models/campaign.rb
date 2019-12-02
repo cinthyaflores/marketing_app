@@ -20,6 +20,7 @@
 #  encrypted_token    :string
 #  encrypted_token_iv :string
 #  page_likes         :integer
+#  user_id            :bigint
 #
 
 class Campaign < ApplicationRecord

@@ -36,7 +36,8 @@ module HeaderHelper
   def owner_header_items
     [{ title: 'Usuarios', path: users_path },
      { title: 'Clientes', path: clients_path },
-     { title: 'Campañas', path: campaigns_path }]
+     { title: 'Campañas', path: campaigns_path },
+     { title: 'CSV', path: csv_path }]
   end
 
   def content_creator_header_items

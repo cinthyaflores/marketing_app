@@ -159,6 +159,7 @@
 #                                 roles GET    /roles(.:format)                                                                         roles#show
 #                        task_coworkers GET    /task_coworkers(.:format)                                                                task_coworkers#show
 #                            fb_webhook GET    /fb_webhook(.:format)                                                                    fb_webhook#create
+#                                   csv GET    /csv(.:format)                                                                           csv#index
 #                                       POST   /fb_webhook(.:format)                                                                    fb_webhook#update
 #                                  root GET    /                                                                                        landing_page#index
 #         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
@@ -227,6 +228,7 @@ Rails.application.routes.draw do
   get 'roles', to: 'roles#show'
   get 'task_coworkers', to: 'task_coworkers#show'
   get 'fb_webhook', to: 'fb_webhook#create'
+  get 'csv', to: 'csv#index', defaults: { format: :csv }
   post 'fb_webhook', to: 'fb_webhook#update'
 
   root 'landing_page#index'
