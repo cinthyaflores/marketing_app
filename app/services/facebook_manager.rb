@@ -4,7 +4,7 @@ require 'koala'
 
 class FacebookManager
   def self.app_connection
-    Koala::Facebook::OAuth.new(Rails.application.credentials.fb[:id], Rails.application.credentials.fb[:secret])
+    Koala::Facebook::OAuth.new(ENV['FB_ID'], ENV['FB_SECRET'])
   end
 
   def self.connection(token_id)

@@ -10,7 +10,7 @@ class FbWebhookController < ApplicationController
 
   def update
     if params['field'] == 'likes'
-      token = Rails.application.credentials.token[:page]
+      token = ENV['page']
       Campaign.where(token: token).update_all(page_likes: params['value']['page'])
       head :ok
     end

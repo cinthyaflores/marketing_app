@@ -44,7 +44,7 @@ module ChartsHelper
   end
 
   def analize_comments(comments)
-    Indico.api_key = Rails.application.credentials.indico_key
+    Indico.api_key = ENV['INDICO_KEY']
     positive_comments = 0
     negative_comments = 0
 
