@@ -198,6 +198,7 @@ es:
         created_at: 'Creado:'
         name: 'Nombre:'
         roles_mask: 'Roles:'
+        company: Compañía
         updated_at: 'Última actualización:'
     prompt:
       models:
@@ -233,6 +234,7 @@ es:
       company: Compañia
       contact: Contacto
       content_creator: Creador de contenido
+      admin: Administrador
       designer: Diseñador
       finance: Finanzas
       rrhh: RRHH

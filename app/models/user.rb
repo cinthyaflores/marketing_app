@@ -43,11 +43,14 @@ class User < ApplicationRecord
         :rrhh,
         :finance,
         :client,
-        :contact
+        :contact,
+        :admin
 
   scope :admin_manage_users, lambda { |company|
                                where(company: company)
                                  .where('roles_mask = 4
+                                            OR roles_mask = 8
+                                            OR roles_mask = 16
                                             OR roles_mask = 32
                                             OR roles_mask = 64
                                             OR roles_mask = 128
@@ -58,9 +61,9 @@ class User < ApplicationRecord
                       where(roles_mask: User.mask_for(role))
                     }
 
-  scope :community_managers, -> { where(roles_mask: 4) }
-  scope :clients, -> { where(roles_mask: 128) }
-  scope :possible_coworkers, lambda { |campaign_id|
+  scope :community_managers, ->(company_id) { where(company_id: company_id).where(roles_mask: 4) }
+  scope :clients, ->(company_id) { where(company_id: company_id).where(roles_mask: 128) }
+  scope :possible_coworkers, lambda { |campaign_id, company_id|
     joins("LEFT JOIN (SELECT * FROM coworkers
                                WHERE coworkers.campaign_id = #{campaign_id})
                                as cw on cw.user_id = users.id")
@@ -68,11 +71,20 @@ class User < ApplicationRecord
       OR roles_mask = 16
       OR roles_mask = 24')
       .where('cw.user_id IS NULL')
+      .where('users.company_id = ?', company_id)
   }
   validates :email, :name, presence: true
   validates :email, format: { with: VALID_EMAIL_REGEX }
 
+  def self.owner_manage_roles
+    %i[rrhh finance client contact community_manager content_creator designer admin]
+  end
+
   def self.admin_manage_roles
     %i[rrhh finance client contact community_manager content_creator designer]
+  end
+
+  def external?
+    company_id != 1
   end
 end

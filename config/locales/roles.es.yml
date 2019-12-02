@@ -8,6 +8,7 @@ es:
   role_64: Finanzas
   role_128: Cliente
   role_256: Contacto
+  role_512: Administrador
   roles:
     owner: Dueño
     company: Compañía
@@ -18,3 +19,4 @@ es:
     finance: Finanzas
     client: Cliente
     contact: Contacto
+    admin: Administrador

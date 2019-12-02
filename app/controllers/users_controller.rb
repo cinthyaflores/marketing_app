@@ -2,13 +2,18 @@
 
 class UsersController < ApplicationController
   before_action :assign_user, except: %i[new create index]
+  before_action :assign_users, only: %i[new edit]
 
   def new
     @user = User.new
   end
 
   def index
-    @users = User.all
+    @users = if current_user.owner?
+               User.all
+             elsif current_user.admin?
+               User.admin_manage_users(current_user.company)
+             end
   end
 
   def create
@@ -41,7 +46,20 @@ class UsersController < ApplicationController
   end
 
   def user_params
+    company = if params[:user][:company].present?
+                Company.find(params[:user][:company].to_i)
+              else
+                current_user.company
+              end
     params.require(:user).permit(:email, :name).merge!(roles_mask: role_mask,
-                                                       company: current_user.company)
+                                                       company: company)
+  end
+
+  def assign_users
+    @users = if current_user.owner?
+               User.owner_manage_roles
+             elsif current_user.admin?
+               User.admin_manage_roles
+             end
   end
 end
