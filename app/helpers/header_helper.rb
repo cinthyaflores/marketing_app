@@ -3,6 +3,7 @@
 module HeaderHelper
   def header_items(user)
     return owner_header_items if user.owner?
+    return admin_header_items if user.admin?
     return rh_header_items if user.rrhh?
     return finance_header_items if user.finance?
     return client_header_items if user.client?
@@ -13,6 +14,11 @@ module HeaderHelper
 
   def community_manager_header_items
     [{ title: 'Campañas', path: campaigns_path }]
+  end
+
+  def admin_header_items
+    [{ title: 'Usuarios', path: users_path },
+     { title: 'Campañas', path: campaigns_path }]
   end
 
   def client_header_items

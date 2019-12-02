@@ -1,5 +1,5 @@
 %h3 Campañas
-- if current_user.owner?
+- if current_user.owner? || current_user.admin?
   = link_to 'Agregar campaña', new_campaign_path, class: 'button mb-10px'
 
 .columns.is-multiline

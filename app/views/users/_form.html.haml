@@ -1,7 +1,9 @@
 = form_for(@user) do |f|
   = f.field_with_label :name, placeholder: 'José Pérez', required: true
   = f.field_with_label :email, placeholder: 'usuario@gmail.com', required: true
-  = f.select_with_label :roles_mask, User.admin_manage_roles.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, { class: 'h-100 remove-select-pin-down' }, { multiple: true }
+  = f.select_with_label :roles_mask, @users.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, { class: 'h-100 remove-select-pin-down' }, { multiple: true }
+  - if current_user.owner?
+    = f.select_with_label :company, Company.all.map{ |company| [company.name, company.id] }
   .columns
     .column
-    = f.submit 'Guardar', class: 'button is-primary mt-20'
+      = f.submit 'Guardar', class: 'button is-primary mt-20'
