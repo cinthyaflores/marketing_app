@@ -1,6 +1,7 @@
-%h3 Inicio de sesión
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = f.field_with_label :email, autofocus: true, input_html: { autocomplete: "email" }
-  = f.password_field_with_label :password, input_html: { autocomplete: "current-password" }
-  = f.submit "Iniciar sesión", class: 'button is-primary'
-= render "devise/shared/links"
+.form-container
+  %h3 Inicio de sesión
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = f.field_with_label :email, autofocus: true, input_html: { autocomplete: "email" }
+    = f.password_field_with_label :password, input_html: { autocomplete: "current-password" }
+    = f.submit "Iniciar sesión", class: 'button is-primary'
+  = render "devise/shared/links"

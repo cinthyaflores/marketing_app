@@ -237,3 +237,5 @@ es:
       finance: Finanzas
       rrhh: RRHH
       owner: Dueño
+  generic:
+    upload_file: Añadir imagen

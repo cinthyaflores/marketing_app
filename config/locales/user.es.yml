@@ -4,6 +4,7 @@ es:
       user:
         email: Correo electrónico
         password_confirmation: Repite la contraseña
+        password: Contraseña
     placeholder:
       user:
         email: ejemplo@gmail.com
