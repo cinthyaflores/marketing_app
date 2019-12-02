@@ -12,8 +12,14 @@ class FacebookManager
     Koala::Facebook::API.new(token_id)
   end
 
-  def self.publish(message, _visual, token_id, post_id)
-    response = connection(token_id).put_connections('me', 'feed', message: message)
+  def self.publish(message, visual, token_id, post_id)
+    response = if visual.present?
+                 image = ActiveStorage::Blob.service.path_for(visual.key)
+                 connection(token_id).put_picture(image, visual.content_type, { message: message })
+               else
+                 connection(token_id).put_connections('me', 'feed', message: message)
+               end
+
     Post.find(post_id).update(fb_id: response['id'])
   end
 
