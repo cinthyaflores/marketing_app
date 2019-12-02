@@ -14,10 +14,11 @@ class FacebookManager
 
   def self.publish(message, visual, token_id, post_id)
     response = if visual.present?
-                 image = ActiveStorage::Blob.service.path_for(visual.key) if Rails.env.development?
+                 if Rails.env.development?
+                   image = ActiveStorage::Blob.service.path_for(visual.key)
+                 end
                  image = visual.service_url if Rails.env.production?
-                 puts image
-                 connection(token_id).put_picture(image, visual.content_type, { message: message })
+                 connection(token_id).put_picture(image, visual.content_type, message: message)
                else
                  connection(token_id).put_connections('me', 'feed', message: message)
                end
@@ -32,7 +33,7 @@ class FacebookManager
   def self.get_post_reactions(fb_id, token_id)
     connection(token_id).get_object(fb_id, fields: 'reactions.summary(true)')['reactions']['data']
   rescue StandardError => e
-   'error'
+    'error'
   end
 
   def self.get_post_comments(fb_id, token_id)

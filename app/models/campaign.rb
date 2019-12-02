@@ -52,4 +52,8 @@ class Campaign < ApplicationRecord
   def create_network
     Network.create(campaign_id: id)
   end
+
+  def external?
+    company_id != 1
+  end
 end

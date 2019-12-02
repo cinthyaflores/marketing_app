@@ -148,13 +148,18 @@
 #                                       PUT    /publish_post/:id(.:format)                                                              publish_post#update
 #                              calendar GET    /calendar(.:format)                                                                      calendars#show
 #                              comments POST   /comments(.:format)                                                                      comments#create
+#                 migrate_campaign_to_u PATCH  /migrate_campaign_to_us/:id(.:format)                                                    migrate_campaign_to_us#update
+#                                       PUT    /migrate_campaign_to_us/:id(.:format)                                                    migrate_campaign_to_us#update
+#              migrate_campaign_to_them PATCH  /migrate_campaign_to_them/:id(.:format)                                                  migrate_campaign_to_them#update
+#                                       PUT    /migrate_campaign_to_them/:id(.:format)                                                  migrate_campaign_to_them#update
 #                                 edges POST   /edges(.:format)                                                                         edges#create
 #                                  edge PATCH  /edges/:id(.:format)                                                                     edges#update
 #                                       PUT    /edges/:id(.:format)                                                                     edges#update
 #                                       DELETE /edges/:id(.:format)                                                                     edges#destroy
 #                                 roles GET    /roles(.:format)                                                                         roles#show
 #                        task_coworkers GET    /task_coworkers(.:format)                                                                task_coworkers#show
-#                            fb_webhook GET    /fb_webhook(.:format)                                                                    webkook#create
+#                            fb_webhook GET    /fb_webhook(.:format)                                                                    fb_webhook#create
+#                                       POST   /fb_webhook(.:format)                                                                    fb_webhook#update
 #                                  root GET    /                                                                                        landing_page#index
 #         rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
@@ -213,6 +218,9 @@ Rails.application.routes.draw do
   resources :publish_post, only: :update
   resource :calendar, only: :show
   resource :comments, only: :create
+
+  resources :migrate_campaign_to_us, only: :update
+  resources :migrate_campaign_to_them, only: :update
 
   resources :edges, only: %i[create update destroy]
 

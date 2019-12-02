@@ -3,6 +3,15 @@
 .columns
   .column.is-one-third
     = image_tag @campaign.image, class: 'mb-30px'
+  .column.is-two-thirds.text-right
+    - if @campaign.external?
+      = link_to 'Ceder campaña a Agencia', migrate_campaign_to_u_path(@campaign.id), class: 'button', method: :put
+    - else
+      = link_to 'Ceder campaña a cliente', '', id: 'show-input',class: 'button'
+      #company-id.d-none
+        = form_for(@campaign, url: migrate_campaign_to_them_path(@campaign.id), method: :put) do |f|
+          = f.field_with_label :company_id, required: true
+          = f.submit 'Guardar', class: 'button is-primary mb-30px'
 
 
 .columns
@@ -28,6 +37,9 @@
     .mb-10px
       %h6.m-0 Producto:
       %p=@campaign.product
+    .mb-10px
+      %h6.m-0 Compañía:
+      %p=@campaign.company.name
 
 
 .columns.mt-30px
