@@ -55,6 +55,7 @@ module ChartsHelper
       ''
     end
 
+
     { 'Comentarios positivos': positive_comments,
       'Comentarios negativos': negative_comments }
   end
@@ -85,5 +86,7 @@ module ChartsHelper
 
       comment['message']
     end.compact!
+
+    comments
   end
 end
