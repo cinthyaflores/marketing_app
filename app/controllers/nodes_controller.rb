@@ -11,6 +11,19 @@ class NodesController < ApplicationController
     @node = Node.find(params[:id])
   end
 
+  def show 
+    respond_to do |format|
+      format.json do 
+        node = Node.find(params[:id])
+        if node.edges # Si tiene hijos, traer las estadísticas de los hijos
+          
+        else # Si no tiene hijos, traer las de los posts
+          post_stats(node)
+        end
+      end
+    end
+  end
+
   def index
     @nodes = @network.nodes
   end
@@ -59,5 +72,13 @@ class NodesController < ApplicationController
 
   def assign_network
     @network = Network.find(params[:network_id])
+  end
+
+  def post_stats(node)
+    fb_id = Post.find_by(node).fb_id
+    token = Campaign.find(node.campaign_id).token
+    reactions = FacebookManager.get_post_reactions(fb_id, token)
+    comments = FacebookManager.get_post_comments(fb_id, token)
+    render json: {reactions: reactions, comments: comments}
   end
 end
