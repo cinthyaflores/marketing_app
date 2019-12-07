@@ -26,7 +26,7 @@ class FacebookManager
     Post.find(post_id).update(fb_id: response['id'])
   end
 
-  def self.publish_post(post)
+  def self.publish_post(post) # Creo que este ya no lo necesitarás
     PostPublisherJob.set(wait_until: post.publish_date).perform_later(post)
   end
 
